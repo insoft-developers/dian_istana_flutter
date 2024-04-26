@@ -2,6 +2,7 @@ import 'package:dianistana/components/button_color.dart';
 import 'package:dianistana/components/input_text.dart';
 import 'package:dianistana/components/jarak.dart';
 import 'package:dianistana/components/spasi.dart';
+import 'package:dianistana/controllers/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,6 +16,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _username = TextEditingController();
   final TextEditingController _password = TextEditingController();
+  final LoginController _login = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +80,31 @@ class _LoginPageState extends State<LoginPage> {
                           fontFamily: 'PoppinsBold', color: Colors.white)),
                 ),
                 Jarak(tinggi: 50),
-                ButtonColor(text: "LOGIN", warna: Colors.green)
+                Obx(
+                  () => _login.loading.value
+                      ? Center(
+                          child: Container(
+                          margin: const EdgeInsets.only(top: 20),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 5),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(2)),
+                          child: const Text("Processing....",
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 15,
+                                  color: Colors.green,
+                                  fontWeight: FontWeight.bold)),
+                        ))
+                      : InkWell(
+                          splashColor: Colors.amber,
+                          onTap: () {
+                            _login.login(_username.text, _password.text);
+                          },
+                          child:
+                              ButtonColor(text: "LOGIN", warna: Colors.green)),
+                )
               ],
             ),
           ),

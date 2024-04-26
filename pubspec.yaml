@@ -51,6 +51,7 @@ dependencies:
   accordion: ^2.2.0
   flutter_html: ^0.8.2
   intl: ^0.18.1
+  
 
 dev_dependencies:
   flutter_test:
@@ -82,6 +83,15 @@ flutter:
     - images/mdii.png
     - images/bg.png
     - images/logo.png
+    - images/top1.png
+    - images/bookings.png
+    - images/history.png
+    - images/notif.png
+    - images/password.png
+    - images/payments.png
+    - images/profile.png
+    - images/tiket.png
+    - images/userdata.png
     
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
