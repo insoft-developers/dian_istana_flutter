@@ -10,6 +10,16 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+        appBar: AppBar(
+      leading: const BackButton(
+        color: Colors.green,
+      ),
+      backgroundColor: Colors.white,
+      title: const Text(
+        "Profile",
+        style: TextStyle(color: Colors.green, fontFamily: 'PoppinsBold'),
+      ),
+    ));
   }
 }

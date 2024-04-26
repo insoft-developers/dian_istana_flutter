@@ -1,6 +1,10 @@
 import 'package:dianistana/components/jarak.dart';
 import 'package:dianistana/components/main_slider.dart';
 import 'package:dianistana/controllers/dashboard_controller.dart';
+import 'package:dianistana/menu_screens/booking/index.dart';
+import 'package:dianistana/menu_screens/change_password/index.dart';
+import 'package:dianistana/menu_screens/profile/index.dart';
+import 'package:dianistana/menu_screens/userdata/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -87,16 +91,23 @@ class _DashboardPageState extends State<DashboardPage> {
             children: [
               Column(
                 children: [
-                  Container(
-                    width: 60,
-                    height: 60,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.green.shade300.withOpacity(0.2)),
-                    child:
-                        Image.asset("images/bookings.png", fit: BoxFit.contain),
+                  InkWell(
+                    borderRadius: BorderRadius.circular(30),
+                    onTap: () {
+                      Get.to(() => const BookingPage());
+                    },
+                    splashColor: Colors.amber,
+                    child: Container(
+                      width: 60,
+                      height: 60,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 2, vertical: 2),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.green.shade300.withOpacity(0.2)),
+                      child: Image.asset("images/bookings.png",
+                          fit: BoxFit.contain),
+                    ),
                   ),
                   Jarak(tinggi: 4),
                   const Text(
@@ -175,16 +186,22 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
               Column(
                 children: [
-                  Container(
-                    width: 60,
-                    height: 60,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.green.shade300.withOpacity(0.2)),
-                    child:
-                        Image.asset("images/userdata.png", fit: BoxFit.contain),
+                  InkWell(
+                    borderRadius: BorderRadius.circular(30),
+                    onTap: () {
+                      Get.to(() => const UserData());
+                    },
+                    child: Container(
+                      width: 60,
+                      height: 60,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 2, vertical: 2),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.green.shade300.withOpacity(0.2)),
+                      child: Image.asset("images/userdata.png",
+                          fit: BoxFit.contain),
+                    ),
                   ),
                   Jarak(tinggi: 4),
                   const Text(
@@ -223,16 +240,22 @@ class _DashboardPageState extends State<DashboardPage> {
             children: [
               Column(
                 children: [
-                  Container(
-                    width: 60,
-                    height: 60,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.green.shade300.withOpacity(0.2)),
-                    child:
-                        Image.asset("images/profile.png", fit: BoxFit.contain),
+                  InkWell(
+                    borderRadius: BorderRadius.circular(30),
+                    onTap: () {
+                      Get.to(() => const ProfilePage());
+                    },
+                    child: Container(
+                      width: 60,
+                      height: 60,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 2, vertical: 2),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.green.shade300.withOpacity(0.2)),
+                      child: Image.asset("images/profile.png",
+                          fit: BoxFit.contain),
+                    ),
                   ),
                   Jarak(tinggi: 4),
                   const Text(
@@ -243,16 +266,23 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
               Column(
                 children: [
-                  Container(
-                    width: 60,
-                    height: 60,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.green.shade300.withOpacity(0.2)),
-                    child:
-                        Image.asset("images/password.png", fit: BoxFit.contain),
+                  InkWell(
+                    borderRadius: BorderRadius.circular(30),
+                    onTap: () {
+                      Get.to(() => const ChangePasswordPage());
+                    },
+                    splashColor: Colors.amber,
+                    child: Container(
+                      width: 60,
+                      height: 60,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 2, vertical: 2),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.green.shade300.withOpacity(0.2)),
+                      child: Image.asset("images/password.png",
+                          fit: BoxFit.contain),
+                    ),
                   ),
                   Jarak(tinggi: 4),
                   const Text(
