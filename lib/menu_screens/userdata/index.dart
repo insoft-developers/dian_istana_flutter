@@ -748,6 +748,7 @@ class _UserDataState extends State<UserData> {
                             ],
                           ),
                         ),
+                        Jarak(tinggi: 30),
                       ],
                     ),
             )));

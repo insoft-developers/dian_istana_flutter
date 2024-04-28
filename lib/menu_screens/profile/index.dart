@@ -216,7 +216,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         iconData: Icons.flash_on,
                         textEditingController: _pln,
                         obsecureText: false),
-                    Jarak(tinggi: 50),
+                    Jarak(tinggi: 30),
                     Obx(
                       () => _profile.updateLoading.value
                           ? Center(
