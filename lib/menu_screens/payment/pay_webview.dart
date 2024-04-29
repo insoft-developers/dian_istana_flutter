@@ -23,7 +23,10 @@ class _PayWebviewState extends State<PayWebview> {
       body: Stack(
         children: [
           InAppWebView(
-            initialUrlRequest: URLRequest(url: Uri.parse(widget.paymentUrl)),
+            initialUrlRequest: URLRequest(
+                url: Uri.parse(
+              widget.paymentUrl,
+            )),
             initialOptions: InAppWebViewGroupOptions(
                 crossPlatform: InAppWebViewOptions(
                   mediaPlaybackRequiresUserGesture: false,

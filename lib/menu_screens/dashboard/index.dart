@@ -6,6 +6,7 @@ import 'package:dianistana/menu_screens/change_password/index.dart';
 import 'package:dianistana/menu_screens/notif/index.dart';
 import 'package:dianistana/menu_screens/payment/index.dart';
 import 'package:dianistana/menu_screens/profile/index.dart';
+import 'package:dianistana/menu_screens/ticketing/index.dart';
 import 'package:dianistana/menu_screens/userdata/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -140,15 +141,22 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
               Column(
                 children: [
-                  Container(
-                    width: 60,
-                    height: 60,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.green.shade300.withOpacity(0.2)),
-                    child: Image.asset("images/tiket.png", fit: BoxFit.contain),
+                  InkWell(
+                    borderRadius: BorderRadius.circular(30),
+                    onTap: () {
+                      Get.to(() => const TicketingPage());
+                    },
+                    child: Container(
+                      width: 60,
+                      height: 60,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 2, vertical: 2),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.green.shade300.withOpacity(0.2)),
+                      child:
+                          Image.asset("images/tiket.png", fit: BoxFit.contain),
+                    ),
                   ),
                   Jarak(tinggi: 4),
                   const Text(

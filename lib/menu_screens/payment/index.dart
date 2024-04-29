@@ -2,6 +2,7 @@ import 'package:dianistana/components/button_color.dart';
 import 'package:dianistana/components/jarak.dart';
 import 'package:dianistana/components/spasi.dart';
 import 'package:dianistana/controllers/utils_controller.dart';
+import 'package:dianistana/menu_screens/payment/pay_webview.dart';
 import 'package:dianistana/menu_screens/payment/payment_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -165,29 +166,30 @@ class _PaymentPageState extends State<PaymentPage> {
                                             child: ElevatedButton.icon(
                                                 style: ElevatedButton.styleFrom(
                                                     primary: Colors.green),
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  _payment.printKwitansi(
+                                                      _payment
+                                                          .paymentList[index]
+                                                              ['id']
+                                                          .toString());
+                                                },
                                                 icon: const Icon(Icons.print),
                                                 label: const Text("Print")),
                                           )
-                                        : _payment.payload.value
-                                            ? const SizedBox()
-                                            : Center(
-                                                child: ElevatedButton.icon(
-                                                    style: ElevatedButton
-                                                        .styleFrom(
-                                                            primary:
-                                                                Colors.orange),
-                                                    onPressed: () {
-                                                      _payment.paymentPost(
-                                                          _payment.paymentList[
-                                                              index]["id"]);
-                                                    },
-                                                    icon: const Icon(
-                                                      Icons.attach_money,
-                                                    ),
-                                                    label:
-                                                        const Text("Pay Now")),
-                                              ),
+                                        : Center(
+                                            child: ElevatedButton.icon(
+                                                style: ElevatedButton.styleFrom(
+                                                    primary: Colors.orange),
+                                                onPressed: () {
+                                                  _payment.paymentPost(_payment
+                                                          .paymentList[index]
+                                                      ["id"]);
+                                                },
+                                                icon: const Icon(
+                                                  Icons.attach_money,
+                                                ),
+                                                label: const Text("Pay Now")),
+                                          ),
                                   ),
                                 ],
                               ),

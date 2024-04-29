@@ -1,12 +1,14 @@
 import 'dart:convert';
 
 import 'package:dianistana/api/network.dart';
+import 'package:dianistana/constant.dart';
 import 'package:dianistana/menu_screens/payment/pay_webview.dart';
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PaymentController extends GetxController {
   var paymentList = List.empty().obs;
@@ -27,6 +29,27 @@ class PaymentController extends GetxController {
         paymentList.value = body['data'];
         totalOutstanding.value = body['total'];
       }
+    }
+  }
+
+  void printKwitansi(String id) async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    var user = jsonDecode(localStorage.getString('user')!);
+    if (user != null) {
+      var userId = user['id'];
+      String linkTo = Constant.BASE_URL +
+          "api/kwitansi/" +
+          id.toString() +
+          "/" +
+          userId.toString() +
+          "?code=313fd1";
+      print(linkTo);
+      Get.to(() => PayWebview(paymentUrl: linkTo));
+
+      // final Uri url = Uri.parse(linkTo);
+      // if (!await launchUrl(url)) {
+      //   throw Exception("Error");
+      // }
     }
   }
 
