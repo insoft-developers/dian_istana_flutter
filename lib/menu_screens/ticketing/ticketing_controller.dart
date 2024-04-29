@@ -2,17 +2,90 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:dianistana/api/network.dart';
-import 'package:flutter/foundation.dart';
+import 'package:dianistana/constant.dart';
+import 'package:dianistana/menu_screens/ticketing/download_progress.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:http/http.dart' as http;
 
 class TicketingController extends GetxController {
   var ticketList = List.empty().obs;
   var loading = false.obs;
   var detailLoading = false.obs;
   var detailData = List.empty().obs;
+  var departmentList = List.empty().obs;
+  var defaultDepartmentValue = "".obs;
+  var defaultPriorityValue = "".obs;
+  var openLoading = false.obs;
+  var uploadLoading = false.obs;
+
+  PickedFile? _pickedFile;
+  PickedFile? get pickedFile => _pickedFile;
+  String? _imagePath;
+  String? get imagePath => _imagePath;
+  final _picker = ImagePicker();
+
+  Future<void> pickImage() async {
+    _pickedFile = await _picker.getImage(source: ImageSource.gallery);
+    update();
+  }
+
+  Future<void> resetPicker() async {
+    _pickedFile = null;
+    update();
+  }
+
+  Future<bool> upload(String ids) async {
+    update();
+    bool success = false;
+    http.StreamedResponse response = await updateImage(_pickedFile, ids);
+
+    if (response.statusCode == 200) {
+      Map map = jsonDecode(await response.stream.bytesToString());
+      String message = map["message"];
+      success = true;
+
+      _imagePath = message;
+      openLoading(false);
+    } else {}
+    update();
+    openLoading(false);
+    showSuccess("File succesfully uploaded");
+    // Get.back();
+    return success;
+  }
+
+  Future<http.StreamedResponse> updateImage(
+      PickedFile? data, String ids) async {
+    http.MultipartRequest request =
+        http.MultipartRequest('POST', Uri.parse(Constant.TICKETING_UPLOAD_URL));
+
+    if (GetPlatform.isMobile && data != null) {
+      File _file = File(data.path);
+      request.files.add(http.MultipartFile(
+          'image', _file.readAsBytes().asStream(), _file.lengthSync(),
+          filename: _file.path.split('/').last));
+    }
+
+    Map<String, String> _fields = {};
+    _fields.addAll(<String, String>{'ids': ids});
+    request.fields.addAll(_fields);
+
+    http.StreamedResponse response = await request.send();
+    return response;
+  }
+
+  void changeSelectedDepartment(String value) {
+    defaultDepartmentValue.value = value;
+  }
+
+  void changeSelectedPriority(String value) {
+    defaultPriorityValue.value = value;
+  }
 
   void getTicketingList() async {
     loading(true);
@@ -25,7 +98,6 @@ class TicketingController extends GetxController {
       if (body['success']) {
         ticketList.value = body['data'];
         loading(false);
-        print(ticketList);
       }
     }
   }
@@ -37,25 +109,157 @@ class TicketingController extends GetxController {
     if (body['success']) {
       detailLoading(false);
       detailData.value = body['data'];
-      print(detailData);
     }
   }
 
-  Future<File> downloadFile(String url, String filename) async {
-    var httpClient = HttpClient();
-    try {
-      var request = await httpClient.getUrl(Uri.parse(url));
-      var response = await request.close();
-      var bytes = await consolidateHttpClientResponseBytes(response);
-      final dir =
-          await getTemporaryDirectory(); //(await getApplicationDocumentsDirectory()).path;
-      File file = File('${dir.path}/$filename');
-      await file.writeAsBytes(bytes);
-      print('downloaded file path = ${file.path}');
-      return file;
-    } catch (error) {
-      print('downloading error = $error');
-      return File('');
+  void download(String namaFile, String downloadUrl) async {
+    bool result = await _permissionRequest();
+    if (result) {
+      showDialog(
+          context: Get.context!,
+          builder: (dialogcontext) {
+            return DownloadProgressDialog(
+              namaFile: namaFile,
+              downloadUrl: downloadUrl,
+            );
+          });
+    } else {
+      print("No permission to read and write.");
     }
+  }
+
+  static Future<bool> _permissionRequest() async {
+    PermissionStatus result;
+    result = await Permission.storage.request();
+    if (result.isGranted) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future getDepartmentData() async {
+    var res = await Network().getData('/department');
+    var body = jsonDecode(res.body);
+    if (body['success']) {
+      departmentList.value = body['data'];
+      print(departmentList.value);
+    }
+  }
+
+  List<DropdownMenuItem<String>> get dropdownDepartment {
+    List<DropdownMenuItem<String>> menuItems = [];
+    menuItems.add(
+      const DropdownMenuItem(
+          child: Text(
+            "Select Department",
+            style: TextStyle(
+                fontFamily: 'Poppins', fontSize: 14, color: Colors.grey),
+          ),
+          value: ""),
+    );
+
+    for (var i = 0; i < departmentList.length; i++) {
+      menuItems.add(
+        DropdownMenuItem(
+            child: SizedBox(
+                width: 190,
+                child: Text(departmentList[i]['category_name'].toString(),
+                    overflow: TextOverflow.visible)),
+            value: departmentList[i]['id'].toString()),
+      );
+    }
+    return menuItems;
+  }
+
+  List<DropdownMenuItem<String>> get dropdownPriority {
+    List<DropdownMenuItem<String>> menuItems = [];
+    menuItems.add(
+      const DropdownMenuItem(
+          child: Text(
+            "Select Priority",
+            style: TextStyle(
+                fontFamily: 'Poppins', fontSize: 14, color: Colors.grey),
+          ),
+          value: ""),
+    );
+
+    menuItems.add(
+      const DropdownMenuItem(
+          child: SizedBox(
+              width: 190, child: Text("Low", overflow: TextOverflow.visible)),
+          value: "Low"),
+    );
+    menuItems.add(
+      const DropdownMenuItem(
+          child: SizedBox(
+              width: 190,
+              child: Text("Medium", overflow: TextOverflow.visible)),
+          value: "Medium"),
+    );
+    menuItems.add(
+      const DropdownMenuItem(
+          child: SizedBox(
+              width: 190, child: Text("High", overflow: TextOverflow.visible)),
+          value: "High"),
+    );
+    menuItems.add(
+      const DropdownMenuItem(
+          child: SizedBox(
+              width: 190,
+              child: Text("Critical", overflow: TextOverflow.visible)),
+          value: "Critical"),
+    );
+
+    return menuItems;
+  }
+
+  void openTicket(String subject, String message) async {
+    openLoading(true);
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    var user = jsonDecode(localStorage.getString('user')!);
+    if (user != null) {
+      var userId = user['id'];
+      var data = {
+        "user_id": userId,
+        "subject": subject,
+        "department": defaultDepartmentValue.value,
+        "priority": defaultPriorityValue.value,
+        "message": message,
+      };
+
+      var res = await Network().auth(data, '/open');
+      var body = jsonDecode(res.body);
+      if (body['success']) {
+        if (_pickedFile != null) {
+          upload(body['id'].toString());
+        } else {
+          showSuccess(body['message'].toString());
+          openLoading(false);
+          Get.back();
+        }
+      } else {
+        showError(body['message'].toString());
+        openLoading(false);
+      }
+    }
+  }
+
+  void showError(String n) {
+    ScaffoldMessenger.of(Get.context!).showSnackBar(SnackBar(
+      backgroundColor: Colors.red,
+      content: Html(
+        data: n,
+        defaultTextStyle: const TextStyle(
+            color: Colors.white, fontFamily: 'Poppins', fontSize: 14),
+      ),
+    ));
+  }
+
+  void showSuccess(String n) {
+    ScaffoldMessenger.of(Get.context!).showSnackBar(SnackBar(
+      backgroundColor: Colors.green,
+      content: Text(n.toString()),
+    ));
   }
 }

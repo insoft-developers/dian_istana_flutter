@@ -1,8 +1,10 @@
 import 'package:dianistana/components/jarak.dart';
 import 'package:dianistana/controllers/utils_controller.dart';
+import 'package:dianistana/menu_screens/ticketing/add_ticket.dart';
 import 'package:dianistana/menu_screens/ticketing/detail.dart';
 import 'package:dianistana/menu_screens/ticketing/ticketing_controller.dart';
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 
@@ -34,6 +36,18 @@ class _TicketingPageState extends State<TicketingPage> {
         title: const Text(
           "Ticketing",
           style: TextStyle(color: Colors.green, fontFamily: 'PoppinsBold'),
+        ),
+      ),
+      floatingActionButton: Container(
+        margin: const EdgeInsets.only(bottom: 80),
+        child: FloatingActionButton(
+          backgroundColor: const Color.fromRGBO(82, 170, 94, 1.0),
+          tooltip: 'Open New Ticket',
+          onPressed: () {
+            Get.to(() => const AddTicket())!
+                .then((value) => _ticket.getTicketingList());
+          },
+          child: const Icon(Icons.add, color: Colors.white, size: 28),
         ),
       ),
       body: Container(

@@ -45,8 +45,9 @@ class _PaymentPageState extends State<PaymentPage> {
                 margin: const EdgeInsets.symmetric(vertical: 10),
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 decoration: BoxDecoration(
-                    color: Colors.green.shade700,
-                    borderRadius: BorderRadius.circular(8)),
+                    color: Colors.green.shade700.withOpacity(0.8),
+                    border: Border.all(width: 2.0, color: Colors.blue),
+                    borderRadius: BorderRadius.circular(5)),
                 child: Column(
                   children: [
                     const Text("Outstanding Bills",

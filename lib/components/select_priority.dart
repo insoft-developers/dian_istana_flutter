@@ -1,16 +1,15 @@
-import 'package:dianistana/menu_screens/profile/profile_controller.dart';
 import 'package:dianistana/menu_screens/ticketing/ticketing_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Select extends StatelessWidget {
+class SelectPriority extends StatelessWidget {
   String defValue;
   String hint;
   List<DropdownMenuItem<String>> menuItems;
 
   String code;
   IconData iconData;
-  Select(
+  SelectPriority(
       {Key? key,
       required this.defValue,
       required this.hint,
@@ -19,7 +18,6 @@ class Select extends StatelessWidget {
       required this.iconData})
       : super(key: key);
 
-  final ProfileController _profile = Get.put(ProfileController());
   final TicketingController _ticketing = Get.put(TicketingController());
 
   @override
@@ -51,7 +49,7 @@ class Select extends StatelessWidget {
           ),
           value: defValue,
           onChanged: (String? newValue) {
-            _profile.changeSelectedGender(newValue.toString());
+            _ticketing.changeSelectedPriority(newValue.toString());
           },
           items: menuItems),
     );
