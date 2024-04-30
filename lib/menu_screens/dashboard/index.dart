@@ -3,6 +3,7 @@ import 'package:dianistana/components/main_slider.dart';
 import 'package:dianistana/controllers/dashboard_controller.dart';
 import 'package:dianistana/menu_screens/booking/index.dart';
 import 'package:dianistana/menu_screens/change_password/index.dart';
+import 'package:dianistana/menu_screens/history/index.dart';
 import 'package:dianistana/menu_screens/notif/index.dart';
 import 'package:dianistana/menu_screens/payment/index.dart';
 import 'package:dianistana/menu_screens/profile/index.dart';
@@ -121,16 +122,22 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
               Column(
                 children: [
-                  Container(
-                    width: 60,
-                    height: 60,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.green.shade300.withOpacity(0.2)),
-                    child:
-                        Image.asset("images/history.png", fit: BoxFit.contain),
+                  InkWell(
+                    borderRadius: BorderRadius.circular(30),
+                    onTap: () {
+                      Get.to(() => const HistoryPage());
+                    },
+                    child: Container(
+                      width: 60,
+                      height: 60,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 2, vertical: 2),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.green.shade300.withOpacity(0.2)),
+                      child: Image.asset("images/history.png",
+                          fit: BoxFit.contain),
+                    ),
                   ),
                   Jarak(tinggi: 4),
                   const Text(

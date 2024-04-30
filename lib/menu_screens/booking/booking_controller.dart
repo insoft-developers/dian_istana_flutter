@@ -1,8 +1,12 @@
 import 'dart:convert';
 
 import 'package:dianistana/api/network.dart';
+import 'package:dianistana/constant.dart';
 import 'package:dianistana/menu_screens/booking/resume.dart';
+import 'package:dianistana/menu_screens/history/index.dart';
+import 'package:dianistana/menu_screens/payment/pay_webview.dart';
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -21,8 +25,68 @@ class BookingController extends GetxController {
   var selectedPackage = "".obs;
   var packageName = "".obs;
   var unitId = "".obs;
+  var settingList = <String, dynamic>{}.obs;
+  var settingLoad = false.obs;
+  var transactionLoading = false.obs;
 
-  void bookingResume() async {
+  void paymentProcess(int transId) async {
+    var data = {"id": transId};
+    var res = await Network().auth(data, '/payment_process');
+    var body = jsonDecode(res.body);
+    if (body['success']) {
+      print(body);
+      Get.to(
+          () => PayWebview(paymentUrl: body['data']['paymentUrl'].toString()));
+    }
+  }
+
+  void sendTransaction() async {
+    transactionLoading(true);
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    var user = jsonDecode(localStorage.getString('user')!);
+    if (user != null) {
+      var userId = user['id'];
+      var data = {
+        "business_unit_id": unitId.value,
+        "invoice": invoice.value,
+        "start_time": selectedHour.value,
+        "finish_time": selectedFinish.value,
+        "quantity": quantity.value,
+        "total_price": totalPrice.value,
+        "booking_date": selectedDate.value,
+        "package_id": selectedPackage.value,
+        "package_name": packageName.value,
+        "user_id": userId,
+        "level": userLevel.value
+      };
+      var res = await Network().auth(data, '/transaction');
+      var body = jsonDecode(res.body);
+      if (body['success']) {
+        print(body);
+        transactionLoading(false);
+        if (body['total_price'] > 0) {
+          paymentProcess(body['id']);
+        } else {
+          Get.off(() => const HistoryPage());
+        }
+      } else {
+        showError(body['message'].toString());
+        transactionLoading(false);
+      }
+    }
+  }
+
+  void getTerm() async {
+    settingLoad(true);
+    var res = await Network().getData('/term');
+    var body = jsonDecode(res.body);
+    if (body['success']) {
+      settingLoad(false);
+      settingList.value = body['data'];
+    }
+  }
+
+  void bookingResume(dataList) async {
     resumeLoading(true);
     var data = {
       "business_unit_id": unitId.value,
@@ -39,7 +103,9 @@ class BookingController extends GetxController {
     var res = await Network().auth(data, '/booking_resume');
     var body = jsonDecode(res.body);
     if (body['success']) {
-      Get.to(() => const ResumePage());
+      Get.to(() => ResumePage(
+            dataList: dataList,
+          ));
       resumeLoading(false);
     } else {
       showError(body['message'].toString());
@@ -106,7 +172,6 @@ class BookingController extends GetxController {
       if (body['success']) {
         unitList.value = body['data'];
         loading(false);
-        print(unitList);
       }
     }
   }

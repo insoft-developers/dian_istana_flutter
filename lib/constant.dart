@@ -5,6 +5,7 @@ class Constant {
   static String UPLOAD_URL = BASE_URL + "api/profile_upload";
   static String TICKETING_UPLOAD_URL = BASE_URL + "api/ticketing_upload";
   static String REPLY_UPLOAD_URL = BASE_URL + "api/reply_upload";
+  static String PRINT_TICKET_URL = BASE_URL + "api/print_ticket";
 
   static String SLIDER_IMAGE = BASE_URL + "template/images/banners/";
   static String PROFILE_IMAGE = BASE_URL + "storage/profile/";

@@ -1,6 +1,7 @@
 import 'package:dianistana/components/button_color.dart';
 import 'package:dianistana/components/jarak.dart';
 import 'package:dianistana/menu_screens/booking/booking_controller.dart';
+import 'package:dianistana/menu_screens/booking/term.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -493,6 +494,18 @@ class _TransactionState extends State<Transaction> {
               ),
             
               Jarak(tinggi: 30),
+              Column(
+                mainAxisAlignment : MainAxisAlignment.start,
+                children:  [
+                   const Text("By Clicking BOOKING NOW your aggre with our", style:TextStyle(fontFamily: 'Poppins')),
+                  GestureDetector(
+                    onTap: (){
+                      Get.to(()=> const Term());
+                    },
+                    child: const Text("Terms and Conditions", style:TextStyle(fontFamily:"PoppinsBold"))),
+                ],
+              ),
+              Jarak(tinggi: 20),
               Obx(() 
                 => _booking.resumeLoading.value ? Center(
                           child: Container(
@@ -511,7 +524,7 @@ class _TransactionState extends State<Transaction> {
                         ))
 : GestureDetector(
                   onTap:() {
-                    _booking.bookingResume();
+                    _booking.bookingResume(widget.dataList);
                   },
                   child: ButtonColor(text: "BOOKING NOW", warna: Colors.blue)),
               ),
