@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dianistana/components/jarak.dart';
 import 'package:dianistana/components/spasi.dart';
 import 'package:dianistana/constant.dart';
+import 'package:dianistana/menu_screens/ticketing/reply.dart';
 import 'package:dianistana/menu_screens/ticketing/ticketing_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -41,6 +42,18 @@ class _TicketingDetailState extends State<TicketingDetail> {
           widget.subject,
           style: const TextStyle(
               color: Colors.green, fontFamily: 'PoppinsBold', fontSize: 15),
+        ),
+      ),
+      floatingActionButton: Container(
+        margin: const EdgeInsets.only(bottom: 80),
+        child: FloatingActionButton(
+          backgroundColor: Colors.blue,
+          tooltip: 'Open New Ticket',
+          onPressed: () {
+            Get.to(() => Reply(number: widget.number))!
+                .then((value) => _ticketing.getDataDetail(widget.number));
+          },
+          child: const Icon(Icons.reply, color: Colors.white, size: 28),
         ),
       ),
       body: Container(

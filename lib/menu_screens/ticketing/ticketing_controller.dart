@@ -5,6 +5,7 @@ import 'package:dianistana/api/network.dart';
 import 'package:dianistana/constant.dart';
 import 'package:dianistana/menu_screens/ticketing/download_progress.dart';
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
