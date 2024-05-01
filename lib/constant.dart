@@ -1,6 +1,7 @@
 class Constant {
   // #DEVELOPMENT
-  static String BASE_URL = "http://192.168.100.3/mydianistana/public/";
+  static String BASE_URL = "https://dianistana.com/";
+  // static String BASE_URL = "http://192.168.100.3/mydianistana/public/";
 
   static String UPLOAD_URL = BASE_URL + "api/profile_upload";
   static String TICKETING_UPLOAD_URL = BASE_URL + "api/ticketing_upload";

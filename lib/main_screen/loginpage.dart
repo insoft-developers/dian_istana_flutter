@@ -29,28 +29,31 @@ class _LoginPageState extends State<LoginPage> {
           fit: BoxFit.cover,
         ),
         Scaffold(
-          backgroundColor: Colors.white.withOpacity(0.3),
+          backgroundColor: Colors.brown.withOpacity(0.3),
           body: Container(
             padding: const EdgeInsets.all(15),
             child: ListView(
               children: [
                 Row(
                   children: [
-                    Image.asset("images/logo.png",
-                        width: 30, height: 30, fit: BoxFit.cover),
+                    Container(
+                      width: 200,
+                      height: 200,
+                      padding: const EdgeInsets.all(30),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(75),
+                        color: Colors.transparent,
+                      ),
+                      child:
+                          Image.asset("images/splash.png", fit: BoxFit.contain),
+                    ),
                     Spasi(lebar: 10),
-                    const Text("Welcome To \nMy Dian Istana",
-                        style: TextStyle(
-                            fontFamily: 'PoppinsBold',
-                            fontWeight: FontWeight.bold,
-                            color: Colors.green,
-                            fontSize: 16)),
                   ],
                 ),
-                Jarak(tinggi: 60),
+                Jarak(tinggi: 10),
                 const Center(
                     child: Text(
-                  "Login To Your \nAccount",
+                  "",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontFamily: 'PoppinsBold',
@@ -74,10 +77,16 @@ class _LoginPageState extends State<LoginPage> {
                 Jarak(tinggi: 5),
                 Container(
                   margin: const EdgeInsets.only(right: 10),
-                  child: const Text("Forgot Password?",
-                      textAlign: TextAlign.right,
-                      style: TextStyle(
-                          fontFamily: 'PoppinsBold', color: Colors.white)),
+                  child: InkWell(
+                    onTap: () {
+                      _login.launchURL(
+                          "https://api.whatsapp.com/send?phone=6282231353000&text=Saya%20Lupa%20Password%20aplikasi%20MyDianIstana%2C%20mohon%20dibantu%20untuk%20mereset%20password%0A%0ANama%3A%0ABlok%20%26%20Nomor%20Rumah%3A");
+                    },
+                    child: const Text("Forgot Password?",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            fontFamily: 'PoppinsBold', color: Colors.black)),
+                  ),
                 ),
                 Jarak(tinggi: 50),
                 Obx(

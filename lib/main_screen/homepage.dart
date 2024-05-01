@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dianistana/components/jarak.dart';
 import 'package:dianistana/controllers/dashboard_controller.dart';
 import 'package:dianistana/menu_screens/booking/index.dart';
@@ -31,31 +33,56 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  Future<bool> _onWillPop() async {
+    return (await showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text('Exit Application...?'),
+            content: const Text('are you sure to exit the application...? '),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: const Text('No'),
+              ),
+              TextButton(
+                onPressed: () => exit(0),
+                child: const Text('Yes'),
+              ),
+            ],
+          ),
+        )) ??
+        false;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: _children[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.green,
+    return WillPopScope(
+      onWillPop: _onWillPop,
+      child: Scaffold(
         backgroundColor: Colors.white,
-        unselectedItemColor: Colors.grey,
-        currentIndex: _currentIndex,
-        onTap: onBarTapped,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.payment), label: 'Payment'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.notifications), label: 'Notif'),
-          BottomNavigationBarItem(
-              icon: ImageIcon(
-                AssetImage("images/logo.png"),
-                size: 40,
-              ),
-              label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Booking'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-        ],
+        body: _children[_currentIndex],
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: Colors.green,
+          backgroundColor: Colors.white,
+          unselectedItemColor: Colors.grey,
+          currentIndex: _currentIndex,
+          onTap: onBarTapped,
+          items: const [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.payment), label: 'Payment'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.notifications), label: 'Notif'),
+            BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage("images/logo.png"),
+                  size: 40,
+                ),
+                label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Booking'),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          ],
+        ),
       ),
     );
   }

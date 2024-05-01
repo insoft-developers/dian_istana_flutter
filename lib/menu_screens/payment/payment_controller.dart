@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dianistana/api/network.dart';
 import 'package:dianistana/constant.dart';
+import 'package:dianistana/menu_screens/payment/kwitansi_webview.dart';
 import 'package:dianistana/menu_screens/payment/pay_webview.dart';
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
@@ -44,7 +45,7 @@ class PaymentController extends GetxController {
           userId.toString() +
           "?code=313fd1";
       print(linkTo);
-      Get.to(() => PayWebview(paymentUrl: linkTo));
+      Get.to(() => KwitansiWebview(paymentUrl: linkTo));
 
       // final Uri url = Uri.parse(linkTo);
       // if (!await launchUrl(url)) {

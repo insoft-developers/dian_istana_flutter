@@ -97,7 +97,8 @@ class BookingController extends GetxController {
       "total_price": totalPrice.value,
       "booking_date": selectedDate.value,
       "package_id": selectedPackage.value,
-      "package_name": packageName.value
+      "package_name": packageName.value,
+      "level": userLevel.value,
     };
 
     var res = await Network().auth(data, '/booking_resume');

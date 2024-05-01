@@ -1,4 +1,5 @@
 import 'package:dianistana/components/jarak.dart';
+import 'package:dianistana/controllers/login_controller.dart';
 import 'package:dianistana/menu_screens/notif/detail.dart';
 import 'package:dianistana/menu_screens/notif/notif_controller.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:get/get.dart';
 
 class NotifPage extends StatefulWidget {
   const NotifPage({Key? key}) : super(key: key);
+  static const route = '/announcement';
 
   @override
   State<NotifPage> createState() => _NotifPageState();
@@ -13,10 +15,12 @@ class NotifPage extends StatefulWidget {
 
 class _NotifPageState extends State<NotifPage> {
   final NotifController _notif = Get.put(NotifController());
+  final LoginController _logins = Get.put(LoginController());
 
   @override
   void initState() {
     _notif.getNotifData();
+    _logins.notifNumber.value = 0;
     super.initState();
   }
 

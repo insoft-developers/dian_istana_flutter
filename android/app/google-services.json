@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "832093630984",
+    "project_id": "my-dian-istana",
+    "storage_bucket": "my-dian-istana.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832093630984:android:02640ecbab3b16da12d7bd",
+        "android_client_info": {
+          "package_name": "com.insoft.dianistana"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXGdpWr6gs2fX3Y9a_a11nFMIIKG5uDNo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

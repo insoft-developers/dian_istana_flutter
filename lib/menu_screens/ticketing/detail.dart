@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dianistana/components/jarak.dart';
 import 'package:dianistana/components/spasi.dart';
 import 'package:dianistana/constant.dart';
+import 'package:dianistana/menu_screens/payment/payment_controller.dart';
 import 'package:dianistana/menu_screens/ticketing/reply.dart';
 import 'package:dianistana/menu_screens/ticketing/ticketing_controller.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,7 @@ class TicketingDetail extends StatefulWidget {
 
 class _TicketingDetailState extends State<TicketingDetail> {
   final TicketingController _ticketing = Get.put(TicketingController());
+  final PaymentController _payment = Get.put(PaymentController());
 
   @override
   void initState() {
@@ -148,13 +150,25 @@ class _TicketingDetailState extends State<TicketingDetail> {
                                             ["message"]
                                         .toString(),
                                     onLinkTap: (url) async {
-                                      if (await canLaunch(url)) {
-                                        await launch(
-                                          url,
-                                        );
-                                      } else {
-                                        throw 'Could not launch $url';
-                                      }
+                                      // if (await canLaunch(url)) {
+                                      //   await launch(
+                                      //     url,
+                                      //   );
+                                      // } else {
+                                      //   throw 'Could not launch $url';
+                                      // }
+
+                                      final split = url.split('/');
+                                      final Map<int, String> values = {
+                                        for (int i = 0; i < split.length; i++)
+                                          i: split[i]
+                                      };
+
+                                      int jumlah = values.length - 1;
+                                      String paymentId =
+                                          values[jumlah].toString();
+                                      _payment
+                                          .paymentPost(int.parse(paymentId));
                                     },
                                     defaultTextStyle: const TextStyle(
                                         fontFamily: 'Poppins', fontSize: 14),
