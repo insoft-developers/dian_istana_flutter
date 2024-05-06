@@ -18,7 +18,7 @@ class LoginController extends GetxController {
   var tokenString = "".obs;
   var notifNumber = 0.obs;
 
-  void updateNotifNumber() {
+  void updateNotifNumber() async {
     notifNumber.value = notifNumber.value + 1;
   }
 
@@ -101,10 +101,10 @@ class LoginController extends GetxController {
     ));
   }
 
-  void launchURL(String urls) async {
-    final Uri url = Uri.parse(urls);
-    if (!await launchUrl(url)) {
-      throw Exception("Error");
-    }
+  void launchURL() async {
+    launchUrl(
+        Uri.parse(
+            'https://wa.me/6282231353000?text=Saya%20Lupa%20Password%20aplikasi%20MyDianIstana%2C%20mohon%20dibantu%20untuk%20mereset%20password%0A%0ANama%3A%0ABlok%20%26%20Nomor%20Rumah%3A'),
+        mode: LaunchMode.externalApplication);
   }
 }

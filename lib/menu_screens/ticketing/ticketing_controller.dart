@@ -12,6 +12,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
+import 'package:open_file/open_file.dart';
 
 class TicketingController extends GetxController {
   var ticketList = List.empty().obs;
@@ -124,6 +125,8 @@ class TicketingController extends GetxController {
               downloadUrl: downloadUrl,
             );
           });
+      print("PRINT " + namaFile);
+      OpenFile.open('/storage/emulated/0/Download/dian_istana_' + namaFile);
     } else {
       print("No permission to read and write.");
     }

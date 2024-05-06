@@ -79,8 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                   margin: const EdgeInsets.only(right: 10),
                   child: InkWell(
                     onTap: () {
-                      _login.launchURL(
-                          "https://api.whatsapp.com/send?phone=6282231353000&text=Saya%20Lupa%20Password%20aplikasi%20MyDianIstana%2C%20mohon%20dibantu%20untuk%20mereset%20password%0A%0ANama%3A%0ABlok%20%26%20Nomor%20Rumah%3A");
+                      _login.launchURL();
                     },
                     child: const Text("Forgot Password?",
                         textAlign: TextAlign.right,

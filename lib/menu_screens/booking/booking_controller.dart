@@ -24,10 +24,42 @@ class BookingController extends GetxController {
   var totalPrice = 0.obs;
   var selectedPackage = "".obs;
   var packageName = "".obs;
+  var unitKategori = "".obs;
   var unitId = "".obs;
   var settingList = <String, dynamic>{}.obs;
   var settingLoad = false.obs;
   var transactionLoading = false.obs;
+  var js6 = 0.obs;
+  var js7 = 0.obs;
+  var js8 = 0.obs;
+  var js9 = 0.obs;
+  var js10 = 0.obs;
+  var js11 = 0.obs;
+  var js12 = 0.obs;
+  var js13 = 0.obs;
+  var js14 = 0.obs;
+  var js15 = 0.obs;
+  var js16 = 0.obs;
+  var js17 = 0.obs;
+  var js18 = 0.obs;
+  var js19 = 0.obs;
+  var js20 = 0.obs;
+  var jam6 = 0.obs;
+  var jam7 = 0.obs;
+  var jam8 = 0.obs;
+  var jam9 = 0.obs;
+  var jam10 = 0.obs;
+  var jam11 = 0.obs;
+  var jam12 = 0.obs;
+  var jam13 = 0.obs;
+  var jam14 = 0.obs;
+  var jam15 = 0.obs;
+  var jam16 = 0.obs;
+  var jam17 = 0.obs;
+  var jam18 = 0.obs;
+  var jam19 = 0.obs;
+  var jam20 = 0.obs;
+  var showHourLoading = false.obs;
 
   void paymentProcess(int transId) async {
     var data = {"id": transId};
@@ -62,7 +94,6 @@ class BookingController extends GetxController {
       var res = await Network().auth(data, '/transaction');
       var body = jsonDecode(res.body);
       if (body['success']) {
-        print(body);
         transactionLoading(false);
         if (body['total_price'] > 0) {
           paymentProcess(body['id']);
@@ -118,13 +149,48 @@ class BookingController extends GetxController {
     if (value.isEmpty) {
       showError("Please Select Date First...");
     } else {
-      var res = await Network().getData('/booking_invoice');
+      showHourLoading(true);
+      selectedDate.value = "";
+      var data = {"selected_date": value, "selected_unit": unitId.value};
+      var res = await Network().auth(data, '/booking_invoice');
       var body = jsonDecode(res.body);
       if (body['success']) {
         selectedDate.value = value;
         selectedHour.value = "";
         selectedFinish.value = "";
         invoice.value = body['data'];
+        js6.value = body['js6'];
+        js7.value = body['js7'];
+        js8.value = body['js8'];
+        js9.value = body['js9'];
+        js10.value = body['js10'];
+        js11.value = body['js11'];
+        js12.value = body['js12'];
+        js13.value = body['js13'];
+        js14.value = body['js14'];
+        js15.value = body['js15'];
+        js16.value = body['js16'];
+        js17.value = body['js17'];
+        js18.value = body['js18'];
+        js19.value = body['js19'];
+        js20.value = body['js20'];
+        jam6.value = body['jam6'];
+        jam7.value = body['jam7'];
+        jam8.value = body['jam8'];
+        jam9.value = body['jam9'];
+        jam10.value = body['jam10'];
+        jam11.value = body['jam11'];
+        jam12.value = body['jam12'];
+        jam13.value = body['jam13'];
+        jam14.value = body['jam14'];
+        jam15.value = body['jam15'];
+        jam16.value = body['jam16'];
+        jam17.value = body['jam17'];
+        jam18.value = body['jam18'];
+        jam19.value = body['jam19'];
+        jam20.value = body['jam20'];
+        print(unitKategori);
+        showHourLoading(false);
       }
     }
   }

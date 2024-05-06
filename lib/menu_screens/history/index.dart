@@ -70,8 +70,6 @@ class _HistoryPageState extends State<HistoryPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                  _history.historyList[index]["id"].toString()),
                               const Text("Transaction Date",
                                   style: TextStyle(fontFamily: 'Poppins')),
                               Text(

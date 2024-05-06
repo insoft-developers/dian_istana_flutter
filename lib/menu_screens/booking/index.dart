@@ -135,6 +135,7 @@ class _BookingPageState extends State<BookingPage> {
                               children: [
                                 const Text(
                                   "06.00 - 17.00 (Weekday)",
+                                  textAlign: TextAlign.right,
                                   style: TextStyle(fontFamily: 'Poppins'),
                                 ),
                                 Text(
@@ -151,7 +152,10 @@ class _BookingPageState extends State<BookingPage> {
                               children: [
                                 const Text(
                                   "06.00 - 17.00 (Weekend)",
-                                  style: TextStyle(fontFamily: 'Poppins'),
+                                  textAlign: TextAlign.right,
+                                  style: TextStyle(
+                                      fontFamily: 'PoppinsBold',
+                                      color: Colors.red),
                                 ),
                                 Text(
                                     harga_2 == "null"
@@ -159,6 +163,7 @@ class _BookingPageState extends State<BookingPage> {
                                         : "Rp. " + _utils.formatAmount(harga_2),
                                     style: const TextStyle(
                                         fontFamily: 'PoppinsBold',
+                                        color: Colors.red,
                                         fontSize: 15))
                               ],
                             ),
@@ -168,6 +173,7 @@ class _BookingPageState extends State<BookingPage> {
                               children: [
                                 const Text(
                                   "17.00 - 21.00 (Weekday)",
+                                  textAlign: TextAlign.right,
                                   style: TextStyle(fontFamily: 'Poppins'),
                                 ),
                                 Text(
@@ -184,7 +190,10 @@ class _BookingPageState extends State<BookingPage> {
                               children: [
                                 const Text(
                                   "17.00 - 21.00 (Weekend)",
-                                  style: TextStyle(fontFamily: 'Poppins'),
+                                  style: TextStyle(
+                                      fontFamily: 'PoppinsBold',
+                                      color: Colors.red),
+                                  textAlign: TextAlign.right,
                                 ),
                                 Text(
                                     harga_4 == "null"
@@ -192,6 +201,7 @@ class _BookingPageState extends State<BookingPage> {
                                         : "Rp. " + _utils.formatAmount(harga_4),
                                     style: const TextStyle(
                                         fontFamily: 'PoppinsBold',
+                                        color: Colors.red,
                                         fontSize: 15))
                               ],
                             )

@@ -71,15 +71,10 @@ class _DashboardPageState extends State<DashboardPage> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.grey.withOpacity(0.4)),
-                child: GestureDetector(
-                  onTap: () {
-                    Get.to(() => const NotifPage());
-                  },
-                  child: const Icon(
-                    Icons.notifications,
-                    color: Colors.white,
-                    size: 30,
-                  ),
+                child: const Icon(
+                  Icons.notifications,
+                  color: Colors.white,
+                  size: 30,
                 ),
               )),
           Obx(
@@ -131,7 +126,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   InkWell(
                     borderRadius: BorderRadius.circular(30),
                     onTap: () {
-                      Get.to(() => const BookingPage());
+                      _dashboard.bookingCheck();
                     },
                     splashColor: Colors.amber,
                     child: Container(
