@@ -110,7 +110,7 @@ class _AddTicketState extends State<AddTicket> {
               }),
               Jarak(tinggi: 15),
               TextArea(
-                  hint: "tell us what can we help for you",
+                  hint: "Please let us know how we can help you",
                   iconData: Icons.report_problem,
                   textEditingController: _messageText,
                   maxline: 3),

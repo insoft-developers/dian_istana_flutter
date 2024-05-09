@@ -22,6 +22,7 @@ class _TicketingPageState extends State<TicketingPage> {
   @override
   void initState() {
     _ticket.getTicketingList();
+    _ticket.requestStoragePermissions();
     super.initState();
   }
 

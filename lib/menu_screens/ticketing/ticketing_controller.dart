@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dianistana/api/network.dart';
@@ -265,5 +266,48 @@ class TicketingController extends GetxController {
       backgroundColor: Colors.green,
       content: Text(n.toString()),
     ));
+  }
+
+  Future<bool> requestStoragePermissions() async {
+    var storagePermissionIsGranted = false;
+
+    final storageReq = await Permission.storage
+        .request(); // required for android before 9 (SDK 28)
+    log('requestStoragePermissions storageReq  ${storageReq.name} ${storageReq.isGranted}');
+    storagePermissionIsGranted = storageReq.isGranted;
+    if (!storagePermissionIsGranted) {
+      final manageExternalStorageReq = await Permission.manageExternalStorage
+          .request(); // required for android after 9 (SDK 28)
+      log('requestStoragePermissions manageExternalStorageReq ${manageExternalStorageReq.name} ${manageExternalStorageReq.isGranted}');
+      storagePermissionIsGranted = manageExternalStorageReq.isGranted;
+    }
+
+    final accessMediaLocationReq =
+        await Permission.accessMediaLocation.request();
+    log('requestStoragePermissions accessMediaLocationReq ${accessMediaLocationReq.name} ${accessMediaLocationReq.isGranted}');
+
+    final mediaLibraryReq = await Permission.mediaLibrary.request();
+    log('requestStoragePermissions mediaLibraryReq ${mediaLibraryReq.name} ${mediaLibraryReq.isGranted}');
+
+    final microphoneReq = await Permission.microphone.request();
+    log('requestStoragePermissions microphoneReq ${microphoneReq.name} ${microphoneReq.isGranted}');
+
+    final cameraReq = await Permission.camera.request();
+    log('requestStoragePermissions cameraReq ${cameraReq.name} ${cameraReq.isGranted}');
+
+    final audioReq = true; //await Permission.audio.request();
+    // log('requestStoragePermissions audioReq ${audioReq.name} ${audioReq.isGranted}');
+    final videosReq = true; // await Permission.videos.request();
+    //log('requestStoragePermissions videosReq ${videosReq.name} ${videosReq.isGranted}');
+    final photosReq = true; //await Permission.photos.request();
+    // log('requestStoragePermissions photosReqReq ${photosReq.name} ${photosReq.isGranted}');
+
+    var isGranted = storagePermissionIsGranted &&
+        accessMediaLocationReq.isGranted &&
+        mediaLibraryReq.isGranted &&
+        microphoneReq.isGranted &&
+        cameraReq.isGranted;
+    //photosIsGranted;
+    return isGranted;
   }
 }
