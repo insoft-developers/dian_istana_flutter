@@ -14,6 +14,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'package:open_file/open_file.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TicketingController extends GetxController {
   var ticketList = List.empty().obs;
@@ -295,19 +296,20 @@ class TicketingController extends GetxController {
     final cameraReq = await Permission.camera.request();
     log('requestStoragePermissions cameraReq ${cameraReq.name} ${cameraReq.isGranted}');
 
-    final audioReq = true; //await Permission.audio.request();
-    // log('requestStoragePermissions audioReq ${audioReq.name} ${audioReq.isGranted}');
-    final videosReq = true; // await Permission.videos.request();
-    //log('requestStoragePermissions videosReq ${videosReq.name} ${videosReq.isGranted}');
-    final photosReq = true; //await Permission.photos.request();
-    // log('requestStoragePermissions photosReqReq ${photosReq.name} ${photosReq.isGranted}');
+    final audioReq = true;
+    final videosReq = true;
+    final photosReq = true;
 
     var isGranted = storagePermissionIsGranted &&
         accessMediaLocationReq.isGranted &&
         mediaLibraryReq.isGranted &&
         microphoneReq.isGranted &&
         cameraReq.isGranted;
-    //photosIsGranted;
+
     return isGranted;
+  }
+
+  void launchURL(String url) async {
+    launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
   }
 }

@@ -28,6 +28,24 @@ class DashboardController extends GetxController {
     }
   }
 
+  Future bookingCheckHome() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    var user = jsonDecode(localStorage.getString('user')!);
+    if (user != null) {
+      var userId = user['id'];
+      var data = {"user_id": userId};
+      var res = await Network().auth(data, '/booking_check');
+      var body = jsonDecode(res.body);
+      if (body['success']) {
+        print(body);
+        return true;
+      } else {
+        showError(body['message'].toString());
+        return false;
+      }
+    }
+  }
+
   void getUserName() async {
     SharedPreferences localStorage = await SharedPreferences.getInstance();
     var user = jsonDecode(localStorage.getString('user')!);

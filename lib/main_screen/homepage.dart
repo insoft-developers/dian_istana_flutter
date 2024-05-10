@@ -18,6 +18,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final DashboardController _dashboard = Get.put(DashboardController());
+
   int _currentIndex = 2;
   final List<Widget> _children = [
     const PaymentPage(),
@@ -67,7 +69,17 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.white,
           unselectedItemColor: Colors.grey,
           currentIndex: _currentIndex,
-          onTap: onBarTapped,
+          onTap: (value) {
+            if (value == 3) {
+              _dashboard.bookingCheckHome().then((nilai) {
+                if (nilai) {
+                  onBarTapped(value);
+                }
+              });
+            } else {
+              onBarTapped(value);
+            }
+          },
           items: const [
             BottomNavigationBarItem(
                 icon: Icon(Icons.payment), label: 'Payment'),

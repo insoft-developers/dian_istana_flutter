@@ -181,15 +181,21 @@ class _TicketingDetailState extends State<TicketingDetail> {
                                             const Icon(Icons.attach_file),
                                             GestureDetector(
                                               onTap: () {
-                                                _ticketing.download(
+                                                // _ticketing.download(
+                                                //     _ticketing.detailData[index]
+                                                //             ['document']
+                                                //         .toString(),
+                                                //     Constant.TICKETING_URL +
+                                                //         _ticketing
+                                                //             .detailData[index]
+                                                //                 ['document']
+                                                //             .toString());
+
+                                                _ticketing.launchURL(Constant
+                                                        .TICKETING_URL +
                                                     _ticketing.detailData[index]
                                                             ['document']
-                                                        .toString(),
-                                                    Constant.TICKETING_URL +
-                                                        _ticketing
-                                                            .detailData[index]
-                                                                ['document']
-                                                            .toString());
+                                                        .toString());
                                               },
                                               child: SizedBox(
                                                 width: MediaQuery.of(context)
