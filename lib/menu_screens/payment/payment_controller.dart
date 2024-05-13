@@ -29,6 +29,7 @@ class PaymentController extends GetxController {
         loading(false);
         paymentList.value = body['data'];
         totalOutstanding.value = body['total'];
+        print(body);
       }
     }
   }

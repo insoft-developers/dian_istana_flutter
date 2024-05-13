@@ -126,14 +126,21 @@ class _PaymentPageState extends State<PaymentPage> {
                                           fontFamily: 'Poppins',
                                           fontSize: 14,
                                           color: Colors.blue)),
-                                  Jarak(tinggi: 2),
+                                  Jarak(tinggi: 5),
                                   Text(
-                                      "Due Date " +
-                                          _payment.paymentList[index]
-                                                  ["due_date"]
-                                              .toString(),
+                                      _payment.paymentList[index]
+                                                  ['payment_type'] ==
+                                              1
+                                          ? "Due Date " +
+                                              _payment.paymentList[index]
+                                                      ["due_date"]
+                                                  .toString()
+                                          : "*If there's a discrepancy in the amount, please contact admin via Ticketing.*",
                                       style: const TextStyle(
-                                          fontFamily: 'Poppins', fontSize: 14)),
+                                          fontFamily: 'PoppinsBold',
+                                          fontSize: 14,
+                                          color: Colors.green)),
+                                  Jarak(tinggi: 5),
                                   Text(
                                       _payment.paymentList[index]["bill_to"]
                                               .toString() +
