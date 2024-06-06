@@ -34,290 +34,304 @@ class _DashboardPageState extends State<DashboardPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      shrinkWrap: true,
-      physics: const ScrollPhysics(),
+    return Stack(
       children: [
-        Stack(children: [
-          Image.asset("images/top1.png",
-              height: 90,
-              width: MediaQuery.of(context).size.width,
-              fit: BoxFit.cover),
-          Positioned(
-            top: 10,
-            left: 10,
-            child: GestureDetector(
-              onTap: () {},
-              child: Container(
-                padding: const EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.8),
-                    border: Border.all(width: 3.0, color: Colors.green),
-                    borderRadius: BorderRadius.circular(30)),
-                child: Image.asset(
-                  "images/logo.png",
-                  width: 40,
-                  height: 40,
-                  fit: BoxFit.cover,
+        Image.asset(
+          "images/white_bg.png",
+          width: MediaQuery.of(context).size.width,
+          fit: BoxFit.cover,
+        ),
+        Container(
+          padding: const EdgeInsets.all(15),
+          child: ListView(
+            shrinkWrap: true,
+            physics: const ScrollPhysics(),
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 5),
+                    child: const Text("POWERED BY",
+                        style: TextStyle(fontFamily: 'Poppins', fontSize: 11)),
+                  ),
+                  Image.asset(
+                    "images/logo_line.png",
+                    height: 24,
+                  ),
+                ],
+              ),
+              Jarak(tinggi: 40),
+              Container(
+                margin: const EdgeInsets.only(left: 20),
+                child: const Text(
+                  "Welcome Home, ",
+                  style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
                 ),
               ),
-            ),
-          ),
-          Positioned(
-              top: 20,
-              right: 15,
-              child: Container(
-                padding: const EdgeInsets.all(2),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey.withOpacity(0.4)),
-                child: const Icon(
-                  Icons.notifications,
-                  color: Colors.white,
-                  size: 30,
+              Container(
+                margin: const EdgeInsets.only(left: 20),
+                child: Obx(
+                  () => Text(
+                    _dashboard.userName.value,
+                    style: const TextStyle(fontFamily: 'PoppinsBold'),
+                  ),
                 ),
-              )),
-          Obx(
-            () => _login.notifNumber.value > 0
-                ? Positioned(
-                    right: 10,
-                    top: 10,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 4),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.red,
-                      ),
-                      child: Obx(
-                        () => Text(_login.notifNumber.value.toString(),
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold)),
-                      ),
-                    ))
-                : const SizedBox(),
-          )
-        ]),
-        Container(
-          margin: const EdgeInsets.only(left: 10),
-          child: Obx(
-            () => Text(
-              "Hi, ${_dashboard.userName.value}",
-              style: const TextStyle(fontFamily: 'PoppinsBold'),
-            ),
-          ),
-        ),
-        Container(
-          margin: const EdgeInsets.only(left: 10),
-          child: const Text(
-            "Welcome to MyDianIstana, \nmay goodness, health, and prosperity \nalways be with you",
-            style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
-          ),
-        ),
-        Jarak(tinggi: 40),
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Column(
-                children: [
-                  InkWell(
-                    borderRadius: BorderRadius.circular(30),
-                    onTap: () {
-                      _dashboard.bookingCheck();
-                    },
-                    splashColor: Colors.amber,
-                    child: Container(
-                        height: 140,
-                        width: 150,
-                        padding: const EdgeInsets.only(
-                            left: 20, right: 20, top: 30, bottom: 20),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                                color: Color.fromARGB(96, 180, 176, 176))),
-                        child: Column(
-                          children: [
-                            Image.asset("images/booking.png",
-                                fit: BoxFit.cover, width: 50, height: 50),
-                            Jarak(tinggi: 12),
-                            const Center(
-                              child: Text(
-                                "BOOKING",
-                                style: TextStyle(
-                                    fontFamily: 'Poppins', fontSize: 12),
-                              ),
-                            )
-                          ],
-                        )),
-                  ),
-                ],
               ),
-              Column(
-                children: [
-                  InkWell(
-                    borderRadius: BorderRadius.circular(30),
-                    onTap: () {
-                      _dashboard.bookingCheck();
-                    },
-                    splashColor: Colors.amber,
-                    child: Container(
-                        height: 140,
-                        width: 150,
-                        padding: const EdgeInsets.only(
-                            left: 20, right: 20, top: 30, bottom: 20),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                                color:
-                                    const Color.fromARGB(96, 180, 176, 176))),
-                        child: Column(
-                          children: [
-                            Image.asset("images/tikets.png",
-                                fit: BoxFit.contain, width: 50, height: 50),
-                            Jarak(tinggi: 12),
-                            const Center(
-                              child: Text(
-                                "TICKETING",
-                                style: TextStyle(
-                                    fontFamily: 'Poppins', fontSize: 12),
-                              ),
-                            )
-                          ],
-                        )),
-                  ),
-                ],
+              Jarak(tinggi: 10),
+              const SizedBox(height: 230, child: MainSlider()),
+              Jarak(tinggi: 20),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Column(
+                      children: [
+                        InkWell(
+                          borderRadius: BorderRadius.circular(30),
+                          onTap: () {
+                            _dashboard.bookingCheck();
+                          },
+                          splashColor: Colors.amber,
+                          child: Container(
+                              height: 140,
+                              width: 150,
+                              padding: const EdgeInsets.only(
+                                  left: 20, right: 20, top: 30, bottom: 20),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                      color: const Color.fromARGB(
+                                          96, 180, 176, 176))),
+                              child: Column(
+                                children: [
+                                  Image.asset("images/booking.png",
+                                      fit: BoxFit.cover, width: 50, height: 50),
+                                  Jarak(tinggi: 12),
+                                  const Center(
+                                    child: Text(
+                                      "BOOKINGS",
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins', fontSize: 12),
+                                    ),
+                                  )
+                                ],
+                              )),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        InkWell(
+                          borderRadius: BorderRadius.circular(30),
+                          onTap: () {
+                            _dashboard.bookingCheck();
+                          },
+                          splashColor: Colors.amber,
+                          child: Container(
+                              height: 140,
+                              width: 150,
+                              padding: const EdgeInsets.only(
+                                  left: 20, right: 20, top: 30, bottom: 20),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                      color: const Color.fromARGB(
+                                          96, 180, 176, 176))),
+                              child: Column(
+                                children: [
+                                  Image.asset("images/tikets.png",
+                                      fit: BoxFit.contain,
+                                      width: 50,
+                                      height: 50),
+                                  Jarak(tinggi: 12),
+                                  const Center(
+                                    child: Text(
+                                      "TICKETING",
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins', fontSize: 12),
+                                    ),
+                                  )
+                                ],
+                              )),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
+              Jarak(tinggi: 20),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Column(
+                      children: [
+                        InkWell(
+                          borderRadius: BorderRadius.circular(30),
+                          onTap: () {
+                            _dashboard.bookingCheck();
+                          },
+                          splashColor: Colors.amber,
+                          child: Container(
+                              height: 140,
+                              width: 150,
+                              padding: const EdgeInsets.only(
+                                  left: 20, right: 20, top: 30, bottom: 20),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                      color: const Color.fromARGB(
+                                          96, 180, 176, 176))),
+                              child: Column(
+                                children: [
+                                  Image.asset("images/payments.png",
+                                      fit: BoxFit.contain,
+                                      width: 50,
+                                      height: 50),
+                                  Jarak(tinggi: 12),
+                                  const Center(
+                                    child: Text(
+                                      "PAYMENT",
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins', fontSize: 12),
+                                    ),
+                                  )
+                                ],
+                              )),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        InkWell(
+                          borderRadius: BorderRadius.circular(30),
+                          onTap: () {
+                            _dashboard.bookingCheck();
+                          },
+                          splashColor: Colors.amber,
+                          child: Container(
+                              height: 140,
+                              width: 150,
+                              padding: const EdgeInsets.only(
+                                  left: 20, right: 20, top: 30, bottom: 20),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                      color: const Color.fromARGB(
+                                          96, 180, 176, 176))),
+                              child: Column(
+                                children: [
+                                  Image.asset("images/histori.png",
+                                      fit: BoxFit.contain,
+                                      width: 50,
+                                      height: 50),
+                                  Jarak(tinggi: 12),
+                                  const Center(
+                                    child: Text(
+                                      "HISTORY",
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins', fontSize: 12),
+                                    ),
+                                  )
+                                ],
+                              )),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Jarak(tinggi: 20),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Column(
+                      children: [
+                        InkWell(
+                          borderRadius: BorderRadius.circular(30),
+                          onTap: () {
+                            _dashboard.bookingCheck();
+                          },
+                          splashColor: Colors.amber,
+                          child: Container(
+                              height: 140,
+                              width: 150,
+                              padding: const EdgeInsets.only(
+                                  left: 20, right: 20, top: 30, bottom: 20),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                      color: const Color.fromARGB(
+                                          96, 180, 176, 176))),
+                              child: Column(
+                                children: [
+                                  Image.asset("images/profil.png",
+                                      fit: BoxFit.contain,
+                                      width: 50,
+                                      height: 50),
+                                  Jarak(tinggi: 12),
+                                  const Center(
+                                    child: Text(
+                                      "PROFILE",
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins', fontSize: 12),
+                                    ),
+                                  )
+                                ],
+                              )),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        InkWell(
+                          borderRadius: BorderRadius.circular(30),
+                          onTap: () {
+                            _dashboard.bookingCheck();
+                          },
+                          splashColor: Colors.amber,
+                          child: Container(
+                              height: 140,
+                              width: 150,
+                              padding: const EdgeInsets.only(
+                                  left: 20, right: 20, top: 30, bottom: 20),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                      color: const Color.fromARGB(
+                                          96, 180, 176, 176))),
+                              child: Column(
+                                children: [
+                                  Image.asset("images/userdata.png",
+                                      fit: BoxFit.contain,
+                                      width: 50,
+                                      height: 50),
+                                  Jarak(tinggi: 12),
+                                  const Center(
+                                    child: Text(
+                                      "USER DATA",
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins', fontSize: 12),
+                                    ),
+                                  )
+                                ],
+                              )),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Jarak(tinggi: 50)
             ],
           ),
         ),
-        Jarak(tinggi: 20),
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Column(
-                children: [
-                  InkWell(
-                    borderRadius: BorderRadius.circular(30),
-                    onTap: () {
-                      Get.to(() => const PaymentPage());
-                    },
-                    child: Container(
-                      width: 60,
-                      height: 60,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 2, vertical: 2),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.green.shade300.withOpacity(0.2)),
-                      child: Image.asset("images/payments.png",
-                          fit: BoxFit.contain),
-                    ),
-                  ),
-                  Jarak(tinggi: 4),
-                  const Text(
-                    "Payment",
-                    style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
-                  )
-                ],
-              ),
-              Column(
-                children: [
-                  InkWell(
-                    borderRadius: BorderRadius.circular(30),
-                    onTap: () {
-                      Get.to(() => const HistoryPage());
-                    },
-                    child: Container(
-                      width: 60,
-                      height: 60,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 2, vertical: 2),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.green.shade300.withOpacity(0.2)),
-                      child: Image.asset("images/histori.png",
-                          fit: BoxFit.contain),
-                    ),
-                  ),
-                  Jarak(tinggi: 4),
-                  const Text(
-                    "History",
-                    style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
-                  )
-                ],
-              ),
-            ],
-          ),
-        ),
-        Jarak(tinggi: 20),
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Column(
-                children: [
-                  InkWell(
-                    borderRadius: BorderRadius.circular(30),
-                    onTap: () {
-                      Get.to(() => const ProfilePage());
-                    },
-                    child: Container(
-                      width: 60,
-                      height: 60,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 2, vertical: 2),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.green.shade300.withOpacity(0.2)),
-                      child:
-                          Image.asset("images/profil.png", fit: BoxFit.contain),
-                    ),
-                  ),
-                  Jarak(tinggi: 4),
-                  const Text(
-                    "Profile",
-                    style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
-                  )
-                ],
-              ),
-              Column(
-                children: [
-                  InkWell(
-                    borderRadius: BorderRadius.circular(30),
-                    onTap: () {
-                      Get.to(() => const UserData());
-                    },
-                    child: Container(
-                      width: 60,
-                      height: 60,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 2, vertical: 2),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.green.shade300.withOpacity(0.2)),
-                      child: Image.asset("images/userdata.png",
-                          fit: BoxFit.contain),
-                    ),
-                  ),
-                  Jarak(tinggi: 4),
-                  const Text(
-                    "User Data",
-                    style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
-                  )
-                ],
-              ),
-            ],
-          ),
-        ),
-        Jarak(tinggi: 50),
-        const SizedBox(height: 230, child: MainSlider()),
-        Jarak(tinggi: 50)
       ],
     );
   }

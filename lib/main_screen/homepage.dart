@@ -63,36 +63,60 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         backgroundColor: Colors.white,
         body: _children[_currentIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: Colors.green,
-          backgroundColor: Colors.white,
-          unselectedItemColor: Colors.grey,
-          currentIndex: _currentIndex,
-          onTap: (value) {
-            if (value == 3) {
-              _dashboard.bookingCheckHome().then((nilai) {
-                if (nilai) {
-                  onBarTapped(value);
-                }
-              });
-            } else {
-              onBarTapped(value);
-            }
-          },
-          items: const [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.payment), label: 'Payment'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.notifications), label: 'Notif'),
-            BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage("images/logo.png"),
-                  size: 40,
+        bottomNavigationBar: Stack(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(left: 10, right: 10),
+              child: ClipRRect(
+                borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(10)),
+                child: Image.asset(
+                  "images/black_bg.png",
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.cover,
+                  height: 90,
                 ),
-                label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Booking'),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 15, right: 15),
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: BottomNavigationBar(
+                type: BottomNavigationBarType.fixed,
+                selectedItemColor: Colors.green,
+                backgroundColor: Colors.transparent,
+                unselectedItemColor: Colors.grey,
+                currentIndex: _currentIndex,
+                onTap: (value) {
+                  if (value == 3) {
+                    _dashboard.bookingCheckHome().then((nilai) {
+                      if (nilai) {
+                        onBarTapped(value);
+                      }
+                    });
+                  } else {
+                    onBarTapped(value);
+                  }
+                },
+                items: const [
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.payment), label: 'Payment'),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.notifications), label: 'Notif'),
+                  BottomNavigationBarItem(
+                      icon: ImageIcon(
+                        AssetImage("images/logo.png"),
+                        size: 40,
+                      ),
+                      label: 'Home'),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.book), label: 'Booking'),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.person), label: 'Profile'),
+                ],
+              ),
+            ),
           ],
         ),
       ),

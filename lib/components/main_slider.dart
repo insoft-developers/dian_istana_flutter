@@ -28,6 +28,7 @@ class _MainSliderState extends State<MainSlider> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: ListView(
         physics: const ScrollPhysics(),
         children: [
