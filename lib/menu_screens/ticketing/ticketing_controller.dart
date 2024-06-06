@@ -13,7 +13,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
-import 'package:open_file/open_file.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TicketingController extends GetxController {
@@ -116,23 +115,23 @@ class TicketingController extends GetxController {
     }
   }
 
-  void download(String namaFile, String downloadUrl) async {
-    bool result = await _permissionRequest();
-    if (result) {
-      showDialog(
-          context: Get.context!,
-          builder: (dialogcontext) {
-            return DownloadProgressDialog(
-              namaFile: namaFile,
-              downloadUrl: downloadUrl,
-            );
-          });
-      print("PRINT " + namaFile);
-      OpenFile.open('/storage/emulated/0/Download/dian_istana_' + namaFile);
-    } else {
-      print("No permission to read and write.");
-    }
-  }
+  // void download(String namaFile, String downloadUrl) async {
+  //   bool result = await _permissionRequest();
+  //   if (result) {
+  //     showDialog(
+  //         context: Get.context!,
+  //         builder: (dialogcontext) {
+  //           return DownloadProgressDialog(
+  //             namaFile: namaFile,
+  //             downloadUrl: downloadUrl,
+  //           );
+  //         });
+  //     print("PRINT " + namaFile);
+  //     OpenFile.open('/storage/emulated/0/Download/dian_istana_' + namaFile);
+  //   } else {
+  //     print("No permission to read and write.");
+  //   }
+  // }
 
   static Future<bool> _permissionRequest() async {
     PermissionStatus result;

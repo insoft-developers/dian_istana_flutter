@@ -130,22 +130,29 @@ class _DashboardPageState extends State<DashboardPage> {
                     },
                     splashColor: Colors.amber,
                     child: Container(
-                      width: 60,
-                      height: 60,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 2, vertical: 2),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.green.shade300.withOpacity(0.2)),
-                      child: Image.asset("images/bookings.png",
-                          fit: BoxFit.contain),
-                    ),
+                        height: 140,
+                        width: 150,
+                        padding: const EdgeInsets.only(
+                            left: 20, right: 20, top: 30, bottom: 20),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                                color: Color.fromARGB(96, 180, 176, 176))),
+                        child: Column(
+                          children: [
+                            Image.asset("images/booking.png",
+                                fit: BoxFit.cover, width: 50, height: 50),
+                            Jarak(tinggi: 12),
+                            const Center(
+                              child: Text(
+                                "BOOKING",
+                                style: TextStyle(
+                                    fontFamily: 'Poppins', fontSize: 12),
+                              ),
+                            )
+                          ],
+                        )),
                   ),
-                  Jarak(tinggi: 4),
-                  const Text(
-                    "Booking",
-                    style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
-                  )
                 ],
               ),
               Column(
@@ -153,51 +160,34 @@ class _DashboardPageState extends State<DashboardPage> {
                   InkWell(
                     borderRadius: BorderRadius.circular(30),
                     onTap: () {
-                      Get.to(() => const HistoryPage());
+                      _dashboard.bookingCheck();
                     },
+                    splashColor: Colors.amber,
                     child: Container(
-                      width: 60,
-                      height: 60,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 2, vertical: 2),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.green.shade300.withOpacity(0.2)),
-                      child: Image.asset("images/booking_history.png",
-                          fit: BoxFit.contain),
-                    ),
+                        height: 140,
+                        width: 150,
+                        padding: const EdgeInsets.only(
+                            left: 20, right: 20, top: 30, bottom: 20),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                                color:
+                                    const Color.fromARGB(96, 180, 176, 176))),
+                        child: Column(
+                          children: [
+                            Image.asset("images/tikets.png",
+                                fit: BoxFit.contain, width: 50, height: 50),
+                            Jarak(tinggi: 12),
+                            const Center(
+                              child: Text(
+                                "TICKETING",
+                                style: TextStyle(
+                                    fontFamily: 'Poppins', fontSize: 12),
+                              ),
+                            )
+                          ],
+                        )),
                   ),
-                  Jarak(tinggi: 4),
-                  const Text(
-                    "History",
-                    style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
-                  )
-                ],
-              ),
-              Column(
-                children: [
-                  InkWell(
-                    borderRadius: BorderRadius.circular(30),
-                    onTap: () {
-                      Get.to(() => const TicketingPage());
-                    },
-                    child: Container(
-                      width: 60,
-                      height: 60,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 2, vertical: 2),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.green.shade300.withOpacity(0.2)),
-                      child:
-                          Image.asset("images/tiket.png", fit: BoxFit.contain),
-                    ),
-                  ),
-                  Jarak(tinggi: 4),
-                  const Text(
-                    "Ticketing",
-                    style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
-                  )
                 ],
               ),
             ],
@@ -240,7 +230,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   InkWell(
                     borderRadius: BorderRadius.circular(30),
                     onTap: () {
-                      Get.to(() => const UserData());
+                      Get.to(() => const HistoryPage());
                     },
                     child: Container(
                       width: 60,
@@ -250,38 +240,13 @@ class _DashboardPageState extends State<DashboardPage> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           color: Colors.green.shade300.withOpacity(0.2)),
-                      child: Image.asset("images/userdata.png",
+                      child: Image.asset("images/histori.png",
                           fit: BoxFit.contain),
                     ),
                   ),
                   Jarak(tinggi: 4),
                   const Text(
-                    "User Data",
-                    style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
-                  )
-                ],
-              ),
-              Column(
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Get.to(() => const NotifPage());
-                    },
-                    child: Container(
-                      width: 60,
-                      height: 60,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 2, vertical: 2),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.green.shade300.withOpacity(0.2)),
-                      child:
-                          Image.asset("images/notif.png", fit: BoxFit.contain),
-                    ),
-                  ),
-                  Jarak(tinggi: 4),
-                  const Text(
-                    "Notif",
+                    "History",
                     style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
                   )
                 ],
@@ -310,8 +275,8 @@ class _DashboardPageState extends State<DashboardPage> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           color: Colors.green.shade300.withOpacity(0.2)),
-                      child: Image.asset("images/profile.png",
-                          fit: BoxFit.contain),
+                      child:
+                          Image.asset("images/profil.png", fit: BoxFit.contain),
                     ),
                   ),
                   Jarak(tinggi: 4),
@@ -326,9 +291,8 @@ class _DashboardPageState extends State<DashboardPage> {
                   InkWell(
                     borderRadius: BorderRadius.circular(30),
                     onTap: () {
-                      Get.to(() => const ChangePasswordPage());
+                      Get.to(() => const UserData());
                     },
-                    splashColor: Colors.amber,
                     child: Container(
                       width: 60,
                       height: 60,
@@ -337,39 +301,13 @@ class _DashboardPageState extends State<DashboardPage> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           color: Colors.green.shade300.withOpacity(0.2)),
-                      child: Image.asset("images/password.png",
+                      child: Image.asset("images/userdata.png",
                           fit: BoxFit.contain),
                     ),
                   ),
                   Jarak(tinggi: 4),
                   const Text(
-                    "Password",
-                    style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
-                  )
-                ],
-              ),
-              Column(
-                children: [
-                  InkWell(
-                    borderRadius: BorderRadius.circular(30),
-                    onTap: () {
-                      showAlertDialog(context);
-                    },
-                    child: Container(
-                      width: 60,
-                      height: 60,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 2, vertical: 2),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.green.shade300.withOpacity(0.2)),
-                      child: const Icon(Icons.exit_to_app,
-                          color: Colors.red, size: 50),
-                    ),
-                  ),
-                  Jarak(tinggi: 4),
-                  const Text(
-                    "Logout",
+                    "User Data",
                     style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
                   )
                 ],
