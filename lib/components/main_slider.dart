@@ -36,7 +36,7 @@ class _MainSliderState extends State<MainSlider> {
             () => CarouselSlider(
               options: CarouselOptions(
                 autoPlay: true,
-                aspectRatio: 1.8,
+                aspectRatio: 2.0,
                 enlargeCenterPage: false,
                 onPageChanged: (index, reason) {
                   setState(() {
@@ -66,34 +66,7 @@ class _MainSliderState extends State<MainSlider> {
                                         (context, url, downloadProgress) =>
                                             const SliderLoading(),
                                     width: 1000.0,
-                                    height: 145,
-                                  ),
-                                  Positioned(
-                                    bottom: 0.0,
-                                    left: 0.0,
-                                    right: 0.0,
-                                    child: Container(
-                                      decoration: const BoxDecoration(
-                                        gradient: LinearGradient(
-                                          colors: [
-                                            Color.fromARGB(200, 0, 0, 0),
-                                            Color.fromARGB(0, 0, 0, 0)
-                                          ],
-                                          begin: Alignment.bottomCenter,
-                                          end: Alignment.topCenter,
-                                        ),
-                                      ),
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 10.0, horizontal: 20.0),
-                                      child: Text(
-                                        item['title'].toString(),
-                                        style: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
+                                    height: 185,
                                   ),
                                 ],
                               )),
@@ -108,8 +81,8 @@ class _MainSliderState extends State<MainSlider> {
               return GestureDetector(
                 onTap: () => _controller.animateToPage(entry.key),
                 child: Container(
-                  width: 10.0,
-                  height: 10.0,
+                  width: 6.0,
+                  height: 6.0,
                   margin: const EdgeInsets.symmetric(
                       vertical: 8.0, horizontal: 4.0),
                   decoration: BoxDecoration(

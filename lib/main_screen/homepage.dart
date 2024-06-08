@@ -61,11 +61,11 @@ class _HomePageState extends State<HomePage> {
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
-        backgroundColor: Colors.white,
         body: _children[_currentIndex],
         bottomNavigationBar: Stack(
           children: [
             Container(
+              color: Colors.transparent,
               margin: const EdgeInsets.only(left: 10, right: 10),
               child: ClipRRect(
                 borderRadius: const BorderRadius.only(
@@ -80,11 +80,13 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(left: 15, right: 15),
-              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              // margin: const EdgeInsets.only(left: 15, right: 15),
+              padding: const EdgeInsets.only(
+                  left: 15, right: 15, top: 10, bottom: 10),
+              color: Colors.transparent,
               child: BottomNavigationBar(
                 type: BottomNavigationBarType.fixed,
-                selectedItemColor: Colors.green,
+                selectedItemColor: Colors.white,
                 backgroundColor: Colors.transparent,
                 unselectedItemColor: Colors.grey,
                 currentIndex: _currentIndex,
@@ -101,19 +103,35 @@ class _HomePageState extends State<HomePage> {
                 },
                 items: const [
                   BottomNavigationBarItem(
-                      icon: Icon(Icons.payment), label: 'Payment'),
-                  BottomNavigationBarItem(
-                      icon: Icon(Icons.notifications), label: 'Notif'),
-                  BottomNavigationBarItem(
                       icon: ImageIcon(
-                        AssetImage("images/logo.png"),
-                        size: 40,
+                        AssetImage("images/payments.png"),
+                        size: 25,
+                      ),
+                      label: 'Payment'),
+                  BottomNavigationBarItem(
+                      icon: Icon(
+                        Icons.notifications_outlined,
+                        size: 25,
+                      ),
+                      label: 'Notif'),
+                  BottomNavigationBarItem(
+                      icon: Icon(
+                        Icons.home_outlined,
+                        size: 30,
                       ),
                       label: 'Home'),
                   BottomNavigationBarItem(
-                      icon: Icon(Icons.book), label: 'Booking'),
+                      icon: ImageIcon(
+                        AssetImage("images/booking.png"),
+                        size: 25,
+                      ),
+                      label: 'Booking'),
                   BottomNavigationBarItem(
-                      icon: Icon(Icons.person), label: 'Profile'),
+                      icon: ImageIcon(
+                        AssetImage("images/profil.png"),
+                        size: 25,
+                      ),
+                      label: 'Profile'),
                 ],
               ),
             ),

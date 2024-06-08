@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dianistana/api/network.dart';
 import 'package:dianistana/constant.dart';
+import 'package:dianistana/menu_screens/history/ticket_webview.dart';
 import 'package:dianistana/menu_screens/payment/pay_webview.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -29,7 +30,7 @@ class HistoryController extends GetxController {
   void printTicket(String id) {
     String url = Constant.PRINT_TICKET_URL + "/" + id;
     print(url);
-    Get.to(() => PayWebview(paymentUrl: url));
+    Get.to(() => TicketWebview(paymentUrl: url));
   }
 
   void paymentProcess(int transId) async {

@@ -15,7 +15,8 @@ class ButtonLogin extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: Container(
-        padding: const EdgeInsets.only(top: 5, bottom: 5, left: 20, right: 20),
+        padding:
+            const EdgeInsets.only(top: 10, bottom: 10, left: 30, right: 30),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: warna.withOpacity(1.0)),

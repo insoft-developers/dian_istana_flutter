@@ -42,11 +42,12 @@ class _DashboardPageState extends State<DashboardPage> {
           fit: BoxFit.cover,
         ),
         Container(
-          padding: const EdgeInsets.all(15),
+          padding: const EdgeInsets.all(0),
           child: ListView(
             shrinkWrap: true,
             physics: const ScrollPhysics(),
             children: [
+              Jarak(tinggi: 5),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -54,11 +55,11 @@ class _DashboardPageState extends State<DashboardPage> {
                   Container(
                     margin: const EdgeInsets.only(top: 5),
                     child: const Text("POWERED BY",
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 11)),
+                        style: TextStyle(fontFamily: 'Poppins', fontSize: 10)),
                   ),
                   Image.asset(
                     "images/logo_line.png",
-                    height: 24,
+                    height: 22,
                   ),
                 ],
               ),
@@ -81,7 +82,7 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
               Jarak(tinggi: 10),
               const SizedBox(height: 230, child: MainSlider()),
-              Jarak(tinggi: 20),
+              Jarak(tinggi: 10),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
@@ -92,7 +93,8 @@ class _DashboardPageState extends State<DashboardPage> {
                         InkWell(
                           borderRadius: BorderRadius.circular(30),
                           onTap: () {
-                            _dashboard.bookingCheck();
+                            // _dashboard.bookingCheck();
+                            Get.to(() => const BookingPage());
                           },
                           splashColor: Colors.amber,
                           child: Container(
@@ -103,6 +105,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(
+                                      width: 2.0,
                                       color: const Color.fromARGB(
                                           96, 180, 176, 176))),
                               child: Column(
@@ -127,7 +130,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         InkWell(
                           borderRadius: BorderRadius.circular(30),
                           onTap: () {
-                            _dashboard.bookingCheck();
+                            Get.to(() => const TicketingPage());
                           },
                           splashColor: Colors.amber,
                           child: Container(
@@ -138,6 +141,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(
+                                      width: 2.0,
                                       color: const Color.fromARGB(
                                           96, 180, 176, 176))),
                               child: Column(
@@ -173,7 +177,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         InkWell(
                           borderRadius: BorderRadius.circular(30),
                           onTap: () {
-                            _dashboard.bookingCheck();
+                            Get.to(() => const PaymentPage());
                           },
                           splashColor: Colors.amber,
                           child: Container(
@@ -184,6 +188,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(
+                                      width: 2.0,
                                       color: const Color.fromARGB(
                                           96, 180, 176, 176))),
                               child: Column(
@@ -210,7 +215,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         InkWell(
                           borderRadius: BorderRadius.circular(30),
                           onTap: () {
-                            _dashboard.bookingCheck();
+                            Get.to(() => const HistoryPage());
                           },
                           splashColor: Colors.amber,
                           child: Container(
@@ -221,6 +226,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(
+                                      width: 2.0,
                                       color: const Color.fromARGB(
                                           96, 180, 176, 176))),
                               child: Column(
@@ -256,7 +262,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         InkWell(
                           borderRadius: BorderRadius.circular(30),
                           onTap: () {
-                            _dashboard.bookingCheck();
+                            Get.to(() => const ProfilePage());
                           },
                           splashColor: Colors.amber,
                           child: Container(
@@ -267,6 +273,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(
+                                      width: 2.0,
                                       color: const Color.fromARGB(
                                           96, 180, 176, 176))),
                               child: Column(
@@ -293,7 +300,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         InkWell(
                           borderRadius: BorderRadius.circular(30),
                           onTap: () {
-                            _dashboard.bookingCheck();
+                            Get.to(() => const UserData());
                           },
                           splashColor: Colors.amber,
                           child: Container(
@@ -304,6 +311,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(
+                                      width: 2.0,
                                       color: const Color.fromARGB(
                                           96, 180, 176, 176))),
                               child: Column(
