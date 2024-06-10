@@ -139,16 +139,16 @@ class _LoginPageState extends State<LoginPage> {
                                     warna: const Color.fromARGB(255, 97, 5, 5)),
                               )),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        _login.launchURL();
-                      },
-                      child: const Text("Forgot Password?",
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              color: Colors.white,
-                              fontSize: 12)),
-                    )
+                    // GestureDetector(
+                    //   onTap: () {
+                    //     _login.launchURL();
+                    //   },
+                    //   child: const Text("Forgot Password?",
+                    //       style: TextStyle(
+                    //           fontFamily: 'Poppins',
+                    //           color: Colors.white,
+                    //           fontSize: 12)),
+                    // )
                   ],
                 )
               ],

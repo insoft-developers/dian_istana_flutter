@@ -53,8 +53,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Obx(() =>
-          _loginController.isAuth.value ? const HomePage() : const LoginPage()),
-      // _loginController.isAuth.value ? const HomePage() : const Welcome()),
+          // _loginController.isAuth.value ? const HomePage() : const LoginPage()),
+          _loginController.isAuth.value ? const HomePage() : Welcome()),
     );
   }
 }

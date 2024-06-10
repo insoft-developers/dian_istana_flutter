@@ -60,6 +60,7 @@ class BookingController extends GetxController {
   var jam19 = 0.obs;
   var jam20 = 0.obs;
   var showHourLoading = false.obs;
+  var off_finish = 0.obs;
 
   void paymentProcess(int transId) async {
     var data = {"id": transId};
@@ -198,6 +199,27 @@ class BookingController extends GetxController {
   void setSelectedHour(String jam) {
     selectedHour.value = jam;
     selectedFinish.value = "";
+    checkMiddle(jam);
+  }
+
+  void checkMiddle(String jam) async {
+    var data = {
+      "start": jam,
+      "booking_date": selectedDate.value,
+      "unit_id": unitId.value,
+      "quantity": quantity.value
+    };
+    var res = await Network().auth(data, '/check_middle');
+    var body = jsonDecode(res.body);
+    if (body['success']) {
+      if (body['data'] == 1) {
+        off_finish.value = body['finish'];
+      } else {
+        off_finish.value = 0;
+      }
+
+      print(off_finish);
+    }
   }
 
   void setSelectedFinish(String jam) {

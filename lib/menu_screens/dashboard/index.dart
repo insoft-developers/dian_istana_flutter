@@ -93,8 +93,8 @@ class _DashboardPageState extends State<DashboardPage> {
                         InkWell(
                           borderRadius: BorderRadius.circular(30),
                           onTap: () {
-                            // _dashboard.bookingCheck();
-                            Get.to(() => const BookingPage());
+                            _dashboard.bookingCheck();
+                            // Get.to(() => const BookingPage());
                           },
                           splashColor: Colors.amber,
                           child: Container(

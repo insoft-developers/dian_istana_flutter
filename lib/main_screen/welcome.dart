@@ -1,11 +1,13 @@
 import 'package:dianistana/components/jarak.dart';
 import 'package:dianistana/components/spasi.dart';
+import 'package:dianistana/controllers/login_controller.dart';
 import 'package:dianistana/main_screen/loginpage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Welcome extends StatelessWidget {
-  const Welcome({Key? key}) : super(key: key);
+  Welcome({Key? key}) : super(key: key);
+  final LoginController _login = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -26,22 +28,27 @@ class Welcome extends StatelessWidget {
           ),
         ),
         Positioned(
-          bottom: -60,
+          bottom: -400,
           left: 60,
           child: ClipRRect(
             borderRadius: const BorderRadius.only(topLeft: Radius.circular(10)),
             child: Image.asset(
               "images/black_bg.png",
-              width: 300,
-              height: 300,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
               fit: BoxFit.cover,
             ),
           ),
         ),
-        Scaffold(
-            backgroundColor: Colors.transparent,
-            body: Container(
-              margin: const EdgeInsets.only(top: 450, left: 90),
+        Stack(
+          children: [
+            Scaffold(
+              backgroundColor: Colors.transparent,
+              body: Container(),
+            ),
+            Positioned(
+              bottom: 80,
+              left: 100,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -73,31 +80,22 @@ class Welcome extends StatelessWidget {
                     ],
                   ),
                   Jarak(tinggi: 20),
-                  const Text("Forgot Password? ",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Poppins',
-                          fontSize: 12)),
-                  Jarak(tinggi: 8),
-                  Row(
-                    children: [
-                      const Text("New User? ",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Poppins',
-                              fontSize: 12)),
-                      Spasi(lebar: 5),
-                      const Text("Sign Up. ",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12)),
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      _login.launchURL();
+                    },
+                    child: const Text("Forgot Password? ",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Poppins',
+                            fontSize: 12)),
                   ),
+                  Jarak(tinggi: 8),
                 ],
               ),
-            ))
+            ),
+          ],
+        )
       ],
     );
   }
