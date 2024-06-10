@@ -36,7 +36,7 @@ class _HistoryPageState extends State<HistoryPage> {
           backgroundColor: Colors.transparent,
           body: Column(
             children: [
-              Jarak(tinggi: 30),
+              Jarak(tinggi: 40),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,

@@ -47,7 +47,7 @@ class _DashboardPageState extends State<DashboardPage> {
             shrinkWrap: true,
             physics: const ScrollPhysics(),
             children: [
-              Jarak(tinggi: 5),
+              Jarak(tinggi: 10),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,

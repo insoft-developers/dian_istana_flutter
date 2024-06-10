@@ -38,7 +38,7 @@ class _PaymentPageState extends State<PaymentPage> {
           backgroundColor: Colors.transparent,
           body: Column(
             children: [
-              Jarak(tinggi: 30),
+              Jarak(tinggi: 40),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,

@@ -51,7 +51,7 @@ class _TicketingPageState extends State<TicketingPage> {
           ),
           body: Column(
             children: [
-              Jarak(tinggi: 30),
+              Jarak(tinggi: 40),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,

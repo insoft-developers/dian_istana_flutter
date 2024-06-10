@@ -37,7 +37,7 @@ class _BookingPageState extends State<BookingPage> {
           backgroundColor: Colors.transparent,
           body: Column(
             children: [
-              Jarak(tinggi: 25),
+              Jarak(tinggi: 40),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
