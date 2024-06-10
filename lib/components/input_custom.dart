@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
-class InputReadonly extends StatelessWidget {
+class InputCustom extends StatelessWidget {
   String hint;
   TextInputType textInputType;
-  IconData iconData;
+  String imageLink;
   TextEditingController textEditingController;
   bool obsecureText;
 
-  InputReadonly(
+  InputCustom(
       {Key? key,
       required this.hint,
       required this.textInputType,
-      required this.iconData,
+      required this.imageLink,
       required this.textEditingController,
       required this.obsecureText})
       : super(key: key);
@@ -28,7 +27,7 @@ class InputReadonly extends StatelessWidget {
       height: 60,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Colors.grey.shade300,
+        color: Colors.white,
         border: Border.all(color: Colors.grey.withOpacity(0.5), width: 2.0),
         boxShadow: const [
           BoxShadow(offset: Offset(0, 1), blurRadius: 50, color: Colors.white),
@@ -39,12 +38,11 @@ class InputReadonly extends StatelessWidget {
         obscureText: obsecureText,
         keyboardType: textInputType,
         textInputAction: TextInputAction.next,
-        readOnly: true,
         decoration: InputDecoration(
           icon: SizedBox(
             height: 30,
             width: 30,
-            child: Icon(iconData, color: Colors.grey),
+            child: Image.asset(imageLink),
           ),
           hintText: hint,
           hintStyle: const TextStyle(

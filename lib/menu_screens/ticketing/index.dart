@@ -31,17 +31,16 @@ class _TicketingPageState extends State<TicketingPage> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.asset(
-          "images/white_bg.png",
-          width: MediaQuery.of(context).size.width,
-          fit: BoxFit.cover,
-        ),
+        Image.asset("images/white_bg.png",
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            fit: BoxFit.cover),
         Scaffold(
           backgroundColor: Colors.transparent,
           floatingActionButton: Container(
             margin: const EdgeInsets.only(bottom: 80),
             child: FloatingActionButton(
-              backgroundColor: const Color.fromRGBO(82, 170, 94, 1.0),
+              backgroundColor: Colors.red[900],
               tooltip: 'Open New Ticket',
               onPressed: () {
                 Get.to(() => const AddTicket())!
@@ -96,7 +95,7 @@ class _TicketingPageState extends State<TicketingPage> {
               Expanded(
                 child: Container(
                   margin: const EdgeInsets.only(
-                      left: 15, right: 15, top: 0, bottom: 20),
+                      left: 15, right: 15, top: 0, bottom: 0),
                   child: Obx(
                     () => _ticket.loading.value
                         ? SizedBox(
@@ -108,16 +107,16 @@ class _TicketingPageState extends State<TicketingPage> {
                             itemBuilder: (context, index) {
                               Color warna = Colors.white;
                               if (_ticket.ticketList[index]['status'] == 0) {
-                                warna = Colors.orange;
+                                warna = Colors.black54;
                               } else if (_ticket.ticketList[index]['status'] ==
                                   1) {
-                                warna = Colors.green;
+                                warna = Colors.black54;
                               } else if (_ticket.ticketList[index]['status'] ==
                                   2) {
-                                warna = Colors.red;
+                                warna = Colors.black54;
                               } else if (_ticket.ticketList[index]['status'] ==
                                   3) {
-                                warna = Colors.grey;
+                                warna = Colors.black54;
                               }
 
                               return Container(

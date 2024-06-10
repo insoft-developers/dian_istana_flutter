@@ -36,11 +36,10 @@ class _TicketingDetailState extends State<TicketingDetail> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.asset(
-          "images/white_bg.png",
-          width: MediaQuery.of(context).size.width,
-          fit: BoxFit.cover,
-        ),
+        Image.asset("images/white_bg.png",
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            fit: BoxFit.cover),
         Scaffold(
           backgroundColor: Colors.transparent,
           // appBar: AppBar(
@@ -57,7 +56,7 @@ class _TicketingDetailState extends State<TicketingDetail> {
           floatingActionButton: Container(
             margin: const EdgeInsets.only(bottom: 80),
             child: FloatingActionButton(
-              backgroundColor: Colors.blue,
+              backgroundColor: Colors.red[900],
               tooltip: 'Open New Ticket',
               onPressed: () {
                 Get.to(() => Reply(number: widget.number))!

@@ -37,7 +37,9 @@ class _TransactionState extends State<Transaction> {
     return Stack(
       children: [
          Image.asset("images/white_bg.png",
-            width: MediaQuery.of(context).size.width, fit: BoxFit.cover),
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            fit: BoxFit.cover),
         Scaffold(
           backgroundColor:Colors.transparent,
          
@@ -194,7 +196,7 @@ class _TransactionState extends State<Transaction> {
                                   onPressed: null, child: const Text("Closed", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))): _booking.jam6.value > 0 ? ElevatedButton(
                                   style: ElevatedButton.styleFrom(primary: Colors.black54),
                                   onPressed: null, child: const Text("Booked", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))): ElevatedButton(
-                                  style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "06" ? Colors.orange  : Colors.black54),
+                                  style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "06" ? Colors.red[900]  : Colors.black54),
                                   onPressed: (){
                                     _booking.setSelectedHour("06");
                                   },  child: const Text("06:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))),
@@ -207,7 +209,7 @@ class _TransactionState extends State<Transaction> {
                                   onPressed: null, child: const Text("Closed", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))): _booking.jam7.value > 0 ? ElevatedButton(
                                   style: ElevatedButton.styleFrom(primary: Colors.black54),
                                   onPressed: null, child: const Text("Booked", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton(
-                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "07" ? Colors.orange  : Colors.black54),
+                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "07" ? Colors.red[900]  : Colors.black54),
                                 onPressed: (){
                                   _booking.setSelectedHour("07");
                                 },  child: const Text("07:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15)))),
@@ -219,7 +221,7 @@ class _TransactionState extends State<Transaction> {
                                   onPressed: null, child: const Text("Closed", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))): _booking.jam8.value > 0 ? ElevatedButton(
                                   style: ElevatedButton.styleFrom(primary: Colors.black54),
                                   onPressed: null, child: const Text("Booked", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton(
-                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "08" ? Colors.orange  : Colors.black54),
+                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "08" ? Colors.red[900]  : Colors.black54),
                                 onPressed: (){
                                   _booking.setSelectedHour("08");
                                 },  child: const Text("08:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15)))),
@@ -236,7 +238,7 @@ class _TransactionState extends State<Transaction> {
                                   onPressed: null, child: const Text("Closed", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):_booking.jam9.value > 0 ? ElevatedButton(
                                   style: ElevatedButton.styleFrom(primary: Colors.black54),
                                   onPressed: null, child: const Text("Booked", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton(
-                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "09" ? Colors.orange  : Colors.black54),
+                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "09" ? Colors.red[900]  : Colors.black54),
                                 onPressed: (){
                                   _booking.setSelectedHour("09");
                                 },  child: const Text("09:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15)))),
@@ -248,7 +250,7 @@ class _TransactionState extends State<Transaction> {
                                   onPressed: null, child: const Text("Closed", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):_booking.jam10.value > 0 ? ElevatedButton(
                                   style: ElevatedButton.styleFrom(primary: Colors.black54),
                                   onPressed: null, child: const Text("Booked", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton(
-                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "10" ? Colors.orange  : Colors.black54),
+                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "10" ? Colors.red[900]  : Colors.black54),
                                 onPressed: (){
                                   _booking.setSelectedHour("10");
                                 },  child: const Text("10:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15)))),
@@ -260,7 +262,7 @@ class _TransactionState extends State<Transaction> {
                                   onPressed: null, child: const Text("Closed", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):_booking.jam11.value > 0 ? ElevatedButton(
                                   style: ElevatedButton.styleFrom(primary: Colors.black54),
                                   onPressed: null, child: const Text("Booked", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton(
-                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "11" ? Colors.orange  : Colors.black54),
+                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "11" ? Colors.red[900]  : Colors.black54),
                                 onPressed: (){
                                   _booking.setSelectedHour("11");
                                 },  child: const Text("11:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15)))),
@@ -277,7 +279,7 @@ class _TransactionState extends State<Transaction> {
                                   onPressed: null, child: const Text("Closed", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):_booking.jam12.value > 0 ? ElevatedButton(
                                   style: ElevatedButton.styleFrom(primary: Colors.black54),
                                   onPressed: null, child: const Text("Booked", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton(
-                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "12" ? Colors.orange  : Colors.black54),
+                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "12" ? Colors.red[900]  : Colors.black54),
                                 onPressed: (){
                                   _booking.setSelectedHour("12");
                                 },  child: const Text("12:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15)))),
@@ -289,7 +291,7 @@ class _TransactionState extends State<Transaction> {
                                   onPressed: null, child: const Text("Closed", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):_booking.jam13.value > 0 ? ElevatedButton(
                                   style: ElevatedButton.styleFrom(primary: Colors.black54),
                                   onPressed: null, child: const Text("Booked", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton(
-                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "13" ? Colors.orange  : Colors.black54),
+                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "13" ? Colors.red[900]  : Colors.black54),
                                 onPressed: (){
                                   _booking.setSelectedHour("13");
                                 },  child: const Text("13:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15)))),
@@ -301,7 +303,7 @@ class _TransactionState extends State<Transaction> {
                                   onPressed: null, child: const Text("Closed", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):_booking.jam14.value > 0 ? ElevatedButton(
                                   style: ElevatedButton.styleFrom(primary: Colors.black54),
                                   onPressed: null, child: const Text("Booked", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton(
-                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "14" ? Colors.orange  : Colors.black54),
+                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "14" ? Colors.red[900]  : Colors.black54),
                                 onPressed: (){
                                   _booking.setSelectedHour("14");
                                 },  child: const Text("14:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15)))),
@@ -318,7 +320,7 @@ class _TransactionState extends State<Transaction> {
                                   onPressed: null, child: const Text("Closed", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):_booking.jam15.value > 0 ? ElevatedButton(
                                   style: ElevatedButton.styleFrom(primary: Colors.black54),
                                   onPressed: null, child: const Text("Booked", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton(
-                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "15" ? Colors.orange  : Colors.black54),
+                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "15" ? Colors.red[900]  : Colors.black54),
                                 onPressed: (){
                                   _booking.setSelectedHour("15");
                                 },  child: const Text("15:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15)))),
@@ -330,7 +332,7 @@ class _TransactionState extends State<Transaction> {
                                   onPressed: null, child: const Text("Closed", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):_booking.jam16.value > 0 ? ElevatedButton(
                                   style: ElevatedButton.styleFrom(primary: Colors.black54),
                                   onPressed: null, child: const Text("Booked", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton(
-                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "16" ? Colors.orange  : Colors.black54),
+                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "16" ? Colors.red[900]  : Colors.black54),
                                 onPressed: (){
                                   _booking.setSelectedHour("16");
                                 },  child: const Text("16:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15)))),
@@ -342,7 +344,7 @@ class _TransactionState extends State<Transaction> {
                                   onPressed: null, child: const Text("Closed", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):_booking.jam17.value > 0 ? ElevatedButton(
                                   style: ElevatedButton.styleFrom(primary: Colors.black54),
                                   onPressed: null, child: const Text("Booked", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton(
-                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "17" ? Colors.orange  : Colors.black54),
+                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "17" ? Colors.red[900]  : Colors.black54),
                                 onPressed: (){
                                   _booking.setSelectedHour("17");
                                 },  child: const Text("17:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15)))),
@@ -359,7 +361,7 @@ class _TransactionState extends State<Transaction> {
                                   onPressed: null, child: const Text("Closed", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):_booking.jam18.value > 0 ? ElevatedButton(
                                   style: ElevatedButton.styleFrom(primary: Colors.black54),
                                   onPressed: null, child: const Text("Booked", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton(
-                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "18" ? Colors.orange  : Colors.black54),
+                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "18" ? Colors.red[900]  : Colors.black54),
                                 onPressed: (){
                                   _booking.setSelectedHour("18");
                                 },  child: const Text("18:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15)))),
@@ -371,7 +373,7 @@ class _TransactionState extends State<Transaction> {
                                   onPressed: null, child: const Text("Closed", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):_booking.jam19.value > 0 ? ElevatedButton(
                                   style: ElevatedButton.styleFrom(primary: Colors.black54),
                                   onPressed: null, child: const Text("Booked", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton(
-                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "19" ? Colors.orange  : Colors.black54),
+                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "19" ? Colors.red[900]  : Colors.black54),
                                 onPressed: (){
                                   _booking.setSelectedHour("19");
                                 },  child: const Text("19:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15)))),
@@ -383,7 +385,7 @@ class _TransactionState extends State<Transaction> {
                                   onPressed: null, child: const Text("Closed", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):_booking.jam20.value > 0 ? ElevatedButton(
                                   style: ElevatedButton.styleFrom(primary: Colors.black54),
                                   onPressed: null, child: const Text("Booked", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton(
-                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "20" ? Colors.orange  : Colors.black54),
+                                style: ElevatedButton.styleFrom(primary: _booking.selectedHour.value == "20" ? Colors.red[900]  : Colors.black54),
                                 onPressed: (){
                                   _booking.setSelectedHour("20");
                                 },  child: const Text("20:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15)))),
@@ -435,7 +437,7 @@ class Comunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() => _booking.selectedHour.value == '06'  ?  ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "07" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "07" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("07");
               },  child: const Text("07:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))) : ElevatedButton
@@ -447,7 +449,7 @@ class Comunal extends StatelessWidget {
           SizedBox(
             width:105,
             child: Obx(() => _booking.selectedHour.value == "06" || _booking.selectedHour.value == "07" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "08" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "08" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("08");
               },  child: const Text("08:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))) :ElevatedButton
@@ -459,7 +461,7 @@ class Comunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() => _booking.selectedHour.value == "06" || _booking.selectedHour.value == "07" || _booking.selectedHour.value == "08" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "09" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "09" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("09");
               },  child: const Text("09:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -476,7 +478,7 @@ class Comunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() => _booking.selectedHour.value == "07" ||_booking.selectedHour.value == "08" || _booking.selectedHour.value == "09" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "10" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "10" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("10");
               },  child: const Text("10:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -488,7 +490,7 @@ class Comunal extends StatelessWidget {
           SizedBox(
             width:105,
             child: Obx(() => _booking.selectedHour.value == "08" ||_booking.selectedHour.value == "09" || _booking.selectedHour.value == "10" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "11" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "11" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("11");
               },  child: const Text("11:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -500,7 +502,7 @@ class Comunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() => _booking.selectedHour.value == "09" ||_booking.selectedHour.value == "10" || _booking.selectedHour.value == "11" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "12" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "12" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("12");
               },  child: const Text("12:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -517,7 +519,7 @@ class Comunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() => _booking.selectedHour.value == "10" ||_booking.selectedHour.value == "11" || _booking.selectedHour.value == "12" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "13" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "13" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("13");
               },  child: const Text("13:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -529,7 +531,7 @@ class Comunal extends StatelessWidget {
           SizedBox(
             width:105,
             child: Obx(() => _booking.selectedHour.value == "11" ||_booking.selectedHour.value == "12" || _booking.selectedHour.value == "13" ?ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "14" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "14" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("14");
               },  child: const Text("14:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -541,7 +543,7 @@ class Comunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() => _booking.selectedHour.value == "12" ||_booking.selectedHour.value == "13" || _booking.selectedHour.value == "14" ?ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "15" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "15" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("15");
               },  child: const Text("15:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -558,7 +560,7 @@ class Comunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() => _booking.selectedHour.value == "13" ||_booking.selectedHour.value == "14" || _booking.selectedHour.value == "15" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "16" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "16" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("16");
               },  child: const Text("16:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -570,7 +572,7 @@ class Comunal extends StatelessWidget {
           SizedBox(
             width:105,
             child: Obx(() => _booking.selectedHour.value == "14" ||_booking.selectedHour.value == "15" || _booking.selectedHour.value == "16" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "17" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "17" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("17");
               },  child: const Text("17:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -582,7 +584,7 @@ class Comunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() =>_booking.selectedHour.value == "15" || _booking.selectedHour.value == "16" || _booking.selectedHour.value == "17" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "18" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "18" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("18");
               },  child: const Text("18:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -599,7 +601,7 @@ class Comunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() =>_booking.selectedHour.value == "16" ||_booking.selectedHour.value == "17" || _booking.selectedHour.value == "18" ?  ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "19" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "19" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("19");
               },  child: const Text("19:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -611,7 +613,7 @@ class Comunal extends StatelessWidget {
           SizedBox(
             width:105,
             child: Obx(() => _booking.selectedHour.value == "17" ||_booking.selectedHour.value == "18" || _booking.selectedHour.value == "19" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "20" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "20" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("20");
               },  child: const Text("20:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -623,7 +625,7 @@ class Comunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() => _booking.selectedHour.value == "18" ||_booking.selectedHour.value == "19" || _booking.selectedHour.value == "20" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "21" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "21" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("21");
               },  child: const Text("21:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -703,7 +705,7 @@ class NonComunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() => _booking.selectedHour.value == '06'  ?  ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "07" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "07" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("07");
               },  child: const Text("07:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))) : ElevatedButton
@@ -715,7 +717,7 @@ class NonComunal extends StatelessWidget {
           SizedBox(
             width:105,
             child: Obx(() => _booking.selectedHour.value == "06" || _booking.selectedHour.value == "07" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "08" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "08" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("08");
               },  child: const Text("08:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))) :ElevatedButton
@@ -727,7 +729,7 @@ class NonComunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() => _booking.selectedHour.value == "07" || _booking.selectedHour.value == "08" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "09" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "09" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("09");
               },  child: const Text("09:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -744,7 +746,7 @@ class NonComunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() => _booking.selectedHour.value == "08" || _booking.selectedHour.value == "09" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "10" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "10" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("10");
               },  child: const Text("10:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -756,7 +758,7 @@ class NonComunal extends StatelessWidget {
           SizedBox(
             width:105,
             child: Obx(() => _booking.selectedHour.value == "09" || _booking.selectedHour.value == "10" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "11" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "11" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("11");
               },  child: const Text("11:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -768,7 +770,7 @@ class NonComunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() => _booking.selectedHour.value == "10" || _booking.selectedHour.value == "11" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "12" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "12" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("12");
               },  child: const Text("12:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -785,7 +787,7 @@ class NonComunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() => _booking.selectedHour.value == "11" || _booking.selectedHour.value == "12" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "13" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "13" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("13");
               },  child: const Text("13:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -797,7 +799,7 @@ class NonComunal extends StatelessWidget {
           SizedBox(
             width:105,
             child: Obx(() => _booking.selectedHour.value == "12" || _booking.selectedHour.value == "13" ?ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "14" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "14" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("14");
               },  child: const Text("14:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -809,7 +811,7 @@ class NonComunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() => _booking.selectedHour.value == "13" || _booking.selectedHour.value == "14" ?ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "15" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "15" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("15");
               },  child: const Text("15:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -826,7 +828,7 @@ class NonComunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() => _booking.selectedHour.value == "14" || _booking.selectedHour.value == "15" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "16" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "16" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("16");
               },  child: const Text("16:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -838,7 +840,7 @@ class NonComunal extends StatelessWidget {
           SizedBox(
             width:105,
             child: Obx(() => _booking.selectedHour.value == "15" || _booking.selectedHour.value == "16" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "17" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "17" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("17");
               },  child: const Text("17:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -850,7 +852,7 @@ class NonComunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() => _booking.selectedHour.value == "16" || _booking.selectedHour.value == "17" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "18" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "18" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("18");
               },  child: const Text("18:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -867,7 +869,7 @@ class NonComunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() =>_booking.selectedHour.value == "17" || _booking.selectedHour.value == "18" ?  ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "19" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "19" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("19");
               },  child: const Text("19:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -879,7 +881,7 @@ class NonComunal extends StatelessWidget {
           SizedBox(
             width:105,
             child: Obx(() => _booking.selectedHour.value == "18" || _booking.selectedHour.value == "19" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "20" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "20" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("20");
               },  child: const Text("20:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -891,7 +893,7 @@ class NonComunal extends StatelessWidget {
           SizedBox(
             width: 100,
             child: Obx(() => _booking.selectedHour.value == "19" || _booking.selectedHour.value == "20" ? ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "21" ? Colors.orange  : Colors.black54),
+              style: ElevatedButton.styleFrom(primary: _booking.selectedFinish.value == "21" ? Colors.red[900]  : Colors.black54),
               onPressed: (){
                 _booking.setSelectedFinish("21");
               },  child: const Text("21:00", style:TextStyle(fontFamily: 'PoppinsBold', fontSize: 15))):ElevatedButton
@@ -936,7 +938,7 @@ class NonComunal extends StatelessWidget {
           onTap:() {
             _booking.bookingResume(widget.dataList);
           },
-          child: ButtonColor(text: "BOOKING NOW", warna: Colors.blue)),
+          child: ButtonColor(text: "BOOKING NOW", warna: Colors.black54)),
       ),
         ]
       ),

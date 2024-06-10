@@ -108,34 +108,48 @@ class _LoginPageState extends State<LoginPage> {
                 //   ),
                 // ),
                 Jarak(tinggi: 50),
-                Obx(
-                  () => _login.loading.value
-                      ? Container(
-                          margin: const EdgeInsets.only(
-                              top: 20, left: 30, right: 30),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 5),
-                          decoration: BoxDecoration(
+                Row(
+                  children: [
+                    Obx(
+                      () => _login.loading.value
+                          ? Container(
+                              margin: const EdgeInsets.only(
+                                  top: 20, left: 30, right: 30),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 5),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(2)),
+                              child: const Text("Processing....",
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 15,
+                                      color: Colors.green,
+                                      fontWeight: FontWeight.bold)),
+                            )
+                          : InkWell(
+                              splashColor: Colors.amber,
+                              onTap: () {
+                                _login.login(_username.text, _password.text);
+                              },
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: ButtonLogin(
+                                    text: "Login",
+                                    warna: const Color.fromARGB(255, 97, 5, 5)),
+                              )),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        _login.launchURL();
+                      },
+                      child: const Text("Forgot Password?",
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(2)),
-                          child: const Text("Processing....",
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 15,
-                                  color: Colors.green,
-                                  fontWeight: FontWeight.bold)),
-                        )
-                      : InkWell(
-                          splashColor: Colors.amber,
-                          onTap: () {
-                            _login.login(_username.text, _password.text);
-                          },
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: ButtonLogin(
-                                text: "Login",
-                                warna: const Color.fromARGB(255, 97, 5, 5)),
-                          )),
+                              fontSize: 12)),
+                    )
+                  ],
                 )
               ],
             ),

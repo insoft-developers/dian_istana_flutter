@@ -29,11 +29,10 @@ class _ResumePageState extends State<ResumePage> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.asset(
-          "images/white_bg.png",
-          width: MediaQuery.of(context).size.width,
-          fit: BoxFit.cover,
-        ),
+        Image.asset("images/white_bg.png",
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            fit: BoxFit.cover),
         Scaffold(
             backgroundColor: Colors.transparent,
             body: Column(
@@ -103,7 +102,8 @@ class _ResumePageState extends State<ResumePage> {
                                 Text(widget.dataList["name_unit"].toString(),
                                     style: const TextStyle(
                                         fontFamily: 'PoppinsBold',
-                                        fontSize: 15))
+                                        fontSize: 15,
+                                        color: Colors.black54))
                               ],
                             ),
                           ),
@@ -125,7 +125,8 @@ class _ResumePageState extends State<ResumePage> {
                                 Text(widget.dataList["kategori"].toString(),
                                     style: const TextStyle(
                                         fontFamily: 'PoppinsBold',
-                                        fontSize: 15))
+                                        fontSize: 15,
+                                        color: Colors.black54))
                               ],
                             ),
                           ),
@@ -147,7 +148,8 @@ class _ResumePageState extends State<ResumePage> {
                                 Text(getCurrentDate(),
                                     style: const TextStyle(
                                         fontFamily: 'PoppinsBold',
-                                        fontSize: 15))
+                                        fontSize: 15,
+                                        color: Colors.black54))
                               ],
                             ),
                           ),
@@ -169,7 +171,8 @@ class _ResumePageState extends State<ResumePage> {
                                 Text(_booking.invoice.value.toString(),
                                     style: const TextStyle(
                                         fontFamily: 'PoppinsBold',
-                                        fontSize: 15))
+                                        fontSize: 15,
+                                        color: Colors.black54))
                               ],
                             ),
                           ),
@@ -193,7 +196,8 @@ class _ResumePageState extends State<ResumePage> {
                                         _booking.selectedDate.value.toString()),
                                     style: const TextStyle(
                                         fontFamily: 'PoppinsBold',
-                                        fontSize: 15))
+                                        fontSize: 15,
+                                        color: Colors.black54))
                               ],
                             ),
                           ),
@@ -215,7 +219,8 @@ class _ResumePageState extends State<ResumePage> {
                                 Text(_booking.packageName.value.toString(),
                                     style: const TextStyle(
                                         fontFamily: 'PoppinsBold',
-                                        fontSize: 15))
+                                        fontSize: 15,
+                                        color: Colors.black54))
                               ],
                             ),
                           ),
@@ -239,7 +244,8 @@ class _ResumePageState extends State<ResumePage> {
                                         ":00 WIB",
                                     style: const TextStyle(
                                         fontFamily: 'PoppinsBold',
-                                        fontSize: 15))
+                                        fontSize: 15,
+                                        color: Colors.black54))
                               ],
                             ),
                           ),
@@ -263,7 +269,8 @@ class _ResumePageState extends State<ResumePage> {
                                         ":00 WIB",
                                     style: const TextStyle(
                                         fontFamily: 'PoppinsBold',
-                                        fontSize: 15))
+                                        fontSize: 15,
+                                        color: Colors.black54))
                               ],
                             ),
                           ),
@@ -285,7 +292,8 @@ class _ResumePageState extends State<ResumePage> {
                                 Text(_booking.quantity.value.toString(),
                                     style: const TextStyle(
                                         fontFamily: 'PoppinsBold',
-                                        fontSize: 15))
+                                        fontSize: 15,
+                                        color: Colors.black54))
                               ],
                             ),
                           ),
@@ -311,12 +319,15 @@ class _ResumePageState extends State<ResumePage> {
                                             .toString()),
                                     style: const TextStyle(
                                         fontFamily: 'PoppinsBold',
-                                        fontSize: 15))
+                                        fontSize: 15,
+                                        color: Colors.black54))
                               ],
                             ),
                           ),
                           Jarak(tinggi: 20),
                           ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  primary: Colors.red[900]),
                               onPressed: () {
                                 showAlertDialog(context);
                               },

@@ -30,7 +30,9 @@ class _BookingPageState extends State<BookingPage> {
     return Stack(
       children: [
         Image.asset("images/white_bg.png",
-            width: MediaQuery.of(context).size.width, fit: BoxFit.cover),
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            fit: BoxFit.cover),
         Scaffold(
           backgroundColor: Colors.transparent,
           body: Column(

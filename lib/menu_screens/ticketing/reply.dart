@@ -21,84 +21,139 @@ class _ReplyState extends State<Reply> {
   final TextEditingController _messageText = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: const BackButton(
-          color: Colors.green,
-        ),
-        backgroundColor: Colors.white,
-        title: const Text(
-          "Reply ",
-          style: TextStyle(color: Colors.green, fontFamily: 'PoppinsBold'),
-        ),
-      ),
-      body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-        child: ListView(
-          children: [
-            GetBuilder<ReplyController>(builder: (builderController) {
-              return GestureDetector(
+    return Stack(
+      children: [
+        Image.asset("images/white_bg.png",
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            fit: BoxFit.cover),
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Column(
+            children: [
+              Jarak(tinggi: 30),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 5),
+                    child: const Text("POWERED BY",
+                        style: TextStyle(fontFamily: 'Poppins', fontSize: 10)),
+                  ),
+                  Image.asset(
+                    "images/logo_line.png",
+                    height: 22,
+                  ),
+                ],
+              ),
+              Jarak(tinggi: 30),
+              GestureDetector(
                 onTap: () {
-                  builderController.pickImage();
+                  Get.back();
                 },
                 child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                  decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(10)),
+                  margin: const EdgeInsets.only(left: 25),
                   child: Row(
                     children: [
-                      const Icon(
-                        Icons.attach_file,
-                        color: Colors.white,
+                      Image.asset(
+                        "images/left.png",
+                        height: 30,
+                        width: 30,
                       ),
-                      Spasi(lebar: 20),
-                      Text(
-                          builderController.pickedFile != null
-                              ? "1 file attached"
-                              : "Attach Files.....",
-                          style: const TextStyle(
+                      Spasi(lebar: 10),
+                      const Text("REPLY",
+                          style: TextStyle(
                               fontFamily: 'Poppins',
-                              color: Colors.white,
-                              fontSize: 15)),
+                              color: Colors.black54,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16))
                     ],
                   ),
                 ),
-              );
-            }),
-            Jarak(tinggi: 15),
-            TextArea(
-                hint: "write your reply",
-                iconData: Icons.message,
-                textEditingController: _messageText,
-                maxline: 3),
-            Jarak(tinggi: 30),
-            Obx(() => _replyController.loading.value
-                ? Center(
-                    child: Container(
-                    margin: const EdgeInsets.only(top: 20),
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(2)),
-                    child: const Text("Processing....",
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 15,
-                            color: Colors.green,
-                            fontWeight: FontWeight.bold)),
-                  ))
-                : GestureDetector(
-                    onTap: () {
-                      _replyController.replyTicket(
-                          widget.number, _messageText.text);
-                    },
-                    child: ButtonColor(text: "Submit", warna: Colors.green)))
-          ],
+              ),
+              Expanded(
+                child: Container(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  child: ListView(
+                    shrinkWrap: true,
+                    physics: const ScrollPhysics(),
+                    children: [
+                      GetBuilder<ReplyController>(builder: (builderController) {
+                        return GestureDetector(
+                          onTap: () {
+                            builderController.pickImage();
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 15),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(
+                                    color: Colors.grey.withOpacity(0.7)),
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Row(
+                              children: [
+                                const Icon(
+                                  Icons.attach_file,
+                                ),
+                                Spasi(lebar: 20),
+                                Text(
+                                    builderController.pickedFile != null
+                                        ? "1 file attached"
+                                        : "Attach Files.....",
+                                    style: const TextStyle(
+                                        fontFamily: 'Poppins', fontSize: 15)),
+                              ],
+                            ),
+                          ),
+                        );
+                      }),
+                      Jarak(tinggi: 15),
+                      TextArea(
+                          hint: "write your reply",
+                          iconData: Icons.message,
+                          textEditingController: _messageText,
+                          maxline: 3),
+                      Jarak(tinggi: 30),
+                      Obx(() => _replyController.loading.value
+                          ? Center(
+                              child: Container(
+                              margin: const EdgeInsets.only(top: 20),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 5),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(2)),
+                              child: const Text("Processing....",
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 15,
+                                      color: Colors.green,
+                                      fontWeight: FontWeight.bold)),
+                            ))
+                          : SizedBox(
+                              width: 30,
+                              height: 40,
+                              child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      primary: Colors.red[900]),
+                                  onPressed: () {
+                                    _replyController.replyTicket(
+                                        widget.number, _messageText.text);
+                                  },
+                                  child: const Text("Submit",
+                                      style: TextStyle(fontFamily: 'Poppins'))),
+                            )),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }

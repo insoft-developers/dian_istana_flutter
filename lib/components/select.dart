@@ -41,7 +41,7 @@ class Select extends StatelessWidget {
             icon: SizedBox(
               height: 30,
               width: 30,
-              child: Icon(iconData, color: Colors.green),
+              child: Icon(iconData, color: Colors.grey),
             ),
             hintText: hint,
             hintStyle: const TextStyle(

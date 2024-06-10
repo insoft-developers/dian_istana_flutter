@@ -26,202 +26,242 @@ class _PaymentPageState extends State<PaymentPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: const BackButton(
-          color: Colors.green,
+    return Stack(
+      children: [
+        Image.asset(
+          "images/white_bg.png",
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          fit: BoxFit.cover,
         ),
-        backgroundColor: Colors.white,
-        title: const Text(
-          "Payment & Bills",
-          style: TextStyle(color: Colors.green, fontFamily: 'PoppinsBold'),
-        ),
-      ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: ListView(
-          children: [
-            Container(
-                margin: const EdgeInsets.symmetric(vertical: 10),
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                decoration: BoxDecoration(
-                    color: Colors.green.shade700.withOpacity(0.8),
-                    border: Border.all(width: 2.0, color: Colors.blue),
-                    borderRadius: BorderRadius.circular(5)),
-                child: Column(
-                  children: [
-                    const Text("Outstanding Bills",
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 20,
-                            color: Colors.white)),
-                    Jarak(tinggi: 5),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Icon(Icons.payments,
-                            size: 35, color: Colors.white),
-                        Spasi(lebar: 10),
-                        Obx(
-                          () => Text(
-                              "Rp. " +
-                                  _utils.formatAmount(_payment
-                                      .totalOutstanding.value
-                                      .toString()),
-                              style: const TextStyle(
-                                  fontFamily: 'PoppinsBold',
-                                  fontSize: 28,
-                                  color: Colors.white)),
-                        ),
-                      ],
-                    ),
-                  ],
-                )),
-            Obx(
-              () => _payment.loading.value
-                  ? SizedBox(
-                      height: MediaQuery.of(context).size.height - 300,
-                      child: const Center(child: CircularProgressIndicator()))
-                  : ListView.builder(
-                      shrinkWrap: true,
-                      physics: const ScrollPhysics(),
-                      itemCount: _payment.paymentList.length,
-                      itemBuilder: (context, index) {
-                        return Stack(
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.symmetric(
-                                  horizontal: 2, vertical: 6),
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 6),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  border: _payment.paymentList[index]
-                                              ["status"] ==
-                                          "PAID"
-                                      ? Border.all(
-                                          width: 1.0, color: Colors.green)
-                                      : Border.all(
-                                          width: 1.0, color: Colors.pink),
-                                  color: _payment.paymentList[index]
-                                              ["status"] ==
-                                          "PAID"
-                                      ? Colors.green.shade100.withOpacity(0.4)
-                                      : Colors.red.shade100.withOpacity(0.4)),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                      _payment.paymentList[index]
-                                              ["payment_name"]
-                                          .toString(),
-                                      style: const TextStyle(
-                                          fontFamily: 'PoppinsBold',
-                                          fontSize: 15)),
-                                  Text(
-                                      _payment.paymentList[index]
-                                              ["payment_desc"]
-                                          .toString(),
-                                      style: const TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 14,
-                                          color: Colors.blue)),
-                                  Jarak(tinggi: 5),
-                                  Text(
-                                      _payment.paymentList[index]
-                                                  ['payment_type'] ==
-                                              1
-                                          ? "Due Date " +
-                                              _payment.paymentList[index]
-                                                      ["due_date"]
-                                                  .toString()
-                                          : "*If there's a discrepancy in the amount, please contact admin via Ticketing.*",
-                                      style: const TextStyle(
-                                          fontFamily: 'PoppinsBold',
-                                          fontSize: 14,
-                                          color: Colors.green)),
-                                  Jarak(tinggi: 5),
-                                  Text(
-                                      _payment.paymentList[index]["bill_to"]
-                                              .toString() +
-                                          " - ( " +
-                                          _payment.paymentList[index]["type"]
-                                              .toString() +
-                                          " )",
-                                      style: const TextStyle(
-                                          fontFamily: 'Poppins', fontSize: 14)),
-                                  Jarak(tinggi: 5),
-                                  SizedBox(
-                                    width: MediaQuery.of(context).size.width,
-                                    child: Text(
-                                        "Rp. " +
-                                            _utils.formatAmount(_payment
-                                                .paymentList[index]
-                                                    ["payment_amount"]
-                                                .toString()),
-                                        textAlign: TextAlign.center,
-                                        style: const TextStyle(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold)),
-                                  ),
-                                  Jarak(tinggi: 10),
-                                  Obx(
-                                    () => _payment.paymentList[index]
-                                                ["status"] ==
-                                            'PAID'
-                                        ? Center(
-                                            child: ElevatedButton.icon(
-                                                style: ElevatedButton.styleFrom(
-                                                    primary: Colors.green),
-                                                onPressed: () {
-                                                  _payment.printKwitansi(
-                                                      _payment
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Column(
+            children: [
+              Jarak(tinggi: 30),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 5),
+                    child: const Text("POWERED BY",
+                        style: TextStyle(fontFamily: 'Poppins', fontSize: 10)),
+                  ),
+                  Image.asset(
+                    "images/logo_line.png",
+                    height: 22,
+                  ),
+                ],
+              ),
+              Jarak(tinggi: 30),
+              GestureDetector(
+                onTap: () {
+                  Get.back();
+                },
+                child: Container(
+                  margin: const EdgeInsets.only(left: 25),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        "images/left.png",
+                        height: 30,
+                        width: 30,
+                      ),
+                      Spasi(lebar: 10),
+                      const Text("PAYMENT & BILLS",
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: Colors.black54,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16))
+                    ],
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: ListView(
+                    children: [
+                      Obx(
+                        () => _payment.loading.value
+                            ? SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height - 300,
+                                child: const Center(
+                                    child: CircularProgressIndicator()))
+                            : ListView.builder(
+                                shrinkWrap: true,
+                                physics: const ScrollPhysics(),
+                                itemCount: _payment.paymentList.length,
+                                itemBuilder: (context, index) {
+                                  return Stack(
+                                    children: [
+                                      Container(
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 2, vertical: 15),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 10, vertical: 15),
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            border: _payment.paymentList[index]
+                                                        ["status"] ==
+                                                    "PAID"
+                                                ? Border.all(
+                                                    width: 1.0,
+                                                    color: Colors.black54)
+                                                : Border.all(
+                                                    width: 1.0,
+                                                    color: Colors.black54),
+                                            color: _payment.paymentList[index]
+                                                        ["status"] ==
+                                                    "PAID"
+                                                ? Colors.green.shade50
+                                                    .withOpacity(0.4)
+                                                : Colors.white
+                                                    .withOpacity(0.4)),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                                _payment.paymentList[index]
+                                                        ["payment_name"]
+                                                    .toString()
+                                                    .toUpperCase(),
+                                                style: const TextStyle(
+                                                    fontFamily: 'PoppinsBold',
+                                                    fontSize: 15)),
+                                            Text(
+                                                _payment.paymentList[index]
+                                                        ["payment_desc"]
+                                                    .toString()
+                                                    .toUpperCase(),
+                                                style: const TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 14,
+                                                )),
+                                            Jarak(tinggi: 5),
+
+                                            // Text(
+                                            //     _payment.paymentList[index]
+                                            //                 ["bill_to"]
+                                            //             .toString() +
+                                            //         " - ( " +
+                                            //         _payment.paymentList[index]
+                                            //                 ["type"]
+                                            //             .toString() +
+                                            //         " )",
+                                            //     style: const TextStyle(
+                                            //         fontFamily: 'Poppins',
+                                            //         fontSize: 14)),
+                                            // Jarak(tinggi: 5),
+                                            Jarak(tinggi: 25),
+                                            Text(
+                                                _payment.paymentList[index]
+                                                            ['status'] ==
+                                                        "PAID"
+                                                    ? "PAID BILLS"
+                                                    : "OUTSTANDING BILLS",
+                                                style: const TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 14,
+                                                )),
+
+                                            SizedBox(
+                                              width: MediaQuery.of(context)
+                                                  .size
+                                                  .width,
+                                              child: Text(
+                                                  "Rp. " +
+                                                      _utils.formatAmount(_payment
                                                           .paymentList[index]
-                                                              ['id']
-                                                          .toString());
-                                                },
-                                                icon: const Icon(Icons.print),
-                                                label: const Text("Print")),
-                                          )
-                                        : Center(
-                                            child: ElevatedButton.icon(
-                                                style: ElevatedButton.styleFrom(
-                                                    primary: Colors.orange),
-                                                onPressed: () {
-                                                  _payment.paymentPost(_payment
-                                                          .paymentList[index]
-                                                      ["id"]);
-                                                },
-                                                icon: const Icon(
-                                                  Icons.attach_money,
-                                                ),
-                                                label: const Text("Pay Now")),
-                                          ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Obx(
-                              () => _payment.paymentList[index]["status"] ==
-                                      "PAID"
-                                  ? const Positioned(
-                                      top: 40,
-                                      right: 10,
-                                      child: Icon(
-                                        Icons.check_circle,
-                                        color: Colors.green,
-                                      ))
-                                  : const SizedBox(),
-                            ),
-                          ],
-                        );
-                      }),
-            ),
-            Jarak(tinggi: 30)
-          ],
+                                                              ["payment_amount"]
+                                                          .toString()),
+                                                  style: const TextStyle(
+                                                    fontFamily: 'PoppinsBold',
+                                                    fontSize: 28,
+                                                  )),
+                                            ),
+                                            Jarak(tinggi: 25),
+                                            Text(
+                                                _payment.paymentList[index]
+                                                            ['payment_type'] ==
+                                                        1
+                                                    ? "Due Date " +
+                                                        _payment
+                                                            .paymentList[index]
+                                                                ["due_date"]
+                                                            .toString()
+                                                    : "*If there's a discrepancy in the amount, please contact admin via Ticketing.*",
+                                                style: const TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 12,
+                                                )),
+
+                                            Jarak(tinggi: 10),
+                                            Obx(
+                                              () => _payment.paymentList[index]
+                                                          ["status"] ==
+                                                      'PAID'
+                                                  ? ElevatedButton(
+                                                      style: ElevatedButton
+                                                          .styleFrom(
+                                                              primary: Colors
+                                                                  .black54),
+                                                      onPressed: () {
+                                                        _payment.printKwitansi(
+                                                            _payment
+                                                                .paymentList[
+                                                                    index]['id']
+                                                                .toString());
+                                                      },
+                                                      child:
+                                                          const Text("Print"))
+                                                  : ElevatedButton(
+                                                      style: ElevatedButton
+                                                          .styleFrom(
+                                                              primary: Colors
+                                                                  .red[900]),
+                                                      onPressed: () {
+                                                        _payment.paymentPost(
+                                                            _payment.paymentList[
+                                                                index]["id"]);
+                                                      },
+                                                      child: const Text(
+                                                          "Pay Now")),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Obx(
+                                        () => _payment.paymentList[index]
+                                                    ["status"] ==
+                                                "PAID"
+                                            ? const Positioned(
+                                                top: 40,
+                                                right: 10,
+                                                child: Icon(
+                                                  Icons.check_circle,
+                                                  color: Colors.green,
+                                                ))
+                                            : const SizedBox(),
+                                      ),
+                                    ],
+                                  );
+                                }),
+                      ),
+                      Jarak(tinggi: 30)
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }

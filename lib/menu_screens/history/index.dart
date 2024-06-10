@@ -29,6 +29,7 @@ class _HistoryPageState extends State<HistoryPage> {
         Image.asset(
           "images/white_bg.png",
           width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
           fit: BoxFit.cover,
         ),
         Scaffold(
@@ -103,7 +104,7 @@ class _HistoryPageState extends State<HistoryPage> {
                               } else if (_history.historyList[index]
                                       ['payment_status'] ==
                                   "CANCELLED") {
-                                warna = Colors.red.shade100;
+                                warna = Colors.red.shade50;
                               }
 
                               return Container(
@@ -124,6 +125,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                       children: [
                                         const Text("Transaction Date",
                                             style: TextStyle(
+                                                color: Colors.black54,
                                                 fontFamily: 'Poppins')),
                                         Text(
                                             _utils.getOnlyDate(_history
@@ -132,6 +134,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                                 .toString()),
                                             style: const TextStyle(
                                                 fontFamily: 'PoppinsBold',
+                                                color: Colors.black54,
                                                 fontSize: 15)),
                                       ],
                                     ),
@@ -142,12 +145,14 @@ class _HistoryPageState extends State<HistoryPage> {
                                       children: [
                                         const Text("User",
                                             style: TextStyle(
+                                                color: Colors.black54,
                                                 fontFamily: 'Poppins')),
                                         Text(
                                             _history.historyList[index]['name']
                                                 .toString(),
                                             style: const TextStyle(
                                                 fontFamily: 'PoppinsBold',
+                                                color: Colors.black54,
                                                 fontSize: 15)),
                                       ],
                                     ),
@@ -156,8 +161,9 @@ class _HistoryPageState extends State<HistoryPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        const Text("Facility Name",
+                                        const Text("Facility",
                                             style: TextStyle(
+                                                color: Colors.black54,
                                                 fontFamily: 'Poppins')),
                                         Text(
                                             _history.historyList[index]
@@ -165,6 +171,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                                 .toString(),
                                             style: const TextStyle(
                                                 fontFamily: 'PoppinsBold',
+                                                color: Colors.black54,
                                                 fontSize: 15)),
                                       ],
                                     ),
@@ -175,6 +182,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                       children: [
                                         const Text("Invoice",
                                             style: TextStyle(
+                                                color: Colors.black54,
                                                 fontFamily: 'Poppins')),
                                         Text(
                                             _history.historyList[index]
@@ -182,6 +190,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                                 .toString(),
                                             style: const TextStyle(
                                                 fontFamily: 'PoppinsBold',
+                                                color: Colors.black54,
                                                 fontSize: 15)),
                                       ],
                                     ),
@@ -192,6 +201,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                       children: [
                                         const Text("Booking Date",
                                             style: TextStyle(
+                                                color: Colors.black54,
                                                 fontFamily: 'Poppins')),
                                         Text(
                                             _utils.getOnlyDate(_history
@@ -200,6 +210,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                                 .toString()),
                                             style: const TextStyle(
                                                 fontFamily: 'PoppinsBold',
+                                                color: Colors.black54,
                                                 fontSize: 15)),
                                       ],
                                     ),
@@ -210,6 +221,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                       children: [
                                         const Text("Booking Time",
                                             style: TextStyle(
+                                                color: Colors.black54,
                                                 fontFamily: 'Poppins')),
                                         Text(
                                             _history.historyList[index]
@@ -222,6 +234,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                                 ":00",
                                             style: const TextStyle(
                                                 fontFamily: 'PoppinsBold',
+                                                color: Colors.black54,
                                                 fontSize: 15)),
                                       ],
                                     ),
@@ -232,6 +245,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                       children: [
                                         const Text("Quantity",
                                             style: TextStyle(
+                                                color: Colors.black54,
                                                 fontFamily: 'Poppins')),
                                         Text(
                                             _history.historyList[index]
@@ -239,6 +253,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                                 .toString(),
                                             style: const TextStyle(
                                                 fontFamily: 'PoppinsBold',
+                                                color: Colors.black54,
                                                 fontSize: 15)),
                                       ],
                                     ),
@@ -249,6 +264,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                       children: [
                                         const Text("Total Price",
                                             style: TextStyle(
+                                                color: Colors.black54,
                                                 fontFamily: 'Poppins')),
                                         Text(
                                             _history.historyList[index]
@@ -262,6 +278,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                                         .toString()),
                                             style: const TextStyle(
                                                 fontFamily: 'PoppinsBold',
+                                                color: Colors.black54,
                                                 fontSize: 15)),
                                       ],
                                     ),
@@ -272,6 +289,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                       children: [
                                         const Text("Payment Status",
                                             style: TextStyle(
+                                                color: Colors.black54,
                                                 fontFamily: 'Poppins')),
                                         Text(
                                             _history.historyList[index]
@@ -279,6 +297,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                                 .toString(),
                                             style: const TextStyle(
                                                 fontFamily: 'PoppinsBold',
+                                                color: Colors.black54,
                                                 fontSize: 15)),
                                       ],
                                     ),
@@ -306,8 +325,8 @@ class _HistoryPageState extends State<HistoryPage> {
                                                 child: ElevatedButton(
                                                     style: ElevatedButton
                                                         .styleFrom(
-                                                            primary:
-                                                                Colors.orange),
+                                                            primary: Colors
+                                                                .red[900]),
                                                     onPressed: () {
                                                       _history.paymentProcess(
                                                           _history.historyList[
