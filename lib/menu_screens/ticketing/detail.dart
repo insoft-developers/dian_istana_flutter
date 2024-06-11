@@ -50,7 +50,7 @@ class _TicketingDetailState extends State<TicketingDetail> {
           //   title: Text(
           //     widget.subject,
           //     style: const TextStyle(
-          //         color: Colors.green, fontFamily: 'PoppinsBold', fontSize: 15),
+          //         color: Colors.green, fontFamily: 'RubikBold', fontSize: 15),
           //   ),
           // ),
           floatingActionButton: Container(
@@ -75,7 +75,7 @@ class _TicketingDetailState extends State<TicketingDetail> {
                   Container(
                     margin: const EdgeInsets.only(top: 5),
                     child: const Text("POWERED BY",
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 10)),
+                        style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
                   ),
                   Image.asset(
                     "images/logo_line.png",
@@ -102,7 +102,7 @@ class _TicketingDetailState extends State<TicketingDetail> {
                         width: MediaQuery.of(context).size.width - 100,
                         child: Text(widget.subject,
                             style: const TextStyle(
-                                fontFamily: 'Poppins',
+                                fontFamily: 'Rubik',
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16)),
@@ -136,7 +136,7 @@ class _TicketingDetailState extends State<TicketingDetail> {
                                 child: const Text(
                                     "Ticketing services will only respond during working hours: From 09:00 AM to 03:00 PM. We strive to provide the best service and thank you for your understanding.",
                                     style: TextStyle(
-                                      fontFamily: 'Poppins',
+                                      fontFamily: 'Rubik',
                                     )),
                               ),
                               Jarak(tinggi: 10),
@@ -196,7 +196,8 @@ class _TicketingDetailState extends State<TicketingDetail> {
                                                           .toString(),
                                                       style: const TextStyle(
                                                           fontFamily:
-                                                              'PoppinsBold',
+                                                              'RubikBold',
+                                                          color: Colors.black54,
                                                           fontSize: 15),
                                                     ),
                                                     Text(
@@ -205,13 +206,14 @@ class _TicketingDetailState extends State<TicketingDetail> {
                                                               ["waktu"]
                                                           .toString(),
                                                       style: const TextStyle(
-                                                          fontFamily: 'Poppins',
+                                                          fontFamily: 'Rubik',
                                                           fontSize: 13),
                                                     ),
                                                   ],
                                                 ),
                                               ],
                                             ),
+                                            Jarak(tinggi: 10),
                                             Html(
                                               data: _ticketing.detailData[index]
                                                       ["message"]
@@ -241,7 +243,7 @@ class _TicketingDetailState extends State<TicketingDetail> {
                                                     int.parse(paymentId));
                                               },
                                               defaultTextStyle: const TextStyle(
-                                                  fontFamily: 'Poppins',
+                                                  fontFamily: 'Rubik',
                                                   fontSize: 14),
                                             ),
                                             Jarak(tinggi: 10),
@@ -287,7 +289,7 @@ class _TicketingDetailState extends State<TicketingDetail> {
                                                                     .toString(),
                                                             style: TextStyle(
                                                                 fontFamily:
-                                                                    'Poppins',
+                                                                    'Rubik',
                                                                 color: Colors
                                                                     .blue[900],
                                                                 decoration:

@@ -1,6 +1,7 @@
 import 'package:dianistana/components/jarak.dart';
 import 'package:dianistana/components/spasi.dart';
 import 'package:dianistana/controllers/utils_controller.dart';
+import 'package:dianistana/menu_screens/booking/ticket.dart';
 import 'package:dianistana/menu_screens/history/history_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -44,7 +45,7 @@ class _HistoryPageState extends State<HistoryPage> {
                   Container(
                     margin: const EdgeInsets.only(top: 5),
                     child: const Text("POWERED BY",
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 10)),
+                        style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
                   ),
                   Image.asset(
                     "images/logo_line.png",
@@ -69,7 +70,7 @@ class _HistoryPageState extends State<HistoryPage> {
                       Spasi(lebar: 10),
                       const Text("BOOKING HISTORY",
                           style: TextStyle(
-                              fontFamily: 'Poppins',
+                              fontFamily: 'Rubik',
                               color: Colors.black54,
                               fontWeight: FontWeight.bold,
                               fontSize: 16))
@@ -104,13 +105,13 @@ class _HistoryPageState extends State<HistoryPage> {
                               } else if (_history.historyList[index]
                                       ['payment_status'] ==
                                   "CANCELLED") {
-                                warna = Colors.red.shade50;
+                                warna = Colors.black12;
                               }
 
                               return Container(
                                 decoration: BoxDecoration(
                                     border: Border.all(color: Colors.black54),
-                                    borderRadius: BorderRadius.circular(5),
+                                    borderRadius: BorderRadius.circular(10),
                                     color: warna),
                                 margin:
                                     const EdgeInsets.symmetric(vertical: 10),
@@ -126,19 +127,19 @@ class _HistoryPageState extends State<HistoryPage> {
                                         const Text("Transaction Date",
                                             style: TextStyle(
                                                 color: Colors.black54,
-                                                fontFamily: 'Poppins')),
+                                                fontFamily: 'Rubik')),
                                         Text(
                                             _utils.getOnlyDate(_history
                                                 .historyList[index]
                                                     ['created_at']
                                                 .toString()),
                                             style: const TextStyle(
-                                                fontFamily: 'PoppinsBold',
+                                                fontFamily: 'RubikBold',
                                                 color: Colors.black54,
-                                                fontSize: 15)),
+                                                fontSize: 14)),
                                       ],
                                     ),
-                                    Jarak(tinggi: 5),
+                                    Jarak(tinggi: 10),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
@@ -146,17 +147,17 @@ class _HistoryPageState extends State<HistoryPage> {
                                         const Text("User",
                                             style: TextStyle(
                                                 color: Colors.black54,
-                                                fontFamily: 'Poppins')),
+                                                fontFamily: 'Rubik')),
                                         Text(
                                             _history.historyList[index]['name']
                                                 .toString(),
                                             style: const TextStyle(
-                                                fontFamily: 'PoppinsBold',
+                                                fontFamily: 'RubikBold',
                                                 color: Colors.black54,
-                                                fontSize: 15)),
+                                                fontSize: 14)),
                                       ],
                                     ),
-                                    Jarak(tinggi: 5),
+                                    Jarak(tinggi: 10),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
@@ -164,18 +165,18 @@ class _HistoryPageState extends State<HistoryPage> {
                                         const Text("Facility",
                                             style: TextStyle(
                                                 color: Colors.black54,
-                                                fontFamily: 'Poppins')),
+                                                fontFamily: 'Rubik')),
                                         Text(
                                             _history.historyList[index]
                                                     ['name_unit']
                                                 .toString(),
                                             style: const TextStyle(
-                                                fontFamily: 'PoppinsBold',
+                                                fontFamily: 'RubikBold',
                                                 color: Colors.black54,
-                                                fontSize: 15)),
+                                                fontSize: 14)),
                                       ],
                                     ),
-                                    Jarak(tinggi: 5),
+                                    Jarak(tinggi: 10),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
@@ -183,18 +184,18 @@ class _HistoryPageState extends State<HistoryPage> {
                                         const Text("Invoice",
                                             style: TextStyle(
                                                 color: Colors.black54,
-                                                fontFamily: 'Poppins')),
+                                                fontFamily: 'Rubik')),
                                         Text(
                                             _history.historyList[index]
                                                     ['invoice']
                                                 .toString(),
                                             style: const TextStyle(
-                                                fontFamily: 'PoppinsBold',
+                                                fontFamily: 'RubikBold',
                                                 color: Colors.black54,
-                                                fontSize: 15)),
+                                                fontSize: 14)),
                                       ],
                                     ),
-                                    Jarak(tinggi: 5),
+                                    Jarak(tinggi: 10),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
@@ -202,19 +203,19 @@ class _HistoryPageState extends State<HistoryPage> {
                                         const Text("Booking Date",
                                             style: TextStyle(
                                                 color: Colors.black54,
-                                                fontFamily: 'Poppins')),
+                                                fontFamily: 'Rubik')),
                                         Text(
                                             _utils.getOnlyDate(_history
                                                 .historyList[index]
                                                     ['booking_date']
                                                 .toString()),
                                             style: const TextStyle(
-                                                fontFamily: 'PoppinsBold',
+                                                fontFamily: 'RubikBold',
                                                 color: Colors.black54,
-                                                fontSize: 15)),
+                                                fontSize: 14)),
                                       ],
                                     ),
-                                    Jarak(tinggi: 5),
+                                    Jarak(tinggi: 10),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
@@ -222,7 +223,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                         const Text("Booking Time",
                                             style: TextStyle(
                                                 color: Colors.black54,
-                                                fontFamily: 'Poppins')),
+                                                fontFamily: 'Rubik')),
                                         Text(
                                             _history.historyList[index]
                                                         ['start_time']
@@ -233,12 +234,12 @@ class _HistoryPageState extends State<HistoryPage> {
                                                     .toString() +
                                                 ":00",
                                             style: const TextStyle(
-                                                fontFamily: 'PoppinsBold',
+                                                fontFamily: 'RubikBold',
                                                 color: Colors.black54,
-                                                fontSize: 15)),
+                                                fontSize: 14)),
                                       ],
                                     ),
-                                    Jarak(tinggi: 5),
+                                    Jarak(tinggi: 10),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
@@ -246,18 +247,18 @@ class _HistoryPageState extends State<HistoryPage> {
                                         const Text("Quantity",
                                             style: TextStyle(
                                                 color: Colors.black54,
-                                                fontFamily: 'Poppins')),
+                                                fontFamily: 'Rubik')),
                                         Text(
                                             _history.historyList[index]
                                                     ['quantity']
                                                 .toString(),
                                             style: const TextStyle(
-                                                fontFamily: 'PoppinsBold',
+                                                fontFamily: 'RubikBold',
                                                 color: Colors.black54,
-                                                fontSize: 15)),
+                                                fontSize: 14)),
                                       ],
                                     ),
-                                    Jarak(tinggi: 5),
+                                    Jarak(tinggi: 10),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
@@ -265,7 +266,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                         const Text("Total Price",
                                             style: TextStyle(
                                                 color: Colors.black54,
-                                                fontFamily: 'Poppins')),
+                                                fontFamily: 'Rubik')),
                                         Text(
                                             _history.historyList[index]
                                                         ['total_price'] ==
@@ -277,12 +278,12 @@ class _HistoryPageState extends State<HistoryPage> {
                                                             ['total_price']
                                                         .toString()),
                                             style: const TextStyle(
-                                                fontFamily: 'PoppinsBold',
+                                                fontFamily: 'RubikBold',
                                                 color: Colors.black54,
-                                                fontSize: 15)),
+                                                fontSize: 14)),
                                       ],
                                     ),
-                                    Jarak(tinggi: 5),
+                                    Jarak(tinggi: 10),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
@@ -290,15 +291,15 @@ class _HistoryPageState extends State<HistoryPage> {
                                         const Text("Payment Status",
                                             style: TextStyle(
                                                 color: Colors.black54,
-                                                fontFamily: 'Poppins')),
+                                                fontFamily: 'Rubik')),
                                         Text(
                                             _history.historyList[index]
                                                     ['payment_status']
                                                 .toString(),
                                             style: const TextStyle(
-                                                fontFamily: 'PoppinsBold',
+                                                fontFamily: 'RubikBold',
                                                 color: Colors.black54,
-                                                fontSize: 15)),
+                                                fontSize: 14)),
                                       ],
                                     ),
                                     Jarak(tinggi: 10),
@@ -311,9 +312,14 @@ class _HistoryPageState extends State<HistoryPage> {
                                                 style: ElevatedButton.styleFrom(
                                                     primary: Colors.red[900]),
                                                 onPressed: () {
-                                                  _history.printTicket(_history
-                                                      .historyList[index]["id"]
-                                                      .toString());
+                                                  // _history.printTicket(_history
+                                                  //     .historyList[index]["id"]
+                                                  //     .toString());
+
+                                                  Get.to(() => TicketPage(
+                                                        dataList: _history
+                                                            .historyList[index],
+                                                      ));
                                                 },
                                                 child: const Text("PRINT")),
                                           )

@@ -59,7 +59,7 @@ class _TicketingPageState extends State<TicketingPage> {
                   Container(
                     margin: const EdgeInsets.only(top: 5),
                     child: const Text("POWERED BY",
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 10)),
+                        style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
                   ),
                   Image.asset(
                     "images/logo_line.png",
@@ -84,7 +84,7 @@ class _TicketingPageState extends State<TicketingPage> {
                       Spasi(lebar: 10),
                       const Text("TICKETING",
                           style: TextStyle(
-                              fontFamily: 'Poppins',
+                              fontFamily: 'Rubik',
                               color: Colors.black54,
                               fontWeight: FontWeight.bold,
                               fontSize: 16))
@@ -142,7 +142,7 @@ class _TicketingPageState extends State<TicketingPage> {
                                                       ["ticket_number"]
                                                   .toString(),
                                               style: const TextStyle(
-                                                  fontFamily: 'Poppins',
+                                                  fontFamily: 'Rubik',
                                                   fontWeight: FontWeight.w500,
                                                   fontSize: 14)),
                                           Text(
@@ -150,7 +150,7 @@ class _TicketingPageState extends State<TicketingPage> {
                                                       ["category"]
                                                   .toString(),
                                               style: const TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontWeight: FontWeight.w500,
                                                   color: Colors.blue,
                                                   fontSize: 14)),
@@ -167,16 +167,17 @@ class _TicketingPageState extends State<TicketingPage> {
                                                       ["subject"]
                                                   .toString(),
                                           style: const TextStyle(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Rubik',
                                               fontWeight: FontWeight.bold,
+                                              color: Colors.black54,
                                               fontSize: 14)),
+                                      Jarak(tinggi: 10),
                                       Html(
                                         data: "Description : " +
                                             _ticket.ticketList[index]["pesan"]
                                                 .toString(),
                                         defaultTextStyle: const TextStyle(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 14),
+                                            fontFamily: 'Rubik', fontSize: 14),
                                       ),
                                       Jarak(tinggi: 5),
                                       Row(
@@ -189,7 +190,7 @@ class _TicketingPageState extends State<TicketingPage> {
                                                       ["created_at"]
                                                   .toString()),
                                               style: const TextStyle(
-                                                  fontFamily: 'Poppins',
+                                                  fontFamily: 'Rubik',
                                                   fontWeight: FontWeight.w500,
                                                   fontSize: 14)),
                                           Text(
@@ -198,7 +199,7 @@ class _TicketingPageState extends State<TicketingPage> {
                                                       ["updated_at"]
                                                   .toString()),
                                               style: const TextStyle(
-                                                  fontFamily: 'Poppins',
+                                                  fontFamily: 'Rubik',
                                                   fontWeight: FontWeight.bold,
                                                   color: Colors.red,
                                                   fontSize: 14)),

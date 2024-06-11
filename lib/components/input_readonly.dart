@@ -48,7 +48,7 @@ class InputReadonly extends StatelessWidget {
           ),
           hintText: hint,
           hintStyle: const TextStyle(
-              fontFamily: 'Poppins', fontSize: 15, color: Colors.grey),
+              fontFamily: 'Rubik', fontSize: 15, color: Colors.grey),
           enabledBorder: InputBorder.none,
           focusedBorder: InputBorder.none,
         ),

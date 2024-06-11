@@ -39,7 +39,7 @@ class _ReplyState extends State<Reply> {
                   Container(
                     margin: const EdgeInsets.only(top: 5),
                     child: const Text("POWERED BY",
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 10)),
+                        style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
                   ),
                   Image.asset(
                     "images/logo_line.png",
@@ -64,7 +64,7 @@ class _ReplyState extends State<Reply> {
                       Spasi(lebar: 10),
                       const Text("REPLY",
                           style: TextStyle(
-                              fontFamily: 'Poppins',
+                              fontFamily: 'Rubik',
                               color: Colors.black54,
                               fontWeight: FontWeight.bold,
                               fontSize: 16))
@@ -104,7 +104,7 @@ class _ReplyState extends State<Reply> {
                                         ? "1 file attached"
                                         : "Attach Files.....",
                                     style: const TextStyle(
-                                        fontFamily: 'Poppins', fontSize: 15)),
+                                        fontFamily: 'Rubik', fontSize: 15)),
                               ],
                             ),
                           ),
@@ -128,7 +128,7 @@ class _ReplyState extends State<Reply> {
                                   borderRadius: BorderRadius.circular(2)),
                               child: const Text("Processing....",
                                   style: TextStyle(
-                                      fontFamily: 'Poppins',
+                                      fontFamily: 'Rubik',
                                       fontSize: 15,
                                       color: Colors.green,
                                       fontWeight: FontWeight.bold)),
@@ -144,7 +144,7 @@ class _ReplyState extends State<Reply> {
                                         widget.number, _messageText.text);
                                   },
                                   child: const Text("Submit",
-                                      style: TextStyle(fontFamily: 'Poppins'))),
+                                      style: TextStyle(fontFamily: 'Rubik'))),
                             )),
                     ],
                   ),

@@ -42,7 +42,7 @@ class TextAreaCustom extends StatelessWidget {
             decoration: InputDecoration(
                 hintText: hint,
                 hintStyle:
-                    const TextStyle(fontFamily: 'Poppins', color: Colors.grey),
+                    const TextStyle(fontFamily: 'Rubik', color: Colors.grey),
                 enabledBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,
                 contentPadding: const EdgeInsets.only(left: 40, top: 20)),

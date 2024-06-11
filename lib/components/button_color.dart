@@ -24,7 +24,7 @@ class ButtonColor extends StatelessWidget {
             textAlign: TextAlign.center,
             style: const TextStyle(
                 color: Colors.white,
-                fontFamily: 'Poppins',
+                fontFamily: 'Rubik',
                 fontWeight: FontWeight.bold,
                 fontSize: 15)),
       ),

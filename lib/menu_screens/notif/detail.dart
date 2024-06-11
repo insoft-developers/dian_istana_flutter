@@ -42,7 +42,7 @@ class _NotifDetailState extends State<NotifDetail> {
                   Container(
                     margin: const EdgeInsets.only(top: 5),
                     child: const Text("POWERED BY",
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 10)),
+                        style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
                   ),
                   Image.asset(
                     "images/logo_line.png",
@@ -67,7 +67,7 @@ class _NotifDetailState extends State<NotifDetail> {
                       Spasi(lebar: 10),
                       const Text("NOTIFICATION DETAIL",
                           style: TextStyle(
-                              fontFamily: 'Poppins',
+                              fontFamily: 'Rubik',
                               color: Colors.black54,
                               fontWeight: FontWeight.bold,
                               fontSize: 16))
@@ -83,7 +83,7 @@ class _NotifDetailState extends State<NotifDetail> {
                     children: [
                       Text(widget.dataList["title"],
                           style: const TextStyle(
-                              fontFamily: 'PoppinsBold', fontSize: 22)),
+                              fontFamily: 'RubikBold', fontSize: 22)),
                       Jarak(tinggi: 15),
                       widget.dataList["image"] != null
                           ? ClipRRect(
@@ -98,7 +98,7 @@ class _NotifDetailState extends State<NotifDetail> {
                       Jarak(tinggi: 20),
                       Text(widget.dataList["message"],
                           style: const TextStyle(
-                            fontFamily: 'Poppins',
+                            fontFamily: 'Rubik',
                           )),
                       Jarak(tinggi: 20),
                       Text(
@@ -106,7 +106,7 @@ class _NotifDetailState extends State<NotifDetail> {
                               ", " +
                               widget.dataList["waktu"],
                           style: const TextStyle(
-                              fontFamily: 'Poppins',
+                              fontFamily: 'Rubik',
                               fontSize: 12,
                               fontWeight: FontWeight.w600)),
                     ],

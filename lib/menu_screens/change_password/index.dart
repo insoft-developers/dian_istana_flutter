@@ -39,7 +39,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                   Container(
                     margin: const EdgeInsets.only(top: 5),
                     child: const Text("POWERED BY",
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 10)),
+                        style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
                   ),
                   Image.asset(
                     "images/logo_line.png",
@@ -64,7 +64,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                       Spasi(lebar: 10),
                       const Text("CHANGE PASSWORD",
                           style: TextStyle(
-                              fontFamily: 'Poppins',
+                              fontFamily: 'Rubik',
                               color: Colors.black54,
                               fontWeight: FontWeight.bold,
                               fontSize: 16))
@@ -112,7 +112,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                                       borderRadius: BorderRadius.circular(2)),
                                   child: const Text("Processing....",
                                       style: TextStyle(
-                                          fontFamily: 'Poppins',
+                                          fontFamily: 'Rubik',
                                           fontSize: 15,
                                           color: Colors.green,
                                           fontWeight: FontWeight.bold)),

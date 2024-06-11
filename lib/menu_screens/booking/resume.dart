@@ -45,8 +45,7 @@ class _ResumePageState extends State<ResumePage> {
                     Container(
                       margin: const EdgeInsets.only(top: 5),
                       child: const Text("POWERED BY",
-                          style:
-                              TextStyle(fontFamily: 'Poppins', fontSize: 10)),
+                          style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
                     ),
                     Image.asset(
                       "images/logo_line.png",
@@ -71,7 +70,7 @@ class _ResumePageState extends State<ResumePage> {
                         Spasi(lebar: 10),
                         const Text("BOOKING RESUME",
                             style: TextStyle(
-                                fontFamily: 'Poppins',
+                                fontFamily: 'Rubik',
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16))
@@ -98,10 +97,10 @@ class _ResumePageState extends State<ResumePage> {
                               children: [
                                 const Text("Facility",
                                     style: TextStyle(
-                                        fontFamily: 'Poppins', fontSize: 14)),
+                                        fontFamily: 'Rubik', fontSize: 14)),
                                 Text(widget.dataList["name_unit"].toString(),
                                     style: const TextStyle(
-                                        fontFamily: 'PoppinsBold',
+                                        fontFamily: 'RubikBold',
                                         fontSize: 15,
                                         color: Colors.black54))
                               ],
@@ -121,10 +120,10 @@ class _ResumePageState extends State<ResumePage> {
                               children: [
                                 const Text("Category",
                                     style: TextStyle(
-                                        fontFamily: 'Poppins', fontSize: 14)),
+                                        fontFamily: 'Rubik', fontSize: 14)),
                                 Text(widget.dataList["kategori"].toString(),
                                     style: const TextStyle(
-                                        fontFamily: 'PoppinsBold',
+                                        fontFamily: 'RubikBold',
                                         fontSize: 15,
                                         color: Colors.black54))
                               ],
@@ -144,10 +143,10 @@ class _ResumePageState extends State<ResumePage> {
                               children: [
                                 const Text("Transaction Date",
                                     style: TextStyle(
-                                        fontFamily: 'Poppins', fontSize: 14)),
+                                        fontFamily: 'Rubik', fontSize: 14)),
                                 Text(getCurrentDate(),
                                     style: const TextStyle(
-                                        fontFamily: 'PoppinsBold',
+                                        fontFamily: 'RubikBold',
                                         fontSize: 15,
                                         color: Colors.black54))
                               ],
@@ -167,10 +166,10 @@ class _ResumePageState extends State<ResumePage> {
                               children: [
                                 const Text("Invoice",
                                     style: TextStyle(
-                                        fontFamily: 'Poppins', fontSize: 14)),
+                                        fontFamily: 'Rubik', fontSize: 14)),
                                 Text(_booking.invoice.value.toString(),
                                     style: const TextStyle(
-                                        fontFamily: 'PoppinsBold',
+                                        fontFamily: 'RubikBold',
                                         fontSize: 15,
                                         color: Colors.black54))
                               ],
@@ -190,12 +189,12 @@ class _ResumePageState extends State<ResumePage> {
                               children: [
                                 const Text("Booking Date",
                                     style: TextStyle(
-                                        fontFamily: 'Poppins', fontSize: 14)),
+                                        fontFamily: 'Rubik', fontSize: 14)),
                                 Text(
                                     _utils.getOnlyDate(
                                         _booking.selectedDate.value.toString()),
                                     style: const TextStyle(
-                                        fontFamily: 'PoppinsBold',
+                                        fontFamily: 'RubikBold',
                                         fontSize: 15,
                                         color: Colors.black54))
                               ],
@@ -215,10 +214,10 @@ class _ResumePageState extends State<ResumePage> {
                               children: [
                                 const Text("Package",
                                     style: TextStyle(
-                                        fontFamily: 'Poppins', fontSize: 14)),
+                                        fontFamily: 'Rubik', fontSize: 14)),
                                 Text(_booking.packageName.value.toString(),
                                     style: const TextStyle(
-                                        fontFamily: 'PoppinsBold',
+                                        fontFamily: 'RubikBold',
                                         fontSize: 15,
                                         color: Colors.black54))
                               ],
@@ -238,12 +237,12 @@ class _ResumePageState extends State<ResumePage> {
                               children: [
                                 const Text("Start Time",
                                     style: TextStyle(
-                                        fontFamily: 'Poppins', fontSize: 14)),
+                                        fontFamily: 'Rubik', fontSize: 14)),
                                 Text(
                                     _booking.selectedHour.value.toString() +
                                         ":00 WIB",
                                     style: const TextStyle(
-                                        fontFamily: 'PoppinsBold',
+                                        fontFamily: 'RubikBold',
                                         fontSize: 15,
                                         color: Colors.black54))
                               ],
@@ -263,12 +262,12 @@ class _ResumePageState extends State<ResumePage> {
                               children: [
                                 const Text("Finish Time",
                                     style: TextStyle(
-                                        fontFamily: 'Poppins', fontSize: 14)),
+                                        fontFamily: 'Rubik', fontSize: 14)),
                                 Text(
                                     _booking.selectedFinish.value.toString() +
                                         ":00 WIB",
                                     style: const TextStyle(
-                                        fontFamily: 'PoppinsBold',
+                                        fontFamily: 'RubikBold',
                                         fontSize: 15,
                                         color: Colors.black54))
                               ],
@@ -288,10 +287,10 @@ class _ResumePageState extends State<ResumePage> {
                               children: [
                                 const Text("Quantity/Number Of Users",
                                     style: TextStyle(
-                                        fontFamily: 'Poppins', fontSize: 14)),
+                                        fontFamily: 'Rubik', fontSize: 14)),
                                 Text(_booking.quantity.value.toString(),
                                     style: const TextStyle(
-                                        fontFamily: 'PoppinsBold',
+                                        fontFamily: 'RubikBold',
                                         fontSize: 15,
                                         color: Colors.black54))
                               ],
@@ -311,14 +310,14 @@ class _ResumePageState extends State<ResumePage> {
                               children: [
                                 const Text("Total Price",
                                     style: TextStyle(
-                                        fontFamily: 'Poppins', fontSize: 14)),
+                                        fontFamily: 'Rubik', fontSize: 14)),
                                 Text(
                                     "Rp. " +
                                         _utils.formatAmount(_booking
                                             .totalPrice.value
                                             .toString()),
                                     style: const TextStyle(
-                                        fontFamily: 'PoppinsBold',
+                                        fontFamily: 'RubikBold',
                                         fontSize: 15,
                                         color: Colors.black54))
                               ],
@@ -333,7 +332,7 @@ class _ResumePageState extends State<ResumePage> {
                               },
                               child: const Text("BOOKING NOW",
                                   style: TextStyle(
-                                      fontFamily: 'PoppinsBold', fontSize: 15)))
+                                      fontFamily: 'RubikBold', fontSize: 15)))
                         ],
                       )),
                 ),
@@ -362,7 +361,7 @@ class _ResumePageState extends State<ResumePage> {
           child: const Text("Yes",
               style: TextStyle(
                 color: Colors.white,
-                fontFamily: 'Poppins',
+                fontFamily: 'Rubik',
               ))),
       onPressed: () {
         _bookingController.sendTransaction();
@@ -373,12 +372,12 @@ class _ResumePageState extends State<ResumePage> {
     AlertDialog alert = AlertDialog(
       title: const Text("Booking Confirmation",
           style: TextStyle(
-            fontFamily: 'PoppinsBold',
+            fontFamily: 'RubikBold',
             color: Colors.green,
           )),
       content: const Text("Are you sure to confirm this booking...?",
           style: TextStyle(
-            fontFamily: 'Poppins',
+            fontFamily: 'Rubik',
             fontSize: 15,
           )),
       actions: [

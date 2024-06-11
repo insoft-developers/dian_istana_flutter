@@ -46,8 +46,7 @@ class _UserDataState extends State<UserData> {
                     Container(
                       margin: const EdgeInsets.only(top: 5),
                       child: const Text("POWERED BY",
-                          style:
-                              TextStyle(fontFamily: 'Poppins', fontSize: 10)),
+                          style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
                     ),
                     Image.asset(
                       "images/logo_line.png",
@@ -72,7 +71,7 @@ class _UserDataState extends State<UserData> {
                         Spasi(lebar: 10),
                         const Text("USER DATA",
                             style: TextStyle(
-                                fontFamily: 'Poppins',
+                                fontFamily: 'Rubik',
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16))
@@ -109,7 +108,7 @@ class _UserDataState extends State<UserData> {
                                           width: 200,
                                           child: Text("Main Data",
                                               style: TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 22,
                                                   color: Colors.white)),
                                         ),
@@ -131,7 +130,7 @@ class _UserDataState extends State<UserData> {
                                       children: [
                                         const Text("Cluster Block",
                                             style: TextStyle(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Rubik',
                                               fontSize: 13,
                                             )),
                                         Spasi(lebar: 10),
@@ -140,7 +139,7 @@ class _UserDataState extends State<UserData> {
                                               _userData.userData["blok"]
                                                   .toString(),
                                               style: const TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 14,
                                                   color: Colors.black54)),
                                         ),
@@ -162,7 +161,7 @@ class _UserDataState extends State<UserData> {
                                       children: [
                                         const Text("House Number",
                                             style: TextStyle(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Rubik',
                                               fontSize: 13,
                                             )),
                                         Spasi(lebar: 10),
@@ -171,7 +170,7 @@ class _UserDataState extends State<UserData> {
                                               _userData.userData["nomor_rumah"]
                                                   .toString(),
                                               style: const TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 14,
                                                   color: Colors.black54)),
                                         ),
@@ -193,7 +192,7 @@ class _UserDataState extends State<UserData> {
                                       children: [
                                         const Text("Owner Name",
                                             style: TextStyle(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Rubik',
                                               fontSize: 13,
                                             )),
                                         Spasi(lebar: 10),
@@ -204,7 +203,7 @@ class _UserDataState extends State<UserData> {
                                               _userData.userData["name"]
                                                   .toString(),
                                               style: const TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 14,
                                                   color: Colors.black54),
                                               textAlign: TextAlign.right,
@@ -229,7 +228,7 @@ class _UserDataState extends State<UserData> {
                                       children: [
                                         const Text("Address",
                                             style: TextStyle(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Rubik',
                                               fontSize: 13,
                                             )),
                                         Spasi(lebar: 10),
@@ -241,7 +240,7 @@ class _UserDataState extends State<UserData> {
                                                       "alamat_surat_menyurat"]
                                                   .toString(),
                                               style: const TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 14,
                                                   color: Colors.black54),
                                               textAlign: TextAlign.right,
@@ -266,7 +265,7 @@ class _UserDataState extends State<UserData> {
                                       children: [
                                         const Text("Phone",
                                             style: TextStyle(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Rubik',
                                               fontSize: 13,
                                             )),
                                         Spasi(lebar: 10),
@@ -278,7 +277,7 @@ class _UserDataState extends State<UserData> {
                                                       "nomor_telepon_rumah"]
                                                   .toString(),
                                               style: const TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 14,
                                                   color: Colors.black54),
                                               textAlign: TextAlign.right,
@@ -303,7 +302,7 @@ class _UserDataState extends State<UserData> {
                                       children: [
                                         const Text("Start Occupying",
                                             style: TextStyle(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Rubik',
                                               fontSize: 13,
                                             )),
                                         Spasi(lebar: 10),
@@ -315,7 +314,7 @@ class _UserDataState extends State<UserData> {
                                                   .userData["mulai_menempati"]
                                                   .toString()),
                                               style: const TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 14,
                                                   color: Colors.black54),
                                               textAlign: TextAlign.right,
@@ -343,7 +342,7 @@ class _UserDataState extends State<UserData> {
                                           width: 200,
                                           child: Text("Instalation & Equipment",
                                               style: TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 22,
                                                   color: Colors.white)),
                                         ),
@@ -365,7 +364,7 @@ class _UserDataState extends State<UserData> {
                                       children: [
                                         const Text("Electric Power",
                                             style: TextStyle(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Rubik',
                                               fontSize: 13,
                                             )),
                                         Spasi(lebar: 10),
@@ -377,7 +376,7 @@ class _UserDataState extends State<UserData> {
                                                       .toString() +
                                                   " WATT",
                                               style: const TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 14,
                                                   color: Colors.black54),
                                               textAlign: TextAlign.right,
@@ -402,7 +401,7 @@ class _UserDataState extends State<UserData> {
                                       children: [
                                         const Text("Surface Area",
                                             style: TextStyle(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Rubik',
                                               fontSize: 13,
                                             )),
                                         Spasi(lebar: 10),
@@ -414,7 +413,7 @@ class _UserDataState extends State<UserData> {
                                                       .toString() +
                                                   " m2",
                                               style: const TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 14,
                                                   color: Colors.black54),
                                               textAlign: TextAlign.right,
@@ -439,7 +438,7 @@ class _UserDataState extends State<UserData> {
                                       children: [
                                         const Text("Monthly Fees",
                                             style: TextStyle(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Rubik',
                                               fontSize: 13,
                                             )),
                                         Spasi(lebar: 10),
@@ -451,7 +450,7 @@ class _UserDataState extends State<UserData> {
                                                   .userData["iuran_bulanan"]
                                                   .toString()),
                                               style: const TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 14,
                                                   color: Colors.black54),
                                               textAlign: TextAlign.right,
@@ -476,7 +475,7 @@ class _UserDataState extends State<UserData> {
                                       children: [
                                         const Text("ID PDAM",
                                             style: TextStyle(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Rubik',
                                               fontSize: 13,
                                             )),
                                         Spasi(lebar: 10),
@@ -488,7 +487,7 @@ class _UserDataState extends State<UserData> {
                                                   .userData["id_pelanggan_pdam"]
                                                   .toString(),
                                               style: const TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 14,
                                                   color: Colors.black54),
                                               textAlign: TextAlign.right,
@@ -513,7 +512,7 @@ class _UserDataState extends State<UserData> {
                                       children: [
                                         const Text("NO METER PLN",
                                             style: TextStyle(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Rubik',
                                               fontSize: 13,
                                             )),
                                         Spasi(lebar: 10),
@@ -525,7 +524,7 @@ class _UserDataState extends State<UserData> {
                                                   .userData["nomor_meter_pln"]
                                                   .toString(),
                                               style: const TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 14,
                                                   color: Colors.black54),
                                               textAlign: TextAlign.right,
@@ -550,7 +549,7 @@ class _UserDataState extends State<UserData> {
                                       children: [
                                         const Text("Emergency WA",
                                             style: TextStyle(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Rubik',
                                               fontSize: 13,
                                             )),
                                         Spasi(lebar: 10),
@@ -562,7 +561,7 @@ class _UserDataState extends State<UserData> {
                                                       "whatsapp_emergency"]
                                                   .toString(),
                                               style: const TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 14,
                                                   color: Colors.black54),
                                               textAlign: TextAlign.right,
@@ -590,7 +589,7 @@ class _UserDataState extends State<UserData> {
                                           width: 220,
                                           child: Text("Other Informations",
                                               style: TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 22,
                                                   color: Colors.white)),
                                         ),
@@ -612,7 +611,7 @@ class _UserDataState extends State<UserData> {
                                       children: [
                                         const Text("Whatsapp",
                                             style: TextStyle(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Rubik',
                                               fontSize: 13,
                                             )),
                                         Spasi(lebar: 10),
@@ -623,7 +622,7 @@ class _UserDataState extends State<UserData> {
                                               _userData.userData["no_hp"]
                                                   .toString(),
                                               style: const TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 14,
                                                   color: Colors.black54),
                                               textAlign: TextAlign.right,
@@ -648,7 +647,7 @@ class _UserDataState extends State<UserData> {
                                       children: [
                                         const Text("Gender",
                                             style: TextStyle(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Rubik',
                                               fontSize: 13,
                                             )),
                                         Spasi(lebar: 10),
@@ -660,7 +659,7 @@ class _UserDataState extends State<UserData> {
                                                   .userData["jenis_kelamin"]
                                                   .toString(),
                                               style: const TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 14,
                                                   color: Colors.black54),
                                               textAlign: TextAlign.right,
@@ -685,7 +684,7 @@ class _UserDataState extends State<UserData> {
                                       children: [
                                         const Text("Username",
                                             style: TextStyle(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Rubik',
                                               fontSize: 13,
                                             )),
                                         Spasi(lebar: 10),
@@ -696,7 +695,7 @@ class _UserDataState extends State<UserData> {
                                               _userData.userData["username"]
                                                   .toString(),
                                               style: const TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 14,
                                                   color: Colors.black54),
                                               textAlign: TextAlign.right,
@@ -721,7 +720,7 @@ class _UserDataState extends State<UserData> {
                                       children: [
                                         const Text("Email",
                                             style: TextStyle(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Rubik',
                                               fontSize: 13,
                                             )),
                                         Spasi(lebar: 10),
@@ -732,7 +731,7 @@ class _UserDataState extends State<UserData> {
                                               _userData.userData["email"]
                                                   .toString(),
                                               style: const TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 14,
                                                   color: Colors.black54),
                                               textAlign: TextAlign.right,

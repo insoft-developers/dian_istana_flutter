@@ -55,7 +55,7 @@ class _AddTicketState extends State<AddTicket> {
                   Container(
                     margin: const EdgeInsets.only(top: 5),
                     child: const Text("POWERED BY",
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 10)),
+                        style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
                   ),
                   Image.asset(
                     "images/logo_line.png",
@@ -80,7 +80,7 @@ class _AddTicketState extends State<AddTicket> {
                       Spasi(lebar: 10),
                       const Text("ADD NEW TICKET",
                           style: TextStyle(
-                              fontFamily: 'Poppins',
+                              fontFamily: 'Rubik',
                               color: Colors.black54,
                               fontWeight: FontWeight.bold,
                               fontSize: 16))
@@ -152,7 +152,7 @@ class _AddTicketState extends State<AddTicket> {
                                           ? "1 file attached"
                                           : "Attach Files.....",
                                       style: const TextStyle(
-                                          fontFamily: 'Poppins', fontSize: 15)),
+                                          fontFamily: 'Rubik', fontSize: 15)),
                                 ],
                               ),
                             ),
@@ -182,7 +182,7 @@ class _AddTicketState extends State<AddTicket> {
                                               BorderRadius.circular(2)),
                                       child: const Text("Processing....",
                                           style: TextStyle(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Rubik',
                                               fontSize: 15,
                                               color: Colors.green,
                                               fontWeight: FontWeight.bold)),
@@ -197,7 +197,7 @@ class _AddTicketState extends State<AddTicket> {
                                       },
                                       child: const Text("Submit",
                                           style:
-                                              TextStyle(fontFamily: 'Poppins')),
+                                              TextStyle(fontFamily: 'Rubik')),
                                     )),
                             )
                           ],

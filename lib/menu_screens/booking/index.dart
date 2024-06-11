@@ -45,7 +45,7 @@ class _BookingPageState extends State<BookingPage> {
                   Container(
                     margin: const EdgeInsets.only(top: 5),
                     child: const Text("POWERED BY",
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 10)),
+                        style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
                   ),
                   Image.asset(
                     "images/logo_line.png",
@@ -70,7 +70,7 @@ class _BookingPageState extends State<BookingPage> {
                       Spasi(lebar: 10),
                       const Text("BOOKING",
                           style: TextStyle(
-                              fontFamily: 'Poppins',
+                              fontFamily: 'Rubik',
                               color: Colors.black54,
                               fontWeight: FontWeight.bold,
                               fontSize: 16))
@@ -145,7 +145,7 @@ class _BookingPageState extends State<BookingPage> {
                                                       ['name_unit']
                                                   .toString(),
                                               style: const TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   color: Colors.white)))
                                     ],
                                   ),

@@ -55,7 +55,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   Container(
                     margin: const EdgeInsets.only(top: 5),
                     child: const Text("POWERED BY",
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 10)),
+                        style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
                   ),
                   Image.asset(
                     "images/logo_line.png",
@@ -68,7 +68,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 margin: const EdgeInsets.only(left: 20),
                 child: const Text(
                   "Welcome Home, ",
-                  style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
+                  style: TextStyle(fontFamily: 'Rubik', fontSize: 12),
                 ),
               ),
               Container(
@@ -76,7 +76,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 child: Obx(
                   () => Text(
                     _dashboard.userName.value,
-                    style: const TextStyle(fontFamily: 'PoppinsBold'),
+                    style: const TextStyle(fontFamily: 'RubikBold'),
                   ),
                 ),
               ),
@@ -117,7 +117,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                     child: Text(
                                       "BOOKINGS",
                                       style: TextStyle(
-                                          fontFamily: 'Poppins', fontSize: 12),
+                                          fontFamily: 'Rubik', fontSize: 12),
                                     ),
                                   )
                                 ],
@@ -155,7 +155,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                     child: Text(
                                       "TICKETING",
                                       style: TextStyle(
-                                          fontFamily: 'Poppins', fontSize: 12),
+                                          fontFamily: 'Rubik', fontSize: 12),
                                     ),
                                   )
                                 ],
@@ -202,7 +202,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                     child: Text(
                                       "PAYMENT",
                                       style: TextStyle(
-                                          fontFamily: 'Poppins', fontSize: 12),
+                                          fontFamily: 'Rubik', fontSize: 12),
                                     ),
                                   )
                                 ],
@@ -240,7 +240,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                     child: Text(
                                       "HISTORY",
                                       style: TextStyle(
-                                          fontFamily: 'Poppins', fontSize: 12),
+                                          fontFamily: 'Rubik', fontSize: 12),
                                     ),
                                   )
                                 ],
@@ -287,7 +287,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                     child: Text(
                                       "PROFILE",
                                       style: TextStyle(
-                                          fontFamily: 'Poppins', fontSize: 12),
+                                          fontFamily: 'Rubik', fontSize: 12),
                                     ),
                                   )
                                 ],
@@ -325,7 +325,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                     child: Text(
                                       "USER DATA",
                                       style: TextStyle(
-                                          fontFamily: 'Poppins', fontSize: 12),
+                                          fontFamily: 'Rubik', fontSize: 12),
                                     ),
                                   )
                                 ],
@@ -363,7 +363,7 @@ class _DashboardPageState extends State<DashboardPage> {
           child: const Text("Yes",
               style: TextStyle(
                 color: Colors.white,
-                fontFamily: 'Poppins',
+                fontFamily: 'Rubik',
               ))),
       onPressed: () {
         _login.logout();
@@ -373,12 +373,12 @@ class _DashboardPageState extends State<DashboardPage> {
     AlertDialog alert = AlertDialog(
       title: const Text("Exit Application",
           style: TextStyle(
-            fontFamily: 'PoppinsBold',
+            fontFamily: 'RubikBold',
             color: Colors.green,
           )),
       content: const Text("Are you sure to exit from application...?",
           style: TextStyle(
-            fontFamily: 'Poppins',
+            fontFamily: 'Rubik',
             fontSize: 15,
           )),
       actions: [

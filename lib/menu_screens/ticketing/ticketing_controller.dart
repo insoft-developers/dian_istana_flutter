@@ -159,7 +159,7 @@ class TicketingController extends GetxController {
           child: Text(
             "Select Department",
             style: TextStyle(
-                fontFamily: 'Poppins', fontSize: 14, color: Colors.grey),
+                fontFamily: 'Rubik', fontSize: 14, color: Colors.grey),
           ),
           value: ""),
     );
@@ -184,7 +184,7 @@ class TicketingController extends GetxController {
           child: Text(
             "Select Priority",
             style: TextStyle(
-                fontFamily: 'Poppins', fontSize: 14, color: Colors.grey),
+                fontFamily: 'Rubik', fontSize: 14, color: Colors.grey),
           ),
           value: ""),
     );
@@ -256,7 +256,7 @@ class TicketingController extends GetxController {
       content: Html(
         data: n,
         defaultTextStyle: const TextStyle(
-            color: Colors.white, fontFamily: 'Poppins', fontSize: 14),
+            color: Colors.white, fontFamily: 'Rubik', fontSize: 14),
       ),
     ));
   }

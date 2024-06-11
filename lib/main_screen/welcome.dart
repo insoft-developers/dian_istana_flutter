@@ -57,7 +57,7 @@ class Welcome extends StatelessWidget {
                       const Text("Welcome, ",
                           style: TextStyle(
                               color: Colors.white,
-                              fontFamily: 'Poppins',
+                              fontFamily: 'Rubik',
                               fontSize: 12)),
                       Spasi(lebar: 5),
                       GestureDetector(
@@ -67,7 +67,7 @@ class Welcome extends StatelessWidget {
                         child: const Text("Login ",
                             style: TextStyle(
                                 color: Colors.white,
-                                fontFamily: 'Poppins',
+                                fontFamily: 'Rubik',
                                 fontWeight: FontWeight.bold,
                                 fontSize: 12)),
                       ),
@@ -87,7 +87,7 @@ class Welcome extends StatelessWidget {
                     child: const Text("Forgot Password? ",
                         style: TextStyle(
                             color: Colors.white,
-                            fontFamily: 'Poppins',
+                            fontFamily: 'Rubik',
                             fontSize: 12)),
                   ),
                   Jarak(tinggi: 8),

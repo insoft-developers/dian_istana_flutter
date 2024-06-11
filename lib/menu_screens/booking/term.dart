@@ -29,7 +29,7 @@ class _TermState extends State<Term> {
         backgroundColor: Colors.white,
         title: const Text(
           "Term & Conditions",
-          style: TextStyle(color: Colors.green, fontFamily: 'PoppinsBold'),
+          style: TextStyle(color: Colors.green, fontFamily: 'RubikBold'),
         ),
       ),
       body: Container(
@@ -44,8 +44,8 @@ class _TermState extends State<Term> {
                     Obx(
                       () => Html(
                         data: _booking.settingList["term"].toString(),
-                        defaultTextStyle: const TextStyle(
-                            fontFamily: 'Poppins', fontSize: 15),
+                        defaultTextStyle:
+                            const TextStyle(fontFamily: 'Rubik', fontSize: 15),
                       ),
                     ),
                   ],

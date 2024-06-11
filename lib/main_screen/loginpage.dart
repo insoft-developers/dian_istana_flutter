@@ -70,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                   "",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontFamily: 'PoppinsBold',
+                      fontFamily: 'RubikBold',
                       fontSize: 32,
                       fontWeight: FontWeight.bold),
                 )),
@@ -104,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                 //     child: const Text("Forgot Password?",
                 //         textAlign: TextAlign.right,
                 //         style: TextStyle(
-                //             fontFamily: 'PoppinsBold', color: Colors.black)),
+                //             fontFamily: 'RubikBold', color: Colors.black)),
                 //   ),
                 // ),
                 Jarak(tinggi: 50),
@@ -122,7 +122,7 @@ class _LoginPageState extends State<LoginPage> {
                                   borderRadius: BorderRadius.circular(2)),
                               child: const Text("Processing....",
                                   style: TextStyle(
-                                      fontFamily: 'Poppins',
+                                      fontFamily: 'Rubik',
                                       fontSize: 15,
                                       color: Colors.green,
                                       fontWeight: FontWeight.bold)),
@@ -145,7 +145,7 @@ class _LoginPageState extends State<LoginPage> {
                     //   },
                     //   child: const Text("Forgot Password?",
                     //       style: TextStyle(
-                    //           fontFamily: 'Poppins',
+                    //           fontFamily: 'Rubik',
                     //           color: Colors.white,
                     //           fontSize: 12)),
                     // )

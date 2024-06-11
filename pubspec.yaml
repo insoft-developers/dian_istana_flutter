@@ -48,6 +48,7 @@ dependencies:
   url_launcher: ^6.0.0
   google_fonts: ^2.1.0
   accordion: ^2.2.0
+  qr_flutter: ^4.0.0
   flutter_html: ^0.8.2
   intl: ^0.18.1
   flutter_inappwebview: ^5.4.0
@@ -114,6 +115,8 @@ flutter:
     - images/tiket.png
     - images/logo_line.png
     - images/left.png
+    - images/cip.png
+    - images/bayar.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -148,5 +151,21 @@ flutter:
     - family: PoppinsItalic
       fonts:
         - asset: assets/fonts/Poppins-Italic.ttf
+
+    - family: Rubik
+      fonts:
+        - asset: assets/fonts/Rubik-Regular.ttf
+
+    - family: RubikBold
+      fonts:
+        - asset: assets/fonts/Rubik-Bold.ttf
+
+    - family: RubikLight
+      fonts:
+        - asset: assets/fonts/Rubik-Light.ttf
+
+    - family: RubikMedium
+      fonts:
+        - asset: assets/fonts/Rubik-Medium.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

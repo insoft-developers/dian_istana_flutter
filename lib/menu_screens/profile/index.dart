@@ -71,8 +71,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Container(
                       margin: const EdgeInsets.only(top: 5),
                       child: const Text("POWERED BY",
-                          style:
-                              TextStyle(fontFamily: 'Poppins', fontSize: 10)),
+                          style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
                     ),
                     Image.asset(
                       "images/logo_line.png",
@@ -97,7 +96,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         Spasi(lebar: 10),
                         const Text("PROFILE",
                             style: TextStyle(
-                                fontFamily: 'Poppins',
+                                fontFamily: 'Rubik',
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16))
@@ -295,7 +294,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                   BorderRadius.circular(2)),
                                           child: const Text("Processing....",
                                               style: TextStyle(
-                                                  fontFamily: 'Poppins',
+                                                  fontFamily: 'Rubik',
                                                   fontSize: 15,
                                                   color: Colors.green,
                                                   fontWeight: FontWeight.bold)),
@@ -326,7 +325,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   },
                                   child: const Text("Change Password",
                                       style: TextStyle(
-                                          fontFamily: 'Poppins',
+                                          fontFamily: 'Rubik',
                                           fontWeight: FontWeight.w600)),
                                 ),
                               ),
@@ -338,7 +337,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   },
                                   child: const Text("LOGOUT",
                                       style: TextStyle(
-                                          fontFamily: 'PoppinsBold',
+                                          fontFamily: 'RubikBold',
                                           color: Colors.red,
                                           fontWeight: FontWeight.w600)),
                                 ),

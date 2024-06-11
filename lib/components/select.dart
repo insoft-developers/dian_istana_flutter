@@ -45,7 +45,7 @@ class Select extends StatelessWidget {
             ),
             hintText: hint,
             hintStyle: const TextStyle(
-                fontFamily: 'Poppins', fontSize: 13, color: Colors.grey),
+                fontFamily: 'Rubik', fontSize: 13, color: Colors.grey),
             enabledBorder: InputBorder.none,
             focusedBorder: InputBorder.none,
           ),

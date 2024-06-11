@@ -46,7 +46,7 @@ class _NotifPageState extends State<NotifPage> {
                   Container(
                     margin: const EdgeInsets.only(top: 5),
                     child: const Text("POWERED BY",
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 10)),
+                        style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
                   ),
                   Image.asset(
                     "images/logo_line.png",
@@ -71,7 +71,7 @@ class _NotifPageState extends State<NotifPage> {
                       Spasi(lebar: 10),
                       const Text("NOTIFICATIONS",
                           style: TextStyle(
-                              fontFamily: 'Poppins',
+                              fontFamily: 'Rubik',
                               color: Colors.black54,
                               fontWeight: FontWeight.bold,
                               fontSize: 16))
@@ -118,7 +118,7 @@ class _NotifPageState extends State<NotifPage> {
                                               _notif.notifList[index]["title"]
                                                   .toString(),
                                               style: const TextStyle(
-                                                  fontFamily: 'Poppins',
+                                                  fontFamily: 'Rubik',
                                                   fontSize: 13,
                                                   fontWeight: FontWeight.w600,
                                                   color: Colors.green)),
@@ -128,7 +128,7 @@ class _NotifPageState extends State<NotifPage> {
                                                       ["pesan_singkat"]
                                                   .toString(),
                                               style: const TextStyle(
-                                                fontFamily: 'Poppins',
+                                                fontFamily: 'Rubik',
                                                 fontSize: 13,
                                               )),
                                           Jarak(tinggi: 40),
@@ -138,7 +138,7 @@ class _NotifPageState extends State<NotifPage> {
                                                           ["admin_name"]
                                                       .toString(),
                                               style: const TextStyle(
-                                                  fontFamily: 'PoppinsBold',
+                                                  fontFamily: 'RubikBold',
                                                   fontSize: 13,
                                                   color: Colors.green)),
                                           Jarak(tinggi: 10),
@@ -151,7 +151,7 @@ class _NotifPageState extends State<NotifPage> {
                                                     .toString(),
                                                 textAlign: TextAlign.right,
                                                 style: const TextStyle(
-                                                  fontFamily: 'Poppins',
+                                                  fontFamily: 'Rubik',
                                                   fontSize: 12,
                                                 )),
                                           ),

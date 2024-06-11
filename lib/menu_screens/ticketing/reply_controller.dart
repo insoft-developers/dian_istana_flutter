@@ -103,7 +103,7 @@ class ReplyController extends GetxController {
       content: Html(
         data: n,
         defaultTextStyle: const TextStyle(
-            color: Colors.white, fontFamily: 'Poppins', fontSize: 14),
+            color: Colors.white, fontFamily: 'Rubik', fontSize: 14),
       ),
     ));
   }

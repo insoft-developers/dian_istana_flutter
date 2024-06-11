@@ -46,7 +46,7 @@ class _PaymentPageState extends State<PaymentPage> {
                   Container(
                     margin: const EdgeInsets.only(top: 5),
                     child: const Text("POWERED BY",
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 10)),
+                        style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
                   ),
                   Image.asset(
                     "images/logo_line.png",
@@ -71,7 +71,7 @@ class _PaymentPageState extends State<PaymentPage> {
                       Spasi(lebar: 10),
                       const Text("PAYMENT & BILLS",
                           style: TextStyle(
-                              fontFamily: 'Poppins',
+                              fontFamily: 'Rubik',
                               color: Colors.black54,
                               fontWeight: FontWeight.bold,
                               fontSize: 16))
@@ -132,7 +132,8 @@ class _PaymentPageState extends State<PaymentPage> {
                                                     .toString()
                                                     .toUpperCase(),
                                                 style: const TextStyle(
-                                                    fontFamily: 'PoppinsBold',
+                                                    fontFamily: 'RubikBold',
+                                                    color: Colors.black54,
                                                     fontSize: 15)),
                                             Text(
                                                 _payment.paymentList[index]
@@ -140,7 +141,8 @@ class _PaymentPageState extends State<PaymentPage> {
                                                     .toString()
                                                     .toUpperCase(),
                                                 style: const TextStyle(
-                                                  fontFamily: 'Poppins',
+                                                  fontFamily: 'Rubik',
+                                                  color: Colors.black54,
                                                   fontSize: 14,
                                                 )),
                                             Jarak(tinggi: 5),
@@ -155,7 +157,7 @@ class _PaymentPageState extends State<PaymentPage> {
                                             //             .toString() +
                                             //         " )",
                                             //     style: const TextStyle(
-                                            //         fontFamily: 'Poppins',
+                                            //         fontFamily: 'Rubik',
                                             //         fontSize: 14)),
                                             // Jarak(tinggi: 5),
                                             Jarak(tinggi: 25),
@@ -166,7 +168,7 @@ class _PaymentPageState extends State<PaymentPage> {
                                                     ? "PAID BILLS"
                                                     : "OUTSTANDING BILLS",
                                                 style: const TextStyle(
-                                                  fontFamily: 'Poppins',
+                                                  fontFamily: 'Rubik',
                                                   fontSize: 14,
                                                 )),
 
@@ -181,7 +183,8 @@ class _PaymentPageState extends State<PaymentPage> {
                                                               ["payment_amount"]
                                                           .toString()),
                                                   style: const TextStyle(
-                                                    fontFamily: 'PoppinsBold',
+                                                    fontFamily: 'RubikBold',
+                                                    color: Colors.black54,
                                                     fontSize: 28,
                                                   )),
                                             ),
@@ -197,7 +200,7 @@ class _PaymentPageState extends State<PaymentPage> {
                                                             .toString()
                                                     : "*If there's a discrepancy in the amount, please contact admin via Ticketing.*",
                                                 style: const TextStyle(
-                                                  fontFamily: 'Poppins',
+                                                  fontFamily: 'Rubik',
                                                   fontSize: 12,
                                                 )),
 
