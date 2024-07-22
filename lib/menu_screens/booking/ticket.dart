@@ -36,7 +36,7 @@ class _TicketPageState extends State<TicketPage> {
             backgroundColor: Colors.transparent,
             body: Column(
               children: [
-                Jarak(tinggi: 40),
+                Jarak(tinggi: 50),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -79,14 +79,14 @@ class _TicketPageState extends State<TicketPage> {
                 ),
                 Expanded(
                   child: Container(
-                    margin: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    margin:
+                        const EdgeInsets.symmetric(horizontal: 0, vertical: 50),
                     child: Stack(
                       children: [
                         Image.asset("images/cip.png",
                             width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height,
-                            fit: BoxFit.cover),
+                            fit: BoxFit.fill),
                         Positioned(
                           left: 40,
                           top: 40,

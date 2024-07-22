@@ -38,7 +38,7 @@ class _NotifPageState extends State<NotifPage> {
           backgroundColor: Colors.transparent,
           body: Column(
             children: [
-              Jarak(tinggi: 40),
+              Jarak(tinggi: 50),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -60,7 +60,7 @@ class _NotifPageState extends State<NotifPage> {
                   Get.back();
                 },
                 child: Container(
-                  margin: const EdgeInsets.only(left: 25),
+                  margin: const EdgeInsets.only(left: 30),
                   child: Row(
                     children: [
                       Image.asset(
@@ -82,7 +82,7 @@ class _NotifPageState extends State<NotifPage> {
               Expanded(
                 child: Container(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 15),
+                        horizontal: 30, vertical: 15),
                     child: Obx(
                       () => _notif.loading.value
                           ? SizedBox(

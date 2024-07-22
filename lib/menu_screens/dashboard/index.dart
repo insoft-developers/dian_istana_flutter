@@ -47,7 +47,7 @@ class _DashboardPageState extends State<DashboardPage> {
             shrinkWrap: true,
             physics: const ScrollPhysics(),
             children: [
-              Jarak(tinggi: 10),
+              Jarak(tinggi: 20),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -65,14 +65,14 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
               Jarak(tinggi: 40),
               Container(
-                margin: const EdgeInsets.only(left: 20),
+                margin: const EdgeInsets.only(left: 40),
                 child: const Text(
                   "Welcome Home, ",
                   style: TextStyle(fontFamily: 'Rubik', fontSize: 12),
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(left: 20),
+                margin: const EdgeInsets.only(left: 40),
                 child: Obx(
                   () => Text(
                     _dashboard.userName.value,
@@ -84,7 +84,7 @@ class _DashboardPageState extends State<DashboardPage> {
               const SizedBox(height: 230, child: MainSlider()),
               Jarak(tinggi: 10),
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10),
+                margin: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -168,7 +168,7 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
               Jarak(tinggi: 20),
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10),
+                margin: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -253,7 +253,7 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
               Jarak(tinggi: 20),
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10),
+                margin: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [

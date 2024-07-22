@@ -18,18 +18,18 @@ class Welcome extends StatelessWidget {
             height: MediaQuery.of(context).size.height,
             fit: BoxFit.cover),
         Positioned(
-          top: 80,
-          left: 60,
+          top: 200,
+          left: 100,
           child: Image.asset(
             "images/splash2.png",
-            width: 180,
-            height: 180,
+            width: 160,
+            height: 160,
             fit: BoxFit.cover,
           ),
         ),
         Positioned(
-          bottom: -400,
-          left: 60,
+          bottom: -450,
+          left: 100,
           child: ClipRRect(
             borderRadius: const BorderRadius.only(topLeft: Radius.circular(10)),
             child: Image.asset(
@@ -47,8 +47,8 @@ class Welcome extends StatelessWidget {
               body: Container(),
             ),
             Positioned(
-              bottom: 80,
-              left: 100,
+              bottom: 200,
+              left: 130,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -71,15 +71,20 @@ class Welcome extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                                 fontSize: 12)),
                       ),
-                      Image.asset(
-                        "images/play.png",
-                        width: 60,
-                        height: 60,
-                        fit: BoxFit.cover,
+                      GestureDetector(
+                        onTap: () {
+                          Get.to(() => const LoginPage());
+                        },
+                        child: Image.asset(
+                          "images/play.png",
+                          width: 60,
+                          height: 60,
+                          fit: BoxFit.cover,
+                        ),
                       )
                     ],
                   ),
-                  Jarak(tinggi: 20),
+                  Jarak(tinggi: 40),
                   GestureDetector(
                     onTap: () {
                       _login.launchURL();

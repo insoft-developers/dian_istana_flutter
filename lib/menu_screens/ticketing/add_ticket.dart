@@ -47,7 +47,7 @@ class _AddTicketState extends State<AddTicket> {
           backgroundColor: Colors.transparent,
           body: Column(
             children: [
-              Jarak(tinggi: 40),
+              Jarak(tinggi: 50),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -91,7 +91,7 @@ class _AddTicketState extends State<AddTicket> {
               Expanded(
                 child: Container(
                     margin: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 15),
+                        horizontal: 30, vertical: 15),
                     child: ListView(
                       shrinkWrap: true,
                       physics: const ScrollPhysics(),

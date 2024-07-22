@@ -45,7 +45,7 @@ class _TransactionState extends State<Transaction> {
          
           body: Column(
             children: [
-             Jarak(tinggi: 40),
+             Jarak(tinggi: 50),
               Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -88,7 +88,7 @@ class _TransactionState extends State<Transaction> {
                   ),
               Expanded(
                 child: Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
                   child: ListView(
                     shrinkWrap:true,
                     physics: const ScrollPhysics(),
@@ -168,7 +168,7 @@ class _TransactionState extends State<Transaction> {
                           height: 60,
                           child:  Center(child: CircularProgressIndicator()))
                : ElevatedButton.icon(
-                            style: ElevatedButton.styleFrom(primary: Colors.black54),
+                            style: ElevatedButton.styleFrom(primary: Colors.red[900]),
                             onPressed: () {
                               _booking.selectBookingDate(_tanggal.text);
                             },

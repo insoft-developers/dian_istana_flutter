@@ -38,7 +38,7 @@ class _UserDataState extends State<UserData> {
             backgroundColor: Colors.transparent,
             body: Column(
               children: [
-                Jarak(tinggi: 40),
+                Jarak(tinggi: 50),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -60,7 +60,7 @@ class _UserDataState extends State<UserData> {
                     Get.back();
                   },
                   child: Container(
-                    margin: const EdgeInsets.only(left: 25),
+                    margin: const EdgeInsets.only(left: 30),
                     child: Row(
                       children: [
                         Image.asset(
@@ -81,7 +81,7 @@ class _UserDataState extends State<UserData> {
                 ),
                 Expanded(
                   child: Container(
-                      margin: const EdgeInsets.all(15),
+                      margin: const EdgeInsets.all(30),
                       child: Obx(
                         () => _userData.loading.value
                             ? SizedBox(

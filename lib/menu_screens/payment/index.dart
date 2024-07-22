@@ -38,7 +38,7 @@ class _PaymentPageState extends State<PaymentPage> {
           backgroundColor: Colors.transparent,
           body: Column(
             children: [
-              Jarak(tinggi: 40),
+              Jarak(tinggi: 50),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -81,7 +81,7 @@ class _PaymentPageState extends State<PaymentPage> {
               ),
               Expanded(
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: ListView(
                     children: [
                       Obx(
@@ -146,20 +146,6 @@ class _PaymentPageState extends State<PaymentPage> {
                                                   fontSize: 14,
                                                 )),
                                             Jarak(tinggi: 5),
-
-                                            // Text(
-                                            //     _payment.paymentList[index]
-                                            //                 ["bill_to"]
-                                            //             .toString() +
-                                            //         " - ( " +
-                                            //         _payment.paymentList[index]
-                                            //                 ["type"]
-                                            //             .toString() +
-                                            //         " )",
-                                            //     style: const TextStyle(
-                                            //         fontFamily: 'Rubik',
-                                            //         fontSize: 14)),
-                                            // Jarak(tinggi: 5),
                                             Jarak(tinggi: 25),
                                             Text(
                                                 _payment.paymentList[index]
@@ -171,7 +157,6 @@ class _PaymentPageState extends State<PaymentPage> {
                                                   fontFamily: 'Rubik',
                                                   fontSize: 14,
                                                 )),
-
                                             SizedBox(
                                               width: MediaQuery.of(context)
                                                   .size
@@ -183,10 +168,11 @@ class _PaymentPageState extends State<PaymentPage> {
                                                               ["payment_amount"]
                                                           .toString()),
                                                   style: const TextStyle(
-                                                    fontFamily: 'RubikBold',
-                                                    color: Colors.black54,
-                                                    fontSize: 28,
-                                                  )),
+                                                      fontFamily: 'Rubik',
+                                                      color: Colors.black54,
+                                                      fontSize: 28,
+                                                      fontWeight:
+                                                          FontWeight.w800)),
                                             ),
                                             Jarak(tinggi: 25),
                                             Text(
@@ -203,7 +189,6 @@ class _PaymentPageState extends State<PaymentPage> {
                                                   fontFamily: 'Rubik',
                                                   fontSize: 12,
                                                 )),
-
                                             Jarak(tinggi: 10),
                                             Obx(
                                               () => _payment.paymentList[index]

@@ -37,7 +37,7 @@ class _BookingPageState extends State<BookingPage> {
           backgroundColor: Colors.transparent,
           body: Column(
             children: [
-              Jarak(tinggi: 40),
+              Jarak(tinggi: 50),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -81,7 +81,7 @@ class _BookingPageState extends State<BookingPage> {
               Expanded(
                 child: Container(
                   margin:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   child: Obx(
                     () => _booking.loading.value
                         ? SizedBox(
@@ -124,7 +124,7 @@ class _BookingPageState extends State<BookingPage> {
                                                                 ["image"]
                                                             .toString(),
                                                     fit: BoxFit.cover,
-                                                    height: 120,
+                                                    height: 130,
                                                     width:
                                                         MediaQuery.of(context)
                                                                 .size
@@ -145,7 +145,7 @@ class _BookingPageState extends State<BookingPage> {
                                                       ['name_unit']
                                                   .toString(),
                                               style: const TextStyle(
-                                                  fontFamily: 'RubikBold',
+                                                  fontFamily: 'Rubik',
                                                   color: Colors.white)))
                                     ],
                                   ),

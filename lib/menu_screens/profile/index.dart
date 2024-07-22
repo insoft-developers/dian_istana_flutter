@@ -63,7 +63,7 @@ class _ProfilePageState extends State<ProfilePage> {
             backgroundColor: Colors.transparent,
             body: Column(
               children: [
-                Jarak(tinggi: 40),
+                Jarak(tinggi: 50),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -106,7 +106,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 Expanded(
                   child: Container(
-                      margin: const EdgeInsets.all(15),
+                      margin: const EdgeInsets.all(30),
                       child: Obx(() => _profile.loading.value
                           ? SizedBox(
                               height: MediaQuery.of(context).size.height,

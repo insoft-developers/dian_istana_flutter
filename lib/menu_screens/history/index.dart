@@ -37,7 +37,7 @@ class _HistoryPageState extends State<HistoryPage> {
           backgroundColor: Colors.transparent,
           body: Column(
             children: [
-              Jarak(tinggi: 40),
+              Jarak(tinggi: 50),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -114,7 +114,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                     borderRadius: BorderRadius.circular(10),
                                     color: warna),
                                 margin:
-                                    const EdgeInsets.symmetric(vertical: 10),
+                                    const EdgeInsets.symmetric(vertical: 15),
                                 padding: const EdgeInsets.symmetric(
                                     vertical: 10, horizontal: 15),
                                 child: Column(
