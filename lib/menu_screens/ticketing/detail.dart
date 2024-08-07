@@ -73,13 +73,11 @@ class _TicketingDetailState extends State<TicketingDetail> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
-                    margin: const EdgeInsets.only(top: 5),
-                    child: const Text("POWERED BY",
-                        style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
-                  ),
-                  Image.asset(
-                    "images/logo_line.png",
-                    height: 22,
+                    margin: const EdgeInsets.only(right: 10),
+                    child: Image.asset(
+                      "images/logo_line.png",
+                      height: 30,
+                    ),
                   ),
                 ],
               ),
@@ -92,12 +90,6 @@ class _TicketingDetailState extends State<TicketingDetail> {
                   margin: const EdgeInsets.only(left: 25),
                   child: Row(
                     children: [
-                      Image.asset(
-                        "images/left.png",
-                        height: 30,
-                        width: 30,
-                      ),
-                      Spasi(lebar: 10),
                       SizedBox(
                         width: MediaQuery.of(context).size.width - 100,
                         child: Text(widget.subject,

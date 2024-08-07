@@ -53,13 +53,11 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
-                    margin: const EdgeInsets.only(top: 5),
-                    child: const Text("POWERED BY",
-                        style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
-                  ),
-                  Image.asset(
-                    "images/logo_line.png",
-                    height: 22,
+                    margin: const EdgeInsets.only(right: 10),
+                    child: Image.asset(
+                      "images/logo_line.png",
+                      height: 30,
+                    ),
                   ),
                 ],
               ),

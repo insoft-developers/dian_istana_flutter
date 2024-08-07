@@ -69,13 +69,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
-                      margin: const EdgeInsets.only(top: 5),
-                      child: const Text("POWERED BY",
-                          style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
-                    ),
-                    Image.asset(
-                      "images/logo_line.png",
-                      height: 22,
+                      margin: const EdgeInsets.only(right: 10),
+                      child: Image.asset(
+                        "images/logo_line.png",
+                        height: 30,
+                      ),
                     ),
                   ],
                 ),
@@ -88,11 +86,6 @@ class _ProfilePageState extends State<ProfilePage> {
                     margin: const EdgeInsets.only(left: 25),
                     child: Row(
                       children: [
-                        Image.asset(
-                          "images/left.png",
-                          height: 30,
-                          width: 30,
-                        ),
                         Spasi(lebar: 10),
                         const Text("PROFILE",
                             style: TextStyle(
@@ -113,108 +106,6 @@ class _ProfilePageState extends State<ProfilePage> {
                               child: const Center(
                                   child: CircularProgressIndicator()))
                           : ListView(children: [
-                              Stack(children: [
-                                Image.asset(
-                                  "images/top_userdata.png",
-                                  width: MediaQuery.of(context).size.width,
-                                  fit: BoxFit.cover,
-                                  height: 100,
-                                ),
-                                Container(
-                                    height: 100,
-                                    width: MediaQuery.of(context).size.width,
-                                    decoration: BoxDecoration(
-                                        color: Colors.white.withOpacity(0.7))),
-                                GetBuilder<ProfileController>(
-                                    builder: (builderController) {
-                                  return Center(
-                                    child: builderController.pickedFile != null
-                                        ? Container(
-                                            margin:
-                                                const EdgeInsets.only(top: 10),
-                                            width: 80,
-                                            height: 80,
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    width: 3.0,
-                                                    color: Colors.green),
-                                                borderRadius:
-                                                    BorderRadius.circular(40)),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(40),
-                                              child: Image.file(
-                                                  File(builderController
-                                                      .pickedFile!.path),
-                                                  fit: BoxFit.cover),
-                                            ),
-                                          )
-                                        : builderController.userData["foto"] !=
-                                                null
-                                            ? Container(
-                                                margin: const EdgeInsets.only(
-                                                    top: 10),
-                                                width: 80,
-                                                height: 80,
-                                                decoration: BoxDecoration(
-                                                    border: Border.all(
-                                                        width: 3.0,
-                                                        color: Colors.green),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            40)),
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(40),
-                                                  child: CachedNetworkImage(
-                                                      imageUrl: Constant
-                                                              .PROFILE_IMAGE +
-                                                          _profile
-                                                              .userData['foto']
-                                                              .toString(),
-                                                      fit: BoxFit.cover),
-                                                ),
-                                              )
-                                            : Container(
-                                                margin: const EdgeInsets.only(
-                                                    top: 10),
-                                                width: 80,
-                                                height: 80,
-                                                decoration: BoxDecoration(
-                                                    border: Border.all(
-                                                        width: 3.0,
-                                                        color: Colors.green),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            40)),
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(40),
-                                                  child: Image.asset(
-                                                      "images/logo.png",
-                                                      fit: BoxFit.cover),
-                                                ),
-                                              ),
-                                  );
-                                }),
-                                Positioned(
-                                  right: 110,
-                                  top: 50,
-                                  child: InkWell(
-                                    onTap: () {
-                                      _profile.pickImage();
-                                    },
-                                    child: Container(
-                                        padding: const EdgeInsets.all(2),
-                                        decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(20)),
-                                        child: const Icon(Icons.edit)),
-                                  ),
-                                )
-                              ]),
-                              Jarak(tinggi: 20),
                               InputReadonly(
                                   hint: "enter name",
                                   textInputType: TextInputType.name,
@@ -245,11 +136,11 @@ class _ProfilePageState extends State<ProfilePage> {
                               Jarak(tinggi: 15),
                               Obx(
                                 () => Select(
-                                    defValue: _profile.genderDefaultValue.value,
-                                    hint: "",
-                                    menuItems: _profile.dropdownGender,
-                                    code: "gender_selection",
-                                    iconData: Icons.man_outlined),
+                                  defValue: _profile.genderDefaultValue.value,
+                                  hint: "",
+                                  menuItems: _profile.dropdownGender,
+                                  code: "gender_selection",
+                                ),
                               ),
                               Jarak(tinggi: 15),
                               InputReguler(
