@@ -99,7 +99,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 Expanded(
                   child: Container(
-                      margin: const EdgeInsets.all(30),
+                      margin: const EdgeInsets.only(
+                          left: 30, right: 30, bottom: 30, top: 10),
                       child: Obx(() => _profile.loading.value
                           ? SizedBox(
                               height: MediaQuery.of(context).size.height,

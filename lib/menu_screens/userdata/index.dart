@@ -73,7 +73,8 @@ class _UserDataState extends State<UserData> {
                 ),
                 Expanded(
                   child: Container(
-                      margin: const EdgeInsets.all(30),
+                      margin: const EdgeInsets.only(
+                          left: 30, top: 10, bottom: 30, right: 30),
                       child: Obx(
                         () => _userData.loading.value
                             ? SizedBox(

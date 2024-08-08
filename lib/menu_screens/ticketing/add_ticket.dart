@@ -70,7 +70,7 @@ class _AddTicketState extends State<AddTicket> {
                   margin: const EdgeInsets.only(left: 40),
                   child: Row(
                     children: const [
-                      Text("ADD NEW TICKET",
+                      Text("ADD SERVICE",
                           style: TextStyle(
                               fontFamily: 'Rubik',
                               color: Colors.black54,
