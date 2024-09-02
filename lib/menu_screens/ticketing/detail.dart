@@ -57,7 +57,7 @@ class _TicketingDetailState extends State<TicketingDetail> {
             margin: const EdgeInsets.only(bottom: 80),
             child: FloatingActionButton(
               backgroundColor: Colors.red[900],
-              tooltip: 'Open New Ticket',
+              tooltip: 'Open New Services',
               onPressed: () {
                 Get.to(() => Reply(number: widget.number))!
                     .then((value) => _ticketing.getDataDetail(widget.number));

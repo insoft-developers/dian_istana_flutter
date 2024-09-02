@@ -85,7 +85,7 @@ class _TicketingPageState extends State<TicketingPage> {
                   margin: const EdgeInsets.only(left: 25),
                   child: Row(
                     children: const [
-                      Text("SERVICE",
+                      Text("SERVICES",
                           style: TextStyle(
                               fontFamily: 'Rubik',
                               color: Colors.black54,

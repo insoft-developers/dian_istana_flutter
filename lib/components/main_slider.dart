@@ -6,6 +6,7 @@ import 'package:dianistana/controllers/dashboard_controller.dart';
 import 'package:dianistana/menu_screens/payment/pay_webview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MainSlider extends StatefulWidget {
   const MainSlider({Key? key}) : super(key: key);
@@ -23,6 +24,10 @@ class _MainSliderState extends State<MainSlider> {
   void initState() {
     _dashboard.getSliderData();
     super.initState();
+  }
+
+  void launchURL(String url) async {
+    launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
   }
 
   @override
@@ -47,8 +52,9 @@ class _MainSliderState extends State<MainSlider> {
               items: _dashboard.sliderList
                   .map((item) => InkWell(
                         onTap: () {
-                          Get.to(() => PayWebview(
-                              paymentUrl: item["link_terkait"].toString()));
+                          // Get.to(() => PayWebview(
+                          //     paymentUrl: item["link_terkait"].toString()));
+                          launchURL(item["link_terkait"].toString());
                         },
                         splashColor: Colors.amber,
                         child: Container(

@@ -53,8 +53,8 @@ class _ReplyState extends State<Reply> {
                 child: Container(
                   margin: const EdgeInsets.only(left: 25),
                   child: Row(
-                    children: [
-                      const Text("REPLY",
+                    children: const [
+                      Text("REPLY",
                           style: TextStyle(
                               fontFamily: 'Rubik',
                               color: Colors.black54,

@@ -190,8 +190,10 @@ class BookingController extends GetxController {
         jam18.value = body['jam18'];
         jam19.value = body['jam19'];
         jam20.value = body['jam20'];
-        print(unitKategori);
         showHourLoading(false);
+      } else {
+        showHourLoading(false);
+        showError(body['message'].toString());
       }
     }
   }

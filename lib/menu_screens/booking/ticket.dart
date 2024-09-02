@@ -137,7 +137,13 @@ class _TicketPageState extends State<TicketPage> {
                                     SizedBox(
                                       width: 40,
                                       child: Text(
-                                          widget.dataList['name'].toString(),
+                                          widget.dataList['name'].toString() +
+                                              ' - ' +
+                                              widget.dataList['blok']
+                                                  .toString() +
+                                              '/' +
+                                              widget.dataList['nomor_rumah']
+                                                  .toString(),
                                           style: const TextStyle(
                                               fontFamily: 'RubikBold',
                                               color: Colors.black54,
