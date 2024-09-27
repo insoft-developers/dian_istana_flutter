@@ -337,13 +337,13 @@ class _ResumePageState extends State<ResumePage> {
   showAlertDialog(BuildContext context) {
     BookingController _bookingController = Get.put(BookingController());
     // set up the buttons
-    Widget cancelButton = FlatButton(
+    Widget cancelButton = TextButton(
       child: const Text("Cancel"),
       onPressed: () {
         Get.back();
       },
     );
-    Widget continueButton = FlatButton(
+    Widget continueButton = TextButton(
       child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           decoration: BoxDecoration(

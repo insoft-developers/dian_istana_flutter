@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:dianistana/api/network.dart';
-import 'package:dianistana/constant.dart';
 import 'package:dianistana/menu_screens/booking/resume.dart';
 import 'package:dianistana/menu_screens/history/index.dart';
 import 'package:dianistana/menu_screens/payment/pay_webview.dart';

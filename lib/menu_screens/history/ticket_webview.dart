@@ -53,7 +53,7 @@ class _TicketWebviewState extends State<TicketWebview> {
                   child: LinearProgressIndicator(
                     value: _progress,
                     backgroundColor:
-                        Theme.of(context).accentColor.withOpacity(0.2),
+                        Theme.of(context).colorScheme.secondary.withOpacity(0.2),
                   ))
               : const SizedBox(),
         ],

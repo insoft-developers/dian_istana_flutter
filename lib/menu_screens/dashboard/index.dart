@@ -3,12 +3,8 @@ import 'package:dianistana/components/main_slider.dart';
 import 'package:dianistana/constant.dart';
 import 'package:dianistana/controllers/dashboard_controller.dart';
 import 'package:dianistana/controllers/login_controller.dart';
-import 'package:dianistana/menu_screens/booking/index.dart';
-import 'package:dianistana/menu_screens/change_password/index.dart';
 import 'package:dianistana/menu_screens/history/index.dart';
-import 'package:dianistana/menu_screens/notif/index.dart';
 import 'package:dianistana/menu_screens/payment/index.dart';
-import 'package:dianistana/menu_screens/payment/pay_webview.dart';
 import 'package:dianistana/menu_screens/profile/index.dart';
 import 'package:dianistana/menu_screens/ticketing/index.dart';
 import 'package:dianistana/menu_screens/userdata/index.dart';
@@ -29,6 +25,7 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   void initState() {
     _dashboard.getUserName();
+    _dashboard.versionCheck();
     super.initState();
   }
 

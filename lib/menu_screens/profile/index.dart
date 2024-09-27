@@ -234,6 +234,17 @@ class _ProfilePageState extends State<ProfilePage> {
                                           fontWeight: FontWeight.w600)),
                                 ),
                               ),
+                              Jarak(tinggi: 30),
+                              Center(
+                                child: Container(
+                                  margin:
+                                      const EdgeInsets.only(left: 15, top: 10),
+                                  child: Text("VERSION " + Constant.VERSION,
+                                      style: const TextStyle(
+                                          fontSize: 16,
+                                          fontFamily: 'RubikBold')),
+                                ),
+                              ),
                               Jarak(tinggi: 50),
                             ]))),
                 ),

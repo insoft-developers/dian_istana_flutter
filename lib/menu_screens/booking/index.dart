@@ -59,8 +59,8 @@ class _BookingPageState extends State<BookingPage> {
                 child: Container(
                   margin: const EdgeInsets.only(left: 30),
                   child: Row(
-                    children: [
-                      const Text("BOOKING",
+                    children: const [
+                      Text("BOOKING",
                           style: TextStyle(
                               fontFamily: 'Rubik',
                               color: Colors.black54,
