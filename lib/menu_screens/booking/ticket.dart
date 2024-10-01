@@ -244,10 +244,10 @@ class _TicketPageState extends State<TicketPage> {
                                     SizedBox(
                                       width: 40,
                                       child: Text(
-                                          widget.dataList['final_price'] == null
+                                          widget.dataList['total_price'] == 0
                                               ? "Free"
                                               : _utils.formatAmount(widget
-                                                  .dataList['final_price']
+                                                  .dataList['total_price']
                                                   .toString()),
                                           style: const TextStyle(
                                               fontFamily: 'RubikBold',

@@ -61,12 +61,55 @@ class BookingController extends GetxController {
   var showHourLoading = false.obs;
   var off_finish = 0.obs;
 
+  var finish7 = 0.obs;
+  var finish8 = 0.obs;
+  var finish9 = 0.obs;
+  var finish10 = 0.obs;
+  var finish11 = 0.obs;
+  var finish12 = 0.obs;
+  var finish13 = 0.obs;
+  var finish14 = 0.obs;
+  var finish15 = 0.obs;
+  var finish16 = 0.obs;
+  var finish17 = 0.obs;
+  var finish18 = 0.obs;
+  var finish19 = 0.obs;
+  var finish20 = 0.obs;
+  var finish21 = 0.obs;
+
+  void bookingFinishCheck() async {
+    var data = {
+      "business_unit_id": unitId.value,
+      "booking_date": selectedDate.value,
+    };
+    var res = await Network().auth(data, '/booking_finish_check');
+    var body = jsonDecode(res.body);
+    if (body['success']) {
+      finish7.value = body['jam7'];
+      finish8.value = body['jam8'];
+      finish9.value = body['jam9'];
+      finish10.value = body['jam10'];
+      finish11.value = body['jam11'];
+      finish12.value = body['jam12'];
+      finish13.value = body['jam13'];
+      finish14.value = body['jam14'];
+      finish15.value = body['jam15'];
+      finish16.value = body['jam16'];
+      finish17.value = body['jam17'];
+      finish18.value = body['jam18'];
+      finish19.value = body['jam19'];
+      finish20.value = body['jam20'];
+      finish21.value = body['jam21'];
+
+      print(body);
+    }
+  }
+
   void paymentProcess(int transId) async {
     var data = {"id": transId};
     var res = await Network().auth(data, '/payment_process');
     var body = jsonDecode(res.body);
     if (body['success']) {
-      print(body);
       Get.to(
           () => PayWebview(paymentUrl: body['data']['paymentUrl'].toString()));
     }
@@ -140,7 +183,7 @@ class BookingController extends GetxController {
           ));
       resumeLoading(false);
     } else {
-      showError(body['message'].toString());
+      showError(totalPrice.value.toString());
       resumeLoading(false);
     }
   }
@@ -189,6 +232,7 @@ class BookingController extends GetxController {
         jam18.value = body['jam18'];
         jam19.value = body['jam19'];
         jam20.value = body['jam20'];
+        bookingFinishCheck();
         showHourLoading(false);
       } else {
         showHourLoading(false);
@@ -200,7 +244,7 @@ class BookingController extends GetxController {
   void setSelectedHour(String jam) {
     selectedHour.value = jam;
     selectedFinish.value = "";
-    checkMiddle(jam);
+    // checkMiddle(jam);
   }
 
   void checkMiddle(String jam) async {
@@ -218,8 +262,6 @@ class BookingController extends GetxController {
       } else {
         off_finish.value = 0;
       }
-
-      print(off_finish);
     }
   }
 
@@ -248,6 +290,7 @@ class BookingController extends GetxController {
     var body = jsonDecode(res.body);
     if (body['success']) {
       totalPrice.value = body['data'];
+      print(body);
     }
   }
 

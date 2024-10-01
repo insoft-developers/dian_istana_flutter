@@ -14,5 +14,5 @@ class Constant {
   static String TICKETING_URL = BASE_URL + "storage/ticketing/";
   static String NOTIF_IMAGE = BASE_URL + "template/images/notif/";
 
-  static String VERSION = "1.0.6";
+  static String VERSION = "1.0.7";
 }
