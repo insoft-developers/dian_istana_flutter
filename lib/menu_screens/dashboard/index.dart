@@ -3,12 +3,8 @@ import 'package:dianistana/components/main_slider.dart';
 import 'package:dianistana/constant.dart';
 import 'package:dianistana/controllers/dashboard_controller.dart';
 import 'package:dianistana/controllers/login_controller.dart';
-import 'package:dianistana/menu_screens/booking/index.dart';
-import 'package:dianistana/menu_screens/change_password/index.dart';
 import 'package:dianistana/menu_screens/history/index.dart';
-import 'package:dianistana/menu_screens/notif/index.dart';
 import 'package:dianistana/menu_screens/payment/index.dart';
-import 'package:dianistana/menu_screens/payment/pay_webview.dart';
 import 'package:dianistana/menu_screens/profile/index.dart';
 import 'package:dianistana/menu_screens/ticketing/index.dart';
 import 'package:dianistana/menu_screens/userdata/index.dart';
@@ -29,6 +25,7 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   void initState() {
     _dashboard.getUserName();
+    _dashboard.versionCheck();
     super.initState();
   }
 
@@ -53,13 +50,11 @@ class _DashboardPageState extends State<DashboardPage> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
-                    margin: const EdgeInsets.only(top: 5),
-                    child: const Text("POWERED BY",
-                        style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
-                  ),
-                  Image.asset(
-                    "images/logo_line.png",
-                    height: 22,
+                    margin: const EdgeInsets.only(right: 10),
+                    child: Image.asset(
+                      "images/logo_line.png",
+                      height: 30,
+                    ),
                   ),
                 ],
               ),
@@ -153,7 +148,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                   Jarak(tinggi: 12),
                                   const Center(
                                     child: Text(
-                                      "TICKETING",
+                                      "SERVICES",
                                       style: TextStyle(
                                           fontFamily: 'Rubik', fontSize: 12),
                                     ),

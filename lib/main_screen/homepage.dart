@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:dianistana/components/jarak.dart';
 import 'package:dianistana/controllers/dashboard_controller.dart';
 import 'package:dianistana/menu_screens/booking/index.dart';
 import 'package:dianistana/menu_screens/dashboard/index.dart';

@@ -1,7 +1,5 @@
-import 'package:dianistana/components/button_color.dart';
 import 'package:dianistana/components/button_login.dart';
 import 'package:dianistana/components/input_login.dart';
-import 'package:dianistana/components/input_text.dart';
 import 'package:dianistana/components/jarak.dart';
 import 'package:dianistana/components/spasi.dart';
 import 'package:dianistana/controllers/login_controller.dart';
@@ -53,13 +51,11 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
-                    margin: const EdgeInsets.only(top: 5),
-                    child: const Text("POWERED BY",
-                        style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
-                  ),
-                  Image.asset(
-                    "images/logo_line.png",
-                    height: 22,
+                    margin: const EdgeInsets.only(right: 10),
+                    child: Image.asset(
+                      "images/logo_line.png",
+                      height: 30,
+                    ),
                   ),
                 ],
               ),
@@ -95,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                             fontSize: 32,
                             fontWeight: FontWeight.bold),
                       )),
-                      Jarak(tinggi: 80),
+                      Jarak(tinggi: 70),
                       Container(
                         margin: const EdgeInsets.only(left: 40),
                         child: InputLogin(
@@ -115,19 +111,6 @@ class _LoginPageState extends State<LoginPage> {
                             textEditingController: _password,
                             obsecureText: true),
                       ),
-                      Jarak(tinggi: 5),
-                      // Container(
-                      //   margin: const EdgeInsets.only(right: 10),
-                      //   child: InkWell(
-                      //     onTap: () {
-                      //       _login.launchURL();
-                      //     },
-                      //     child: const Text("Forgot Password?",
-                      //         textAlign: TextAlign.right,
-                      //         style: TextStyle(
-                      //             fontFamily: 'RubikBold', color: Colors.black)),
-                      //   ),
-                      // ),
                       Jarak(tinggi: 60),
                       Row(
                         children: [
@@ -164,16 +147,16 @@ class _LoginPageState extends State<LoginPage> {
                                         )),
                                   ),
                           ),
-                          // GestureDetector(
-                          //   onTap: () {
-                          //     _login.launchURL();
-                          //   },
-                          //   child: const Text("Forgot Password?",
-                          //       style: TextStyle(
-                          //           fontFamily: 'Rubik',
-                          //           color: Colors.white,
-                          //           fontSize: 12)),
-                          // )
+                          GestureDetector(
+                            onTap: () {
+                              _login.launchURL();
+                            },
+                            child: const Text("Forgot Password?",
+                                style: TextStyle(
+                                    fontFamily: 'Rubik',
+                                    color: Colors.white,
+                                    fontSize: 12)),
+                          )
                         ],
                       )
                     ],

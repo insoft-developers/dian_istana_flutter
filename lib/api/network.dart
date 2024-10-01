@@ -9,7 +9,7 @@ class Network {
   // final String _url = Constant.BASE_URL + 'public/api';
 
   // #LIVE SERVER
-  final String _url = Constant.BASE_URL + 'api';
+  final String _url = Constant.BASE_URL + 'api/v1';
 
   var token;
 

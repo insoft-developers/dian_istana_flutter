@@ -40,13 +40,11 @@ class _NotifDetailState extends State<NotifDetail> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
-                    margin: const EdgeInsets.only(top: 5),
-                    child: const Text("POWERED BY",
-                        style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
-                  ),
-                  Image.asset(
-                    "images/logo_line.png",
-                    height: 22,
+                    margin: const EdgeInsets.only(right: 10),
+                    child: Image.asset(
+                      "images/logo_line.png",
+                      height: 30,
+                    ),
                   ),
                 ],
               ),
@@ -56,16 +54,10 @@ class _NotifDetailState extends State<NotifDetail> {
                   Get.back();
                 },
                 child: Container(
-                  margin: const EdgeInsets.only(left: 25),
+                  margin: const EdgeInsets.only(left: 20),
                   child: Row(
-                    children: [
-                      Image.asset(
-                        "images/left.png",
-                        height: 30,
-                        width: 30,
-                      ),
-                      Spasi(lebar: 10),
-                      const Text("NOTIFICATION DETAIL",
+                    children: const [
+                      Text("NOTIFICATION DETAIL",
                           style: TextStyle(
                               fontFamily: 'Rubik',
                               color: Colors.black54,

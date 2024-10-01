@@ -43,13 +43,11 @@ class _ResumePageState extends State<ResumePage> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
-                      margin: const EdgeInsets.only(top: 5),
-                      child: const Text("POWERED BY",
-                          style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
-                    ),
-                    Image.asset(
-                      "images/logo_line.png",
-                      height: 22,
+                      margin: const EdgeInsets.only(right: 10),
+                      child: Image.asset(
+                        "images/logo_line.png",
+                        height: 30,
+                      ),
                     ),
                   ],
                 ),
@@ -61,14 +59,8 @@ class _ResumePageState extends State<ResumePage> {
                   child: Container(
                     margin: const EdgeInsets.only(left: 25),
                     child: Row(
-                      children: [
-                        Image.asset(
-                          "images/left.png",
-                          height: 30,
-                          width: 30,
-                        ),
-                        Spasi(lebar: 10),
-                        const Text("BOOKING RESUME",
+                      children: const [
+                        Text("BOOKING RESUME",
                             style: TextStyle(
                                 fontFamily: 'Rubik',
                                 color: Colors.black54,
@@ -345,13 +337,13 @@ class _ResumePageState extends State<ResumePage> {
   showAlertDialog(BuildContext context) {
     BookingController _bookingController = Get.put(BookingController());
     // set up the buttons
-    Widget cancelButton = FlatButton(
+    Widget cancelButton = TextButton(
       child: const Text("Cancel"),
       onPressed: () {
         Get.back();
       },
     );
-    Widget continueButton = FlatButton(
+    Widget continueButton = TextButton(
       child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           decoration: BoxDecoration(

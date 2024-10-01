@@ -7,17 +7,15 @@ class Select extends StatelessWidget {
   String defValue;
   String hint;
   List<DropdownMenuItem<String>> menuItems;
-
   String code;
-  IconData iconData;
-  Select(
-      {Key? key,
-      required this.defValue,
-      required this.hint,
-      required this.menuItems,
-      required this.code,
-      required this.iconData})
-      : super(key: key);
+
+  Select({
+    Key? key,
+    required this.defValue,
+    required this.hint,
+    required this.menuItems,
+    required this.code,
+  }) : super(key: key);
 
   final ProfileController _profile = Get.put(ProfileController());
   final TicketingController _ticketing = Get.put(TicketingController());
@@ -39,9 +37,9 @@ class Select extends StatelessWidget {
       child: DropdownButtonFormField(
           decoration: InputDecoration(
             icon: SizedBox(
-              height: 30,
-              width: 30,
-              child: Icon(iconData, color: Colors.grey),
+              height: 25,
+              width: 25,
+              child: Image.asset("images/gender_i.png"),
             ),
             hintText: hint,
             hintStyle: const TextStyle(

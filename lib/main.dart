@@ -2,7 +2,6 @@ import 'package:dianistana/api/firebase_api.dart';
 import 'package:dianistana/controllers/login_controller.dart';
 import 'package:dianistana/main_screen/homepage.dart';
 import 'package:dianistana/main_screen/loginpage.dart';
-import 'package:dianistana/main_screen/welcome.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -53,8 +52,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Obx(() =>
-          // _loginController.isAuth.value ? const HomePage() : const LoginPage()),
-          _loginController.isAuth.value ? const HomePage() : Welcome()),
+          _loginController.isAuth.value ? const HomePage() : const LoginPage()),
+      // _loginController.isAuth.value ? const HomePage() : Welcome()),
     );
   }
 }

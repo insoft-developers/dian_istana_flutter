@@ -42,13 +42,11 @@ class _TicketPageState extends State<TicketPage> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
-                      margin: const EdgeInsets.only(top: 5),
-                      child: const Text("POWERED BY",
-                          style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
-                    ),
-                    Image.asset(
-                      "images/logo_line.png",
-                      height: 22,
+                      margin: const EdgeInsets.only(right: 10),
+                      child: Image.asset(
+                        "images/logo_line.png",
+                        height: 30,
+                      ),
                     ),
                   ],
                 ),
@@ -58,14 +56,9 @@ class _TicketPageState extends State<TicketPage> {
                     Get.back();
                   },
                   child: Container(
-                    margin: const EdgeInsets.only(left: 25),
+                    margin: const EdgeInsets.only(left: 40),
                     child: Row(
                       children: [
-                        Image.asset(
-                          "images/left.png",
-                          height: 30,
-                          width: 30,
-                        ),
                         Spasi(lebar: 10),
                         const Text("BOOKING TICKET",
                             style: TextStyle(
@@ -144,7 +137,13 @@ class _TicketPageState extends State<TicketPage> {
                                     SizedBox(
                                       width: 40,
                                       child: Text(
-                                          widget.dataList['name'].toString(),
+                                          widget.dataList['name'].toString() +
+                                              ' - ' +
+                                              widget.dataList['blok']
+                                                  .toString() +
+                                              '/' +
+                                              widget.dataList['nomor_rumah']
+                                                  .toString(),
                                           style: const TextStyle(
                                               fontFamily: 'RubikBold',
                                               color: Colors.black54,
@@ -245,10 +244,10 @@ class _TicketPageState extends State<TicketPage> {
                                     SizedBox(
                                       width: 40,
                                       child: Text(
-                                          widget.dataList['final_price'] == null
+                                          widget.dataList['total_price'] == 0
                                               ? "Free"
                                               : _utils.formatAmount(widget
-                                                  .dataList['final_price']
+                                                  .dataList['total_price']
                                                   .toString()),
                                           style: const TextStyle(
                                               fontFamily: 'RubikBold',

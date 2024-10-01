@@ -39,15 +39,26 @@ class _TicketingPageState extends State<TicketingPage> {
           backgroundColor: Colors.transparent,
           floatingActionButton: Container(
             margin: const EdgeInsets.only(bottom: 80),
-            child: FloatingActionButton(
-              backgroundColor: Colors.red[900],
-              tooltip: 'Open New Ticket',
-              onPressed: () {
+            child: GestureDetector(
+              onTap: () {
                 Get.to(() => const AddTicket())!
                     .then((value) => _ticket.getTicketingList());
               },
-              child: const Icon(Icons.add, color: Colors.white, size: 28),
+              child: Image.asset(
+                "images/add_service.png",
+                height: 45,
+              ),
             ),
+            //
+            // child: FloatingActionButton(
+            //   backgroundColor: Colors.red[900],
+            //   tooltip: 'Open New Ticket',
+            //   onPressed: () {
+            //     Get.to(() => const AddTicket())!
+            //         .then((value) => _ticket.getTicketingList());
+            //   },
+            //   child: const Icon(Icons.add, color: Colors.white, size: 28),
+            // ),
           ),
           body: Column(
             children: [
@@ -57,13 +68,11 @@ class _TicketingPageState extends State<TicketingPage> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
-                    margin: const EdgeInsets.only(top: 5),
-                    child: const Text("POWERED BY",
-                        style: TextStyle(fontFamily: 'Rubik', fontSize: 10)),
-                  ),
-                  Image.asset(
-                    "images/logo_line.png",
-                    height: 22,
+                    margin: const EdgeInsets.only(right: 10),
+                    child: Image.asset(
+                      "images/logo_line.png",
+                      height: 30,
+                    ),
                   ),
                 ],
               ),
@@ -75,14 +84,8 @@ class _TicketingPageState extends State<TicketingPage> {
                 child: Container(
                   margin: const EdgeInsets.only(left: 25),
                   child: Row(
-                    children: [
-                      Image.asset(
-                        "images/left.png",
-                        height: 30,
-                        width: 30,
-                      ),
-                      Spasi(lebar: 10),
-                      const Text("TICKETING",
+                    children: const [
+                      Text("SERVICES",
                           style: TextStyle(
                               fontFamily: 'Rubik',
                               color: Colors.black54,

@@ -1,6 +1,9 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:dianistana/api/network.dart';
+import 'package:dianistana/constant.dart';
+import 'package:dianistana/main_screen/loginpage.dart';
 import 'package:dianistana/menu_screens/booking/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -11,6 +14,19 @@ class DashboardController extends GetxController {
   var userName = "".obs;
   var sliderList = List.empty().obs;
   var loading = false.obs;
+
+  void versionCheck() async {
+    var data = {"version": Constant.VERSION};
+    var res = await Network().auth(data, '/version_check');
+    var body = jsonDecode(res.body);
+    if (body['success']) {
+    } else {
+      showError(body['message'].toString());
+      Timer(const Duration(seconds: 5), () {
+        logout();
+      });
+    }
+  }
 
   void bookingCheck() async {
     SharedPreferences localStorage = await SharedPreferences.getInstance();
@@ -72,5 +88,15 @@ class DashboardController extends GetxController {
             color: Colors.white, fontFamily: 'Rubik', fontSize: 14),
       ),
     ));
+  }
+
+  void logout() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    var user = jsonDecode(localStorage.getString('user')!);
+    if (user != null) {
+      localStorage.remove('user');
+      localStorage.remove('token');
+      Get.offAll(() => const LoginPage());
+    }
   }
 }

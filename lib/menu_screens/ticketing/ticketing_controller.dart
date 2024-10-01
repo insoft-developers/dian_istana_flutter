@@ -295,9 +295,9 @@ class TicketingController extends GetxController {
     final cameraReq = await Permission.camera.request();
     log('requestStoragePermissions cameraReq ${cameraReq.name} ${cameraReq.isGranted}');
 
-    final audioReq = true;
-    final videosReq = true;
-    final photosReq = true;
+    const audioReq = true;
+    const videosReq = true;
+    const photosReq = true;
 
     var isGranted = storagePermissionIsGranted &&
         accessMediaLocationReq.isGranted &&
