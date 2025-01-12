@@ -3,19 +3,14 @@ import 'dart:convert';
 import 'package:dianistana/controllers/login_controller.dart';
 import 'package:dianistana/main.dart';
 import 'package:dianistana/menu_screens/notif/index.dart';
+import 'package:dianistana/menu_screens/notif/notif_controller.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 
-// final NotificationController _notifs = Get.put(NotificationController());
 final LoginController _logins = Get.put(LoginController());
 Future<void> handleBackgroundMessage(RemoteMessage message) async {
-  print('Title : ${message.notification?.title}');
-  print('Body : ${message.notification?.body}');
-  print('Payload : ${message.data}');
-  // _notifs.addNotif();
-  _logins.updateNotifNumber();
-  print("notif back");
+  print(message.toString());
 }
 
 class FirebaseApi {
@@ -25,7 +20,7 @@ class FirebaseApi {
     'high_importance_channel',
     'High Importance Notifications',
     description: 'This Channel is Used for important Notification',
-    importance: Importance.defaultImportance,
+    importance: Importance.high,
   );
 
   final _localNotifications = FlutterLocalNotificationsPlugin();
@@ -64,7 +59,7 @@ class FirebaseApi {
     FirebaseMessaging.onMessage.listen((message) {
       final notification = message.notification;
       if (notification == null) return;
-      _logins.updateNotifNumber();
+
       _localNotifications.show(
           notification.hashCode,
           notification.title,
@@ -81,14 +76,13 @@ class FirebaseApi {
   Future<void> initNotifications() async {
     await _firebaseMessaging.requestPermission();
     await FirebaseMessaging.instance.subscribeToTopic("dianistana_user");
+    // ignore: unused_local_variable
     final fCMToken = await _firebaseMessaging.getToken().then((value) {
       _logins.updateFCMToken(value.toString());
-      print("token ${value.toString()}");
     });
 
     initPushNotifications();
     initLocalNotifications();
-    _logins.updateNotifNumber();
   }
 
   Future<void> setTopic(String tp) async {

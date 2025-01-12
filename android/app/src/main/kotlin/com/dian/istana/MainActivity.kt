@@ -1,4 +1,4 @@
-package com.insoft.dianistana
+package com.dianistana.mobile
 
 import io.flutter.embedding.android.FlutterActivity
 

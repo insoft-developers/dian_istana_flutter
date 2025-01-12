@@ -1,9 +1,11 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:dianistana/controllers/dashboard_controller.dart';
 import 'package:dianistana/menu_screens/booking/index.dart';
 import 'package:dianistana/menu_screens/dashboard/index.dart';
 import 'package:dianistana/menu_screens/notif/index.dart';
+import 'package:dianistana/menu_screens/notif/notif_controller.dart';
 import 'package:dianistana/menu_screens/payment/index.dart';
 import 'package:dianistana/menu_screens/profile/index.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +19,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Timer? timer;
   final DashboardController _dashboard = Get.put(DashboardController());
+  final NotifController _notif = Get.put(NotifController());
 
   int _currentIndex = 2;
   final List<Widget> _children = [
@@ -53,6 +57,20 @@ class _HomePageState extends State<HomePage> {
           ),
         )) ??
         false;
+  }
+
+  @override
+  void initState() {
+    _dashboard.getBirthday();
+    timer = Timer.periodic(
+        Duration(seconds: 10), (Timer t) => _notif.checkNotifCount());
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
   }
 
   @override
@@ -133,6 +151,24 @@ class _HomePageState extends State<HomePage> {
                       label: 'Profile'),
                 ],
               ),
+            ),
+            Obx(
+              () => _notif.notifCount.value > 0
+                  ? Positioned(
+                      bottom: 60,
+                      left: 115,
+                      child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 6),
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const Text("!",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold))))
+                  : const SizedBox(),
             ),
           ],
         ),

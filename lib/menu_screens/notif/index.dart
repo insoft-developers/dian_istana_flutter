@@ -86,8 +86,16 @@ class _NotifPageState extends State<NotifPage> {
                               itemBuilder: (context, index) {
                                 return GestureDetector(
                                   onTap: () {
-                                    Get.to(() => NotifDetail(
-                                        dataList: _notif.notifList[index]));
+                                    // Get.to(() => NotifDetail(
+                                    //     dataList: _notif.notifList[index]));
+                                    _notif
+                                        .readNotif(
+                                            _notif.notifList[index]['id']
+                                                .toString(),
+                                            index)
+                                        .then((value) {
+                                      _notif.getNotifData();
+                                    });
                                   },
                                   child: Container(
                                       margin: const EdgeInsets.symmetric(
@@ -95,7 +103,11 @@ class _NotifPageState extends State<NotifPage> {
                                       padding: const EdgeInsets.symmetric(
                                           vertical: 10, horizontal: 15),
                                       decoration: BoxDecoration(
-                                          color: Colors.white,
+                                          color: _notif.notifList[index]
+                                                      ['status'] ==
+                                                  1
+                                              ? Colors.white
+                                              : Colors.grey.withOpacity(0.3),
                                           border: Border.all(
                                               color:
                                                   Colors.grey.withOpacity(0.7),

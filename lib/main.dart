@@ -5,14 +5,18 @@ import 'package:dianistana/main_screen/loginpage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp();
 
   await FirebaseApi().initNotifications();
+
+  await Permission.storage.request();
   runApp(const GetMaterialApp(
     debugShowCheckedModeBanner: false,
     home: MyApp(),

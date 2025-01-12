@@ -4,6 +4,7 @@ import 'package:dianistana/components/spasi.dart';
 import 'package:dianistana/constant.dart';
 import 'package:dianistana/menu_screens/payment/payment_controller.dart';
 import 'package:dianistana/menu_screens/ticketing/reply.dart';
+import 'package:dianistana/menu_screens/ticketing/single_download.dart';
 import 'package:dianistana/menu_screens/ticketing/ticketing_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -245,7 +246,7 @@ class _TicketingDetailState extends State<TicketingDetail> {
                                                       const Icon(
                                                           Icons.attach_file),
                                                       GestureDetector(
-                                                        onTap: () {
+                                                        onTap: () async {
                                                           // _ticketing.download(
                                                           //     _ticketing.detailData[index]
                                                           //             ['document']
@@ -256,13 +257,23 @@ class _TicketingDetailState extends State<TicketingDetail> {
                                                           //                 ['document']
                                                           //             .toString());
 
-                                                          _ticketing.launchURL(Constant
-                                                                  .TICKETING_URL +
-                                                              _ticketing
-                                                                  .detailData[
-                                                                      index][
-                                                                      'document']
-                                                                  .toString());
+                                                          // _ticketing.launchURL(Constant
+                                                          //         .TICKETING_URL +
+                                                          //     _ticketing
+                                                          //         .detailData[
+                                                          //             index][
+                                                          //             'document']
+                                                          //         .toString());
+
+                                                          Get.to(() => SingleDownloadScreen(
+                                                              link_url: Constant
+                                                                      .TICKETING_URL +
+                                                                  _ticketing
+                                                                      .detailData[
+                                                                          index]
+                                                                          [
+                                                                          'document']
+                                                                      .toString()));
                                                         },
                                                         child: SizedBox(
                                                           width: MediaQuery.of(

@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dianistana/components/slider_loading.dart';
 import 'package:dianistana/constant.dart';
 import 'package:dianistana/controllers/dashboard_controller.dart';
+import 'package:dianistana/main_screen/banner_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -53,7 +54,10 @@ class _MainSliderState extends State<MainSlider> {
                         onTap: () {
                           // Get.to(() => PayWebview(
                           //     paymentUrl: item["link_terkait"].toString()));
-                          launchURL(item["link_terkait"].toString());
+                          // launchURL(item["link_terkait"].toString());
+                          Get.to(() => BannerDetail(
+                                dataList: item,
+                              ));
                         },
                         splashColor: Colors.amber,
                         child: Container(

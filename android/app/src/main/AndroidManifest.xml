@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.insoft.dianistana">
+    package="com.dianistana.mobile">
    
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
@@ -9,13 +9,13 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- for above android 13-->
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
-    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+
+
     
 
    <application
         android:requestLegacyExternalStorage="true"
-        android:label="MyDianIstana"
+        android:label="MyDianIstana - Mobile"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -52,6 +52,18 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+        <!-- <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/provider_paths"
+                    tools:replace="android:resource" />
+        </provider> -->
     </application>
     <queries>
         <!-- If your app opens https URLs -->
@@ -61,4 +73,6 @@
         </intent>
      
     </queries>
+
+    
 </manifest>
