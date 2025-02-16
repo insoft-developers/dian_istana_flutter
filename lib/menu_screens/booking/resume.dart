@@ -316,6 +316,29 @@ class _ResumePageState extends State<ResumePage> {
                             ),
                           ),
                           Jarak(tinggi: 20),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: Colors.red.withOpacity(0.7),
+                            ),
+                            child: Column(
+                              children: [
+                                const Text(
+                                  "1.⁠ ⁠MOHON MENGINFORMASIKAN KEPADA SECURITY TERDEKAT JIKA LAPANGAN BELUM DI BUKA ATAUPUN LAMPU BELUM DI NYALAKAN",
+                                  style: TextStyle(color: Colors.white),
+                                  textAlign: TextAlign.justify,
+                                ),
+                                Jarak(tinggi: 10),
+                                const Text(
+                                    "2.⁠ ⁠JIKA HUJAN BOOKING TIDAK DAPAT DIRESCHEDULE MAUPUN DI REFUND",
+                                    style: TextStyle(color: Colors.white),
+                                    textAlign: TextAlign.justify)
+                              ],
+                            ),
+                          ),
+                          Jarak(tinggi: 20),
                           ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                   primary: Colors.red[900]),

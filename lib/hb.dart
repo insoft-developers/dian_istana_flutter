@@ -46,7 +46,7 @@ class _HbState extends State<Hb> {
                   ),
                   const Text(
                     "Wish You All The Best",
-                    style: const TextStyle(
+                    style:  TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.bold),
