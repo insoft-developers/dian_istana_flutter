@@ -1,3 +1,4 @@
+
 import 'package:dianistana/components/jarak.dart';
 import 'package:dianistana/components/main_slider.dart';
 import 'package:dianistana/constant.dart';
@@ -11,6 +12,10 @@ import 'package:dianistana/menu_screens/userdata/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+
+
+
+
 class DashboardPage extends StatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);
 
@@ -22,10 +27,13 @@ class _DashboardPageState extends State<DashboardPage> {
   final DashboardController _dashboard = Get.put(DashboardController());
   final LoginController _login = Get.put(LoginController());
 
+
+
   @override
   void initState() {
     _dashboard.getUserName();
     _dashboard.versionCheck();
+    _dashboard.startCheckLogoutLoop();
     super.initState();
   }
 

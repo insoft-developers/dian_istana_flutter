@@ -4,6 +4,8 @@ import 'package:dianistana/controllers/utils_controller.dart';
 import 'package:dianistana/menu_screens/booking/booking_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_html/flutter_html.dart';
+
 
 class ResumePage extends StatefulWidget {
   Map<String, dynamic> dataList;
@@ -24,6 +26,17 @@ class _ResumePageState extends State<ResumePage> {
     var formattedDate = "${dateParse.day}-${dateParse.month}-${dateParse.year}";
     return formattedDate.toString();
   }
+
+  @override
+  void initState() {
+    super.initState();
+    // Inisialisasi data di sini
+    
+    print(widget.dataList);
+  }
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -325,16 +338,14 @@ class _ResumePageState extends State<ResumePage> {
                             ),
                             child: Column(
                               children: [
-                                const Text(
-                                  "1.⁠ ⁠MOHON MENGINFORMASIKAN KEPADA SECURITY TERDEKAT JIKA LAPANGAN BELUM DI BUKA ATAUPUN LAMPU BELUM DI NYALAKAN",
-                                  style: TextStyle(color: Colors.white),
-                                  textAlign: TextAlign.justify,
-                                ),
-                                Jarak(tinggi: 10),
-                                const Text(
-                                    "2.⁠ ⁠JIKA HUJAN BOOKING TIDAK DAPAT DIRESCHEDULE MAUPUN DI REFUND",
-                                    style: TextStyle(color: Colors.white),
-                                    textAlign: TextAlign.justify)
+                                 Html(
+                                  data: widget.dataList['unit_description'].toString(),
+                                  defaultTextStyle: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
+                                )
+                                
                               ],
                             ),
                           ),

@@ -82,7 +82,7 @@ class BookingController extends GetxController {
       "business_unit_id": unitId.value,
       "booking_date": selectedDate.value,
     };
-    var res = await Network().auth(data, '/booking_finish_check');
+    var res = await Network().auth3(data, '/booking_finish_check');
     var body = jsonDecode(res.body);
     if (body['success']) {
       finish7.value = body['jam7'];
@@ -107,7 +107,7 @@ class BookingController extends GetxController {
 
   void paymentProcess(int transId) async {
     var data = {"id": transId};
-    var res = await Network().auth(data, '/payment_process');
+    var res = await Network().auth3(data, '/payment_process');
     var body = jsonDecode(res.body);
     if (body['success']) {
       Get.to(
@@ -134,7 +134,7 @@ class BookingController extends GetxController {
         "user_id": userId,
         "level": userLevel.value
       };
-      var res = await Network().auth(data, '/transaction');
+      var res = await Network().auth3(data, '/transaction');
       var body = jsonDecode(res.body);
       if (body['success']) {
         transactionLoading(false);
@@ -152,7 +152,7 @@ class BookingController extends GetxController {
 
   void getTerm() async {
     settingLoad(true);
-    var res = await Network().getData('/term');
+    var res = await Network().getData3('/term');
     var body = jsonDecode(res.body);
     if (body['success']) {
       settingLoad(false);
@@ -175,7 +175,7 @@ class BookingController extends GetxController {
       "level": userLevel.value,
     };
 
-    var res = await Network().auth(data, '/booking_resume');
+    var res = await Network().auth3(data, '/booking_resume');
     var body = jsonDecode(res.body);
     if (body['success']) {
       Get.to(() => ResumePage(
@@ -195,9 +195,10 @@ class BookingController extends GetxController {
       showHourLoading(true);
       selectedDate.value = "";
       var data = {"selected_date": value, "selected_unit": unitId.value};
-      var res = await Network().auth(data, '/booking_invoice');
+      var res = await Network().auth3(data, '/booking_invoice');
       var body = jsonDecode(res.body);
       if (body['success']) {
+        print(body);
         selectedDate.value = value;
         selectedHour.value = "";
         selectedFinish.value = "";
@@ -254,7 +255,7 @@ class BookingController extends GetxController {
       "unit_id": unitId.value,
       "quantity": quantity.value
     };
-    var res = await Network().auth(data, '/check_middle');
+    var res = await Network().auth3(data, '/check_middle');
     var body = jsonDecode(res.body);
     if (body['success']) {
       if (body['data'] == 1) {
@@ -277,20 +278,27 @@ class BookingController extends GetxController {
   }
 
   void countTotalPrice(int selisih, String jamSelesai) async {
-    var data = {
-      "awal": selectedHour.value,
-      "akhir": jamSelesai,
-      "quantity": selisih,
-      "booking_date": selectedDate.value,
-      "level": userLevel.value,
-      "unit_id": unitId.value
-    };
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    var user = jsonDecode(localStorage.getString('user')!);
+    if (user != null) {
+      var userId = user['id'];
 
-    var res = await Network().auth(data, '/count_booking_price');
-    var body = jsonDecode(res.body);
-    if (body['success']) {
-      totalPrice.value = body['data'];
-      print(body);
+      var data = {
+        "awal": selectedHour.value,
+        "akhir": jamSelesai,
+        "quantity": selisih,
+        "booking_date": selectedDate.value,
+        "level": userLevel.value,
+        "unit_id": unitId.value,
+        "userid": userId
+      };
+
+      var res = await Network().auth3(data, '/count_booking_price');
+      var body = jsonDecode(res.body);
+      if (body['success']) {
+        totalPrice.value = body['data'];
+        print(body);
+      }
     }
   }
 
@@ -300,7 +308,7 @@ class BookingController extends GetxController {
     var user = jsonDecode(localStorage.getString('user')!);
     if (user != null) {
       userLevel.value = user['level'].toString();
-      var res = await Network().getData('/booking_list');
+      var res = await Network().getData3('/booking_list');
       var body = jsonDecode(res.body);
       if (body['success']) {
         unitList.value = body['data'];

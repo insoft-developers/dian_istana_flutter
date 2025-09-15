@@ -10,6 +10,7 @@ class Network {
 
   // #LIVE SERVER
   final String _url = Constant.BASE_URL + 'api/v1';
+  final String _url3 = Constant.BASE_URL + 'api/v3';
 
   var token;
 
@@ -25,6 +26,12 @@ class Network {
         body: jsonEncode(data), headers: _setHeaders());
   }
 
+  auth3(data, apiURL) async {
+    var fullUrl = _url3 + apiURL;
+    return await http.post(Uri.parse(fullUrl),
+        body: jsonEncode(data), headers: _setHeaders());
+  }
+
   authNoToken(data, apiURL) async {
     var fullUrl = _url + apiURL;
     return await http.post(Uri.parse(fullUrl),
@@ -33,6 +40,15 @@ class Network {
 
   getData(apiURL) async {
     var fullUrl = _url + apiURL;
+    await _getToken();
+    return await http.get(
+      Uri.parse(fullUrl),
+      headers: _setHeaders(),
+    );
+  }
+
+  getData3(apiURL) async {
+    var fullUrl = _url3 + apiURL;
     await _getToken();
     return await http.get(
       Uri.parse(fullUrl),

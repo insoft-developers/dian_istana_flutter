@@ -12,9 +12,49 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class DashboardController extends GetxController {
+
+  Timer? _logoutTimer;
+
+
   var userName = "".obs;
   var sliderList = List.empty().obs;
   var loading = false.obs;
+
+  void startCheckLogoutLoop() {
+  // jalankan setiap 5 detik
+    _logoutTimer = Timer.periodic(const Duration(seconds: 15), (timer) {
+      checkLogout();
+    });
+  }
+
+
+  void stopCheckLogoutLoop() {
+  // kalau mau berhenti
+    _logoutTimer?.cancel();
+  }
+
+
+
+  void checkLogout() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    var user = jsonDecode(localStorage.getString('user')!);
+    if (user != null) {
+      var userId = user['id'];
+      var data = {"userid": userId};
+      var res = await Network().auth(data, '/check_logout');
+      var body = jsonDecode(res.body);
+      if (body['success']) {
+        showError(body['message'].toString());
+        Timer(const Duration(seconds: 3), () {
+          logout();
+        });
+      }  else {
+         print(body);
+      } 
+    }
+  }
+
+
 
   void versionCheck() async {
     var data = {"version": Constant.VERSION};
@@ -92,6 +132,7 @@ class DashboardController extends GetxController {
   }
 
   void logout() async {
+    stopCheckLogoutLoop();
     SharedPreferences localStorage = await SharedPreferences.getInstance();
     var user = jsonDecode(localStorage.getString('user')!);
     if (user != null) {
