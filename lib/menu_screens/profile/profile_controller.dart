@@ -83,7 +83,7 @@ class ProfileController extends GetxController {
     var user = jsonDecode(localStorage.getString('user')!);
     if (user != null) {
       var userId = user['id'];
-      var res = await Network().getData('/user_data/' + userId.toString());
+      var res = await Network().getData3('/user_data/' + userId.toString());
       var body = jsonDecode(res.body);
       if (body['success']) {
         userData.value = body['data'];
@@ -140,7 +140,7 @@ class ProfileController extends GetxController {
         "id_pelanggan_pdam": pdam,
         "nomor_meter_pln": pln
       };
-      var res = await Network().auth(data, '/profile_update');
+      var res = await Network().auth3(data, '/profile_update');
       var body = jsonDecode(res.body);
       if (body['success']) {
         if (_pickedFile != null) {

@@ -16,12 +16,15 @@ class NotifController extends GetxController {
     if (user != null) {
       var userId = user['id'];
       var data = {"userid": userId};
-      var res = await Network().auth(data, '/check_notif_count');
+      var res = await Network().auth3(data, '/check_notif_count');
       var body = jsonDecode(res.body);
       if (body['success']) {
+        print(body);
         notifCount.value = body['data'];
-        print(notifCount);
+        
       }
+    } else {
+      print('user not found for notif cek');
     }
   }
 
@@ -31,7 +34,7 @@ class NotifController extends GetxController {
     if (user != null) {
       var userId = user['id'];
       var data = {"id": id, "userid": userId};
-      var res = await Network().auth(data, '/read_notif');
+      var res = await Network().auth3(data, '/read_notif');
       var body = jsonDecode(res.body);
       if (body['success']) {
         Get.to(() => NotifDetail(dataList: notifList[indeks]));
@@ -45,7 +48,7 @@ class NotifController extends GetxController {
     var user = jsonDecode(localStorage.getString('user')!);
     if (user != null) {
       var userId = user['id'];
-      var res = await Network().getData('/notif_list/' + userId.toString());
+      var res = await Network().getData3('/notif_list/' + userId.toString());
       var body = jsonDecode(res.body);
       if (body['success']) {
         loading(false);

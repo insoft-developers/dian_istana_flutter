@@ -25,7 +25,7 @@ class ChangePasswordController extends GetxController {
         "password": newPassword,
         "password_confirmation": confirmPassword
       };
-      var res = await Network().auth(data, '/password_update');
+      var res = await Network().auth3(data, '/password_update');
       var body = jsonDecode(res.body);
       if (body['success']) {
         loading(false);

@@ -79,7 +79,7 @@ class ReplyController extends GetxController {
         "user_id": userId,
         "message": message
       };
-      var res = await Network().auth(data, '/reply');
+      var res = await Network().auth3(data, '/reply');
       var body = jsonDecode(res.body);
       if (body['success']) {
         if (_pickedFile != null) {

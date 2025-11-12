@@ -96,7 +96,7 @@ class TicketingController extends GetxController {
     var user = jsonDecode(localStorage.getString('user')!);
     if (user != null) {
       var userId = user['id'];
-      var res = await Network().getData('/ticketing_list/' + userId.toString());
+      var res = await Network().getData3('/ticketing_list/' + userId.toString());
       var body = jsonDecode(res.body);
       if (body['success']) {
         ticketList.value = body['data'];
@@ -107,7 +107,7 @@ class TicketingController extends GetxController {
 
   void getDataDetail(String number) async {
     detailLoading(true);
-    var res = await Network().getData('/ticketing_detail/' + number);
+    var res = await Network().getData3('/ticketing_detail/' + number);
     var body = jsonDecode(res.body);
     if (body['success']) {
       detailLoading(false);
@@ -144,7 +144,7 @@ class TicketingController extends GetxController {
   }
 
   Future getDepartmentData() async {
-    var res = await Network().getData('/department');
+    var res = await Network().getData3('/department');
     var body = jsonDecode(res.body);
     if (body['success']) {
       departmentList.value = body['data'];
@@ -233,7 +233,7 @@ class TicketingController extends GetxController {
         "message": message,
       };
 
-      var res = await Network().auth(data, '/open');
+      var res = await Network().auth3(data, '/open');
       var body = jsonDecode(res.body);
       if (body['success']) {
         if (_pickedFile != null) {

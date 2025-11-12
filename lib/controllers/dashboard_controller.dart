@@ -22,6 +22,7 @@ class DashboardController extends GetxController {
 
   void startCheckLogoutLoop() {
   // jalankan setiap 5 detik
+   _logoutTimer?.cancel();
     _logoutTimer = Timer.periodic(const Duration(seconds: 15), (timer) {
       checkLogout();
     });
@@ -31,6 +32,7 @@ class DashboardController extends GetxController {
   void stopCheckLogoutLoop() {
   // kalau mau berhenti
     _logoutTimer?.cancel();
+    _logoutTimer = null;
   }
 
 
@@ -41,16 +43,18 @@ class DashboardController extends GetxController {
     if (user != null) {
       var userId = user['id'];
       var data = {"userid": userId};
-      var res = await Network().auth(data, '/check_logout');
+      var res = await Network().auth3(data, '/check_logout');
       var body = jsonDecode(res.body);
       if (body['success']) {
         showError(body['message'].toString());
-        Timer(const Duration(seconds: 3), () {
+        Timer(const Duration(seconds: 5), () {
           logout();
         });
       }  else {
          print(body);
       } 
+    } else {
+      print('user not found');
     }
   }
 
@@ -58,7 +62,7 @@ class DashboardController extends GetxController {
 
   void versionCheck() async {
     var data = {"version": Constant.VERSION};
-    var res = await Network().auth(data, '/version_check');
+    var res = await Network().auth3(data, '/version_check');
     var body = jsonDecode(res.body);
     if (body['success']) {
     } else {
@@ -69,13 +73,15 @@ class DashboardController extends GetxController {
     }
   }
 
+
+
   void bookingCheck() async {
     SharedPreferences localStorage = await SharedPreferences.getInstance();
     var user = jsonDecode(localStorage.getString('user')!);
     if (user != null) {
       var userId = user['id'];
       var data = {"user_id": userId};
-      var res = await Network().auth(data, '/booking_check');
+      var res = await Network().auth3(data, '/booking_check');
       var body = jsonDecode(res.body);
       if (body['success']) {
         Get.to(() => const BookingPage());
@@ -91,7 +97,7 @@ class DashboardController extends GetxController {
     if (user != null) {
       var userId = user['id'];
       var data = {"user_id": userId};
-      var res = await Network().auth(data, '/booking_check');
+      var res = await Network().auth3(data, '/booking_check');
       var body = jsonDecode(res.body);
       if (body['success']) {
         print(body);
@@ -112,7 +118,7 @@ class DashboardController extends GetxController {
   }
 
   void getSliderData() async {
-    var res = await Network().getData('/slider');
+    var res = await Network().getData3('/slider');
     var body = jsonDecode(res.body);
     if (body['success']) {
       sliderList.value = body['data'];
@@ -148,7 +154,7 @@ class DashboardController extends GetxController {
     if (user != null) {
       var userId = user['id'];
       var data = {"userid": userId};
-      var res = await Network().auth(data, '/get_birthday');
+      var res = await Network().auth3(data, '/get_birthday');
       var body = jsonDecode(res.body);
       if (body['success']) {
         Get.to(() => Hb(

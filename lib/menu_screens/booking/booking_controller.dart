@@ -183,7 +183,7 @@ class BookingController extends GetxController {
           ));
       resumeLoading(false);
     } else {
-      showError(totalPrice.value.toString());
+      // showError(totalPrice.value.toString());
       resumeLoading(false);
     }
   }

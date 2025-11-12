@@ -14,7 +14,7 @@ class UserDataController extends GetxController {
     var user = jsonDecode(localStorage.getString('user')!);
     if (user != null) {
       var userId = user['id'];
-      var res = await Network().getData('/user_data/$userId');
+      var res = await Network().getData3('/user_data/$userId');
       var body = jsonDecode(res.body);
       if (body['success']) {
         loading(false);

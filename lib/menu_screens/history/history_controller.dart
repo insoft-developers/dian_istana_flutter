@@ -17,7 +17,7 @@ class HistoryController extends GetxController {
     var user = jsonDecode(localStorage.getString('user')!);
     if (user != null) {
       var userId = user['id'];
-      var res = await Network().getData('/history/' + userId.toString());
+      var res = await Network().getData3('/history/' + userId.toString());
       var body = jsonDecode(res.body);
       if (body['success']) {
         loading(false);
@@ -35,7 +35,7 @@ class HistoryController extends GetxController {
 
   void paymentProcess(int transId) async {
     var data = {"id": transId};
-    var res = await Network().auth(data, '/payment_process');
+    var res = await Network().auth3(data, '/payment_process');
     var body = jsonDecode(res.body);
     if (body['success']) {
       print(body);

@@ -1,4 +1,5 @@
 
+import 'dart:convert';
 import 'package:dianistana/components/jarak.dart';
 import 'package:dianistana/components/main_slider.dart';
 import 'package:dianistana/constant.dart';
@@ -9,6 +10,8 @@ import 'package:dianistana/menu_screens/payment/index.dart';
 import 'package:dianistana/menu_screens/profile/index.dart';
 import 'package:dianistana/menu_screens/ticketing/index.dart';
 import 'package:dianistana/menu_screens/userdata/index.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -33,10 +36,19 @@ class _DashboardPageState extends State<DashboardPage> {
   void initState() {
     _dashboard.getUserName();
     _dashboard.versionCheck();
-    _dashboard.startCheckLogoutLoop();
-    super.initState();
+    checkLogoutUser();
+
+    super.initState();  
   }
 
+
+  void checkLogoutUser() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    var user = jsonDecode(localStorage.getString('user')!);
+    if (user != null) {
+         _dashboard.startCheckLogoutLoop();
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Stack(

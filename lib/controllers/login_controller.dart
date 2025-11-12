@@ -4,6 +4,7 @@ import 'package:dianistana/api/network.dart';
 import 'package:dianistana/main_screen/homepage.dart';
 import 'package:dianistana/main_screen/loginpage.dart';
 import 'package:flutter/material.dart';
+import 'package:dianistana/controllers/dashboard_controller.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_html/flutter_html.dart';
 
@@ -17,6 +18,8 @@ class LoginController extends GetxController {
   var isAuth = false.obs;
   var tokenString = "".obs;
   var notifNumber = 0.obs;
+
+  DashboardController _dc = Get.put(DashboardController());
 
   void updateNotifNumber() async {
     notifNumber.value = notifNumber.value + 1;
@@ -32,7 +35,7 @@ class LoginController extends GetxController {
     if (user != null) {
       var userId = user['id'];
       var data = {"id": userId, "token": tokenString.value};
-      var res = await Network().auth(data, '/update_fcm_token');
+      var res = await Network().auth3(data, '/update_fcm_token');
       var body = jsonDecode(res.body);
       if (body['success']) {
         print(body);
@@ -57,9 +60,10 @@ class LoginController extends GetxController {
   void login(String username, String password) async {
     loading(true);
     var data = {"username": username, "password": password};
-    var res = await Network().auth(data, '/login');
+    var res = await Network().authNoToken(data, '/login');
     var body = jsonDecode(res.body);
     if (body['success']) {
+      print(body);
       SharedPreferences localStorage = await SharedPreferences.getInstance();
       localStorage.setString('user', json.encode(body['data']));
       localStorage.setString('token', json.encode(body['token']));
@@ -74,6 +78,7 @@ class LoginController extends GetxController {
   }
 
   void logout() async {
+    _dc.stopCheckLogoutLoop();
     SharedPreferences localStorage = await SharedPreferences.getInstance();
     var user = jsonDecode(localStorage.getString('user')!);
     if (user != null) {

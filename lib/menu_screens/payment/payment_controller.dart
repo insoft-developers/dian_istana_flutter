@@ -22,7 +22,7 @@ class PaymentController extends GetxController {
     var user = jsonDecode(localStorage.getString('user')!);
     if (user != null) {
       var userId = user['id'];
-      var res = await Network().getData('/payment_list/' + userId.toString());
+      var res = await Network().getData3('/payment_list/' + userId.toString());
       var body = jsonDecode(res.body);
       if (body['success']) {
         loading(false);
@@ -61,7 +61,7 @@ class PaymentController extends GetxController {
     if (user != null) {
       var userId = user['id'];
       var data = {'id': paymentId, 'user_id': userId};
-      var res = await Network().auth(data, '/payment_post');
+      var res = await Network().auth3(data, '/payment_post');
       var body = jsonDecode(res.body);
       if (body['success']) {
         payload(false);

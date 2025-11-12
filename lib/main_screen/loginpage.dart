@@ -1,5 +1,6 @@
 import 'package:dianistana/components/button_login.dart';
 import 'package:dianistana/components/input_login.dart';
+import 'package:dianistana/components/input_password.dart';
 import 'package:dianistana/components/jarak.dart';
 import 'package:dianistana/components/spasi.dart';
 import 'package:dianistana/controllers/login_controller.dart';
@@ -17,6 +18,8 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _username = TextEditingController();
   final TextEditingController _password = TextEditingController();
   final LoginController _login = Get.put(LoginController());
+
+  bool _obscure = true;
 
   @override
   Widget build(BuildContext context) {
@@ -103,14 +106,24 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       Jarak(tinggi: 15),
                       Container(
-                        margin: const EdgeInsets.only(left: 40),
-                        child: InputLogin(
+                          margin: const EdgeInsets.only(left: 40),
+                          child: InputPassword(
                             hint: "Password",
                             textInputType: TextInputType.text,
                             iconData: Icons.lock_outline,
                             textEditingController: _password,
-                            obsecureText: true),
-                      ),
+                            obsecureText: _obscure,
+                            suffixIcon: IconButton(
+                              icon: Icon(_obscure
+                                  ? Icons.visibility_off
+                                  : Icons.visibility),
+                              onPressed: () {
+                                setState(() {
+                                  _obscure = !_obscure;
+                                });
+                              },
+                            ),
+                          )),
                       Jarak(tinggi: 60),
                       Row(
                         children: [
